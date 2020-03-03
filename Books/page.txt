@@ -1,0 +1,1659 @@
+Bookmark - http://refcardz.dzone.com/refcardz/whats-new-jpa-20
+
+EJB in Action - Pág.: 619/780
+Design Patterns With Java - 253/277
+
+Design Patterns pág. 99 - JMS
+
+
+Sun Certified Enterprise Architect for Java EE Study Guide (2nd ed.) [Cade & Sheil 2010-02-08] - Pág.: 183/212
+
+
+- Scalability is the ability to support the required quality of service as the system load increases without changing the system. It is the capability of a system, network or process to handle a growing amount of work.
+
+- Reliability ensures the integrity and consistency of the application and all of its transactions.
+
+- Availability ensures that a service/resource is always accessible.
+
+- Extensibility is the ability to add additional functionality or modify existing functionality without impacting the existing system functionality. It is a design principle where the implementation takes future growth into consideration.
+
+- Maintainability is the ability to correct flows in the existing functionality without impacting other components of the system.
+
+- Manageability is the ability to manage the system to ensure the continued health of a system with respect to scalability, reliability, availability, performance, and security.
+
+- Security is the ability to ensure that the system cannot be comprised.
+
+- Operability is the ability to keep an equipment, a system or a whole industrial installation in a safe and reliable functioning condition, according to pre-defined operational requirements.
+
+- Performance - The amount of work accomplished by a computer system.
+
+
+------------------
+
+
+- Web services, using SOAP as the messaging protocol—Independent of any Java implementations
+- RESTful (Representational State Transfer) web services—Again, independent of any Java implementations or preconceptions
+- Web services for Java EE 1.2 Requirements—JSR 109
+- Java API for XML Web Services (JAX-WS) 2.0—JSR 224
+- Java Architecture for XML Binding (JAXB) 2.0—JSR 222
+- SOAP with Attachments API for Java (SAAJ) 1.3—JSR 67
+- Java API for XML-based RPC (JAX-RPC) 1.1—JSR 101
+- Java API for XML Registries (JAXR) 1.0—JSR 93
+- Java Messaging Service (JMS) 1.1—JSR not applicable
+- The Java Connector Architecture (JCA) version 1.5
+
+
+
+- Is the transfer of information synchronous or asynchronous?
+- Is the transfer of information acknowledged?
+- Is the transfer of information transactional?
+- Does the transfer of information occur in batches composed of multiple messages or one message at a time?
+- Does the transfer of information require message-level or transport-level encryption?
+- Does the transfer of information occur between systems built using the same technology or different technologies?
+- Does the transfer of information use a technology-specific messaging/transport protocol or a technology-independent protocol?
+
+
+
+------------------
+
+- Creational patterns allow objects to be created in a system without having to identify a specific class type in the code, so you do not have to write large, complex code to instantiate an object.
+* - The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes. 
+Exchanging product families is made easier and promotes consistency among products by implementing the common interface.
+It is independent of how its objects are created, composed and represented. It is configured with one of multiple families of objects.
+- The Builder pattern separates the construction of a complex object from its representation so the same construction process can create different objects.
+- The Factory Method pattern defines an interface for creating an object, but lets the subclasses decide which class to instantiate. JDBC and JMS are based on this pattern.
+- The Prototype pattern allows an object to create customized objects without knowing their exact class or the details of how to create them.
+* - The Singleton pattern ensures that a class has only one instance, and provides a global point of access to that class.
+
+- Structural patterns control the relationships between large portions of your applications.
+- The Adapter pattern acts as an intermediary between two classes, converting the interface of one class so that it can be used with the other.
+- The Bridge pattern divides a complex component into two separate but related inheritance hierarchies: the functional abstraction and the internal implementation.
+* - The Composite pattern enables you to create hierarchical tree structures of varying complexity, while allowing every element in the structure to operate with a uniform interface.
+This pattern minimizes the complexity of an object that consists of many different objects. This pattern allows you to easily add new types of component.
+- The Decorator pattern enables you to add or remove object functionality without changing the external appearance or function of the object. It is very widely used in java.io API.
+* - The Façade pattern provides a unified interface to a group of interfaces in a subsystem. The number of remote calls are reduced. Promotes loose coupling between the sub system and its clients.
+- The Flyweight pattern reduces the number of low-level, detailed objects within a system by sharing objects.
+- The Proxy pattern provides a surrogate or placeholder object to control access to the original object. RMI use this pattern.
+
+- Behavioural patterns influence how state and behaviour flow through a system.
+- The Chain of Responsibility pattern establishes a chain within a system, so that a message can either be handled at the level where it is first received, or be directed to an object that can handle it.
+- The Command pattern encapsulates a request in an object, which enables you to store the command, pass the command to a method, and return the command like any other object.
+- The Interpreter pattern interprets a language to define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
+- The Iterator pattern provides a consistent way to sequentially access items in a collection that is independent of and separate from the underlying collection.
+- The Mediator pattern simplifies communication among objects in a system by introducing a single object that manages message distribution among other objects.
+- The Memento pattern preserves a “snapshot” of an object’s state, so that the object can return to its original state without having to reveal its content to the rest of the world
+* - The Observer pattern provides a way for a component to flexibly broadcast messages to interested receivers. Changes in the observable are broadcasted to all observers. JMS use this pattern.
+- The State pattern allows an object to alter its behaviour when its internal state changes.
+* - The Strategy pattern defines a group of classes that represent a set of possible behaviours. Can be used when you need different variants of an algorithm. It offers an alternative to sub classing.
+The Strategy pattern allows you to change behaviour without recompiling any client code. Basically you define a method in an abstract class. The variations of this behaviour are then defined in other classes that
+inherit from the abstract class. The client can then use any of these classes without the need to recompile. Easy to add new behaviour without the need to edit any code.
+Provides a way to configure a class with one of the many behaviour. Defines a family of algorithms, encapsulates each one, and makes them interchangeable.
+- The Template Method pattern provides a method that allows subclasses to override parts of the method without rewriting it. Defines a skeleton of an algorithm, deferring some steps to subclasses.
+- The Visitor pattern provides a maintainable, easy way to represent an operation to be performed on the elements of an object structure.
+- The Intercepting Filter pattern provides the ability to manipulate a request prior to processing or to manipulate the response before sending the results of the request.
+- The Context Object pattern is used to encapsulate the specifics of protocol implementation to be shared. It avoids using protocol-specific system information outside of its relevant context.
+- The Front Controller pattern creates central control logic for presentation request handling. Creates a centralized access point for presentation-tier request handling.
+The Front Controller is different from the Intercepting Filter in that the Front Controller is determining processing based on the request and an Intercepting Filter is modifying the request.
+This pattern can be applied when you need a mechanism to implement initial request processes, such as session management or resource access controlling.
+- The Application Controller pattern is used to centralize retrieval and invocation of request-processing components, such as commands and views. Centralizes and modularizes action and view management.
+- The View Helper pattern separates the processing logic from the view.
+- The Composite View pattern combines simple views into a more complex view without handling the content or layout.
+- The Dispatcher View pattern handles the request and generates a response while managing limited business processing.
+- The Service to Worker pattern performs request handling and invokes business logic before control is passed to the view.
+- The Business Delegate pattern hides the complexity of remote communication with business components from the client.
+- The Service Locator pattern uses a consistent approach to locating business components regardless of the type of components.
+Service Locator object is to used abstract all JNDI usage and to hide the complexities of initial context creation.
+
+- The Session Façade patterns provides a coarse-grained service of business components to remote clients. This is the same as a Façade pattern, but just provides an interface to a service instead of code.
+- The Application Service pattern centralizes and aggregates business components. An application service could be thought of as a helper to the Session Façade that takes care of all the business logic and workflow.
+- The Business Object pattern separates business data from logic.
+- The Composite Entity pattern aggregates business entities into a coarse-grained entity.
+- The Transfer Object pattern uses an object to carry data across tiers.
+- The Transfer Object Assembler pattern builds a composite transfer object and returns to the client.
+- The Value List Handler pattern caches results and allows the client to traverse and select from the results.
+- The Data Access Object (DAO) pattern encapsulates access to a persistent store by managing the connection with the data store. Enables Transparency, Easier Migration, Reduces Code Complexity in Business Objects, 
+Centralizes All Data Access into a Separate Layer, Not Useful for Container-Managed Persistence, Adds Extra Layer, Needs Class Hierarchy Design. It is an example of Separation of Concerns and Abstraction principle.
+It separates the business logic from the data integration component. It completely hides the data source implementation details from its clients. 
+It separates the implementation of the CRUD operations from the business logic. It is able to adapt to different storage schemes without affecting its clients or business components.
+- The Service Activator pattern handles asynchronous requests to business components. This pattern address Monolithic Consumer Anti pattern.
+- The Domain Store pattern separates the persistence of an object from the object model. This pattern really became relevant with the advent of object relational model frameworks and products.
+You would use the domain store and data access object at the same time.
+- The Web Service Broker pattern exposes and brokers services using XML and web protocols.
+* - The Service Starter is the pattern which can be used when there needs to be standardized way to enforce a session bean to start at deployment time. In EJB 3.1, @Singleton and @Startup are used for this propose.
+Service Starter may be relevant when some infrastructural logic and services need to be initialized before the execution of the actual business logic.
+Service Starter is very closely related to Singleton pattern. Service Starter itself is a singleton. It improves runtime robustness of the system. It ensures that a session bean starts at deployment time.
+* - The Context Holder can attach additional objects like security tokens, messages and transaction information to the current thread without violating the programming restrictions. It should be used with interceptors.
+In the Context Holder the TransactionSynchronizationRegistry can be injected in any managed class using the plain @Resource annotation. Context Holder shares data among participants in a transaction in a portable way.
+You want to pass some context data yet not to add it as a param to each method on the call tree (S.Facade > Service > DAO, indirectly PDO) => use the standard @Resource TransactionSynchronizationRegistry, 
+with the actual context set perhaps by an interceptor. Notice that ThreadLocal may be problematic if a S.Facade invokes a Service and each is from a distinct thread pool = diff. thread.
+* - Resource Binder patter enables the dependency injection of Custom Resources and the resources exposed by Resource Binder can be consumed by sessions beans.
+Resource Binder put a custom resource into JNDI using a @Singleton with @Startup and the JNDI API (Context.(re)bind()). Notice that your app. server’s proprietary JNDI impl. may enforce some restrictions on the resource object (such as serializability).
+Resource Binder is used to register any custom resource (can be any arbitraty Java class) with the JNDI tree. Resource Binder allows for the registration of custom resources with the application server.
+* - The Bean Locator encapsulates JNDI if DI not available (e.g. Stateful EJB can’t be injected into a servlet).Use a Fluent GlobalJNDIName Builder to simplify the error-prone process of global JNDI name construction.
+Bean Locator Pattern is considered as a specific form of J2EE Service Locator pattern. The Service locator was designed to be able to fetch all sorts of JNDI resources, such as JMS destinations, data sources, and session beans in particular. When
+you migrate J2EE projects to Java EE the Service Locator can be replaced with Dependency Injection wherever possible. In the remaining cases, the Service Locator can be replaced with the Bean Locator.
+It hides JNDI details from clients. Its needs a lookup service that run outside of an EJB container. It needs a client neutral service.
+* - The Thread Tracker name a thread after the bean and business method it’s currently executing for easier monitoring/troubleshooting (instead of e.g. “http-0.0.0.0-8180-1″) via an interceptor (but beware that the interception is several times slower than a direct call).
+It should be used with interceptors. It names the threads, making them easier to be identified during monitoring.
+* - Payload Extractor factor out the (reusable) type checking and error handling for a MDB message into a reusable interceptor; poison messages moved by the interceptor to a “dead letter queue” via a stateless EJB using the JMS API
+In Payload Extractor the recurring extraction and error-handling logic are implemented once and factored out into the interceptor as a common cross-cutting concern.
+* - The Dependency Injection Extender pattern makes the EJB to coexist with other IoC Frameworks like Guice, Spring and etc. It uses interceptors to act as bridge between EJB and other IoC frameworks.
+- The Intercepting Filter - Centralizes control with loosely coupled handlers, Improves reusability, Declarative and flexible configuration, Information sharing is inefficient. All the requests to be undergoing the same undergoing handling processes, such as 
+user authentication, request information logging or data compression.
+- The Domain Store pattern is used to separate persistence from your object model. It is the best match for the EntityManager interface.
+- The MVC pattern is an example of Separation of Concerns and Modularity principle.
+
+With Design Patterns the code will be more maintainable. A Design Pattern is a reusable solution to a problem, this means that when developing new software there are already many solutions (design patterns) to problems you may encounter. 
+This means you should experience faster software development when using design patterns.
+Abstract Factory pattern x Factory Method pattern: The abstract Factory pattern provides an interface for creating a family of objects whereas factory method provides an interface for creating one object.
+
+- Anti-patterns:
+* Leaky Abstraction: All non-trivial abstractions, to some degree, are leaky. Example: ORM tools like Hibernate, which isolates object-oriented code from the implementation of object persistence using a relational database, still force the programmer to think in 
+terms of native SQL queries as soon as performance of ORM tool generated queries becomes a concern.
+Fat Message: When the messages are large, the network overhead increases and there is lot of strain on messaging server.
+Database Connection Hog: Keeping a database connection for a longer duration.
+Monolithic Consumer: Including business logic in the message receiver.
+Hot Potato: The messaging server has to re-deliver messages until it receives acknowledgement. If the message is not processed due to an ongoing condition, the messaging server will continuously resend the message.
+Cacheless Cow: Resources are not cached when they are frequently retrieved but rarely changed.
+Goldem Hammers of Session State: A Singleton location approach is chosen to persist session states.
+Conversational Baggage: While many tasks in enterprise applications require keeping session state, many other tasks do not.  Session state adds substantial overhead to an application and can significantly decrease scalability. 
+If you are not focused on this issue, you are likely to create Stateful tasks that do not require session state
+
+---------------------
+
+Streaming API for XML (Stax) is an event-driven. pull-parsing API for reading and writing XML documents. This Java API will enable you to create bidirectional XML parsers that are fast, relatively easy to program, and have a light memory footprint. It is a Pull API.
+
+Simple API for XML (SAX) is an event-driven online algorithm for parsing XML documents. It is a Push API.
+
+Java Architecture for XML Biding (JAXB) provides an API and tool that allow automatic two-way mapping between XML documents and Java objects. With a given Document Type Definition (DTD) and a schema definition,
+the JAXB compiler can generate a set of Java classes that allow developers to build applications that can read, manipulate and recreate XML documents without writing any logic process XML elements.
+
+Java API for XML Processing (JAXP) enables applications to parse, transform, validate and query XML documents using an API that is independent of a particular XML processor implementation.
+JAXP provides a pluggability layer to enable vendors to provide their own implementations without introducing dependencies in application code
+JAXP also provides namespace support, allowing you to work with DTDs that might otherwise have naming conflicts. Designed to be flexible, JAXP allows you to use any XML-compliant parser from within your application.
+JAXP also supports the Extensible Stylesheet Language Transformations (XSTL) standard, giving you control over the presentation of the data and enabling you to convert the data to other documents or to other formats, such as HTML.
+
+
+Java API for XML Registries (JAXR) is the API used to publish or access a web service in a registry (UDDI).
+
+The SOAP with Attachments API for Java (SAAJ) provides the API for creating and sending SOAP messages by means of the javax.xml.soap package.
+It is used for the SOAP messaging that goes on behind the scenes in JAX-RPC and JAXR implementations
+XML over HTTP is lightweight compared to SOAP.
+
+JAX-WS is meant for SOAP based services and JAX-RS for REST based services. In Restful Service implementation, the performance is high with caching options because of the stateless nature.
+Most of the JAX-RS annotations are runtime annotations, therefore, runtime reflection will generate the helper classes and artifacts for the resource. JAX-RS resource classes can be packaged in an enterprise archive file and 
+deployed in any Java EE server. JAX-RS provides annotations for specifying the type of HTTP Request like GET, POST... JAX-WS use these low level APIs: JAXB, SAAJ, JAXP, StaX
+JAX-RS provides support for conditional GET and PUT HTTP requests. Conditional GET requests help save bandwidth by improving the efficiency of client processing. The conditional PUT can help avoid the lost update problem.
+A GET request can return a Not Modified (304) response if the representation has not changed since the previous request. For example, a web site can return 304 responses for all its static images that have not changed since the previous request.
+A PUT request can return a Precondition Failed (412) response if the representation has been modified since the last request. The conditional PUT can help avoid the lost update problem.
+JAX-WS provides support for both SOAP based Webservices and RESTful services.
+
+Java Native Interface (JNI) -  is a native programming interface. It allows Java code that runs inside a Java Virtual Machine (VM) to interoperate with applications and libraries written in other programming languages, such as C, C++, and assembly.
+
+JAX-RPC was used in the earlier version of Java EE for developing SOAP based web services and is replaced with JAX-WS in the current version of Java EE.
+
+Message Transmission Optimization Mechanism (MTOM) is a method of efficiently sending binary data to and from Webservices. It uses XML-binary Optimized Packaging (XOP) to transmit binary data.
+
+Java Naming and Directory Interface (JNDI) is part of the Java platform, providing applications based on Java technology with a unified interface to multiple naming and directory services. Using JNDI, applications based on Java technology can store 
+and retrieve named Java objects of any type. In addition, JNDI provides methods for performing standard directory operations, such as associating attributes with objects and searching for objects using their attributes.
+JNDI is also defined independent of any specific naming or directory service implementation. It enables applications to access different, possibly multiple, naming and directory services using a common API. 
+Different naming and directory service providers can be plugged in seamlessly behind this common API. This enables Java technology-based applications to take advantage of information in a variety of 
+existing naming and directory services, such as LDAP, NDS, DNS, and NIS(YP), as well as enabling the applications to coexist with legacy software and systems.
+
+JSONP is a simple way to overcome browser restrictions when sending JSON responses from different domains from the client. By default, the Same origin of the browser restricts the client to send an Ajax request to a different domain. To address this, JSONP is used. 
+JSONP wraps up a JSON response into a Javascript function and sends that back as a Script to the browser. A script is not subject to the Same Origin Policy and when loaded into the client, the function acts just like the JSON object that it contains.
+
+---------------------
+
+Java EE applications are run on reference runtimes, that can be microservices or application servers, which handle transactions, security, scalability, concurrency and management of the components it is deploying.
+Servlets - Virtual Platform Layer
+Integration tier is the best place to place your JDBC code
+Stateful session beans alone can not be exposed as Webservices. They hold conversational states. They will be the bottleneck when application deals with too many clients.
+If a system exception occurs within a transaction, the EJB container rolls back the transaction. If an application exception is thrown within a transaction, the container does not roll back the transaction.
+Point to Point Messages: Queue, One message is sent to only one receiver.
+JCA provides support for Connection Pooling, Transaction and Security, but also the tighter coupling compared to other Integration tier Technology. 
+JCA is the most suitable integration tier technology to interact with Enterprise Information System (EIS) and when you have to propagate transaction and security context.
+JCA resources can participate in distributed transaction. Using JCA Java EE components can interact with Enterprise Information System (EIS), and EIS can interact with Java EE components.
+JCA components are portable across difference Java EE Application Servers and it specification is implemented by Resource Adapters. Resource Adapters are packaged in the format of RAR file.
+EJB clients use the RMI-IIOP protocol to access the remote ejb component. It uses the best features of RMI and CORBA. It used by CORBA based clients to access EJBs.
+Keytool allows the user to create, manage and administer their own public/private key pairs and associated certificates that are intended for use in authentication services and in representing digital signatures.
+A data encrypted by the public key can be decrypted only by the private key.
+Principal is an entity that can be uniquely identified and authenticated by a JEE security module before system access is allowed or denied. It may represent a human user or another system.
+The ejb context interface provides an instance with access to the container-provided runtime context of an enterprise bean instance. getCallerPrincipal() and isCallerInRole() methods are available in EJBContext.
+Container Managed Security in ejb is configured through annotations or deployment descriptor.
+Web Services Security (WS-Security) specifies SOAP security extensions that provide confidentiality using XML encryption and data integrity using XML Signature.
+Sandbox Environment allows the end user to control what client-side resources the code can and cannot access or modify.
+Sandbox applets can not access client resources such as the local file system. They can invoke public methods of other applets on the same page and they can make network connections to the host they came from.
+Sandbox applets cannot connect to or retrieve resources from any third party server (any server other than the server it originated from)
+Sandbox applets cannot load native libraries or create a ClassLoader.
+Applications launched with Java Web Start are, by default, run in a restricted environment.
+Applets, by default, run in a restricted environment. Applets read but not modify some system properties.
+Applets can only connect back to the host where they came from using the same address used to load them. Thus, if an applet is loaded from a domain name, it must use this domain name to open connections.
+Applets that are loaded from the local file system (from a directory in the user's CLASSPATH) - local applets - have no restrictions. Applets can only read secure system properties.
+The best scenario to use URL-Rewriting for Session Tracking is when cookies are disabled in the browser. Cookies, URL-Rewriting and HttpSession are used for Session Tracking.
+When request for a JavaServer Faces page is made, such as when a link or a button is clicked, the JavaServer Faces implementation begins the Restore View phase.
+During this phase only, the view of the page is built, event handlers and validators are wired.
+
+
+Method overriding supports run time polymorphism and Method overloading supports compile time polymorphism.
+The method permissions for the methods of a bean class may be specified on the class, the business methods of the class, or both. The method permissions specified through annotations can be overridden by the deployment descriptor.
+Overloaded methods must change the argument list and can change the return type and access modifier.
+EJB is used in business tier. EJB tier is sub tiered into session tier and message tier. Session tier is normally connected with client applications (JSP/JSF/Servlet or JFC components) and it will service 
+the business by interacting with entity tier. If the business service requires client"s state, then stateful session beans will be used; else stateless session beans will be used.
+Container passivates only stateful session bean instances.
+Stateful Session Beans: The instance variables represent the state of a unique client/bean session. Because the client interacts (“talks”) with its bean, this state is often called the conversational state. 
+A Session Bean is not shared; it can have only one client. When the client terminates, its session bean appears to terminate and is no longer associated with the client.
+The state is retained for the duration of the client/bean session. If the client removes the bean, the session ends and the state disappears.
+In order to access Stateful Session Bean from Servlets, we have to use JNDI lookup and Bean Locator pattern, which is defined as the encapsulation of JNDI services.
+Stateful session beans are appropriate if any of the following conditions are true.
+	- The bean’s state represents the interaction between the bean and a specific client.
+	- The bean needs to hold information about the client across method invocations.
+	- The bean mediates between the client and the other components of the application, presenting a simplified view to the client.
+	- Behind the scenes, the bean manages the work flow of several enterprise beans.
+
+A stateless session bean does not maintain a conversational state with the client. When a client invokes the methods of a stateless bean, the bean’s instance variables may contain a state specific to that client but only for the duration of the invocation. 
+When the method is finished, the client-specific state should not be retained. Clients may, however, change the state of instance variables in pooled stateless beans, and this state is held over to the next invocation of the pooled stateless bean. 
+Except during method invocation, all instances of a stateless bean are equivalent, allowing the EJB container to assign an instance to any client. That is, the state of a stateless session bean should apply across all clients.
+Stateless session bean instances are scalable, can be exposed as web services, have Bean pooling and are not passivated. EJB Container considers the ejbs that are exposed as webservices as normal ejbs.
+Stateless session bean provide a service to the client. Because they can support multiple clients, stateless session beans can offer better scalability for applications that require large numbers of clients.
+To improve performance, you might choose a stateless session bean if it has any of these traits.
+	- The bean’s state has no data for a specific client.
+	- In a single method invocation, the bean performs a generic task for all clients. For example, you might use a stateless session bean to send an email that confirms an online order.
+	- The bean implements a web service.
+
+Singleton Session Bean states: "Does not exist" and "Ready". Singleton Sesion Beans are appropriate in the following circumstances:
+	- State needs to be shared across the application.
+	- A single enterprise bean needs to be accessed by multiple threads concurrently.
+	- The application needs an enterprise bean to perform tasks upon application startup and shutdown.
+	- The bean implements a web service.
+	
+JPA Entity class can not be declared as final. During runtime, this class is subclassed.
+MDBs do not have a client view, so any client cannot access it. They can't be invoked by either local or remote clients. They are stateless in nature.
+EJB supports both Container Managed Transaction and Bean Managed Transaction. Container Managed Transaction is handled declaratively through xml or annotations.
+Bean Managed Transaction is handled programmatically using the UserTransaction object.
+
+(https://docs.oracle.com/javaee/6/tutorial/doc/gkigq.html)
+Interceptors are used to interpose on business method invocations and lifecycle events that occur in an enterprise bean instance, There can be multiple interceptors for a single ejb class.
+The lifecycle of an interceptor instance is the same as that of the bean instance with which it is associated.
+You can either define an interceptor method in the ejb class itself, or in a separate class. You can define an interceptor method with the ejb class. An interceptor class must have a public, no-argument constructor.
+Interceptors can also be defined through deployment descriptors. Interceptors can invoke other enterprise bean methods.
+The order in which the interceptor classes are invoked is determined by the order in which the interceptor classes are defined in the javax.interceptor.Interceptors annotation. However, this order can be overridden in the deployment descriptor.
+
+CMP Entity Beans run only within the container. JPA Entities can run outside the container. CMP Entity Beans are transactional in nature. JPA Entities should be used with EJBs to make them transactional.
+CMP and BMP are replaced by JPA in EJB 3.0. Both BMP and JDBC require a lot of boilerplate code to be written.
+JPA: Java Persistence Architecture API: The JPA is a Java specification for accessing, persisting, and managing data between Java objects/classes and a relational database.
+CMP: Container-Managed Persistence - A CMP bean is an entity bean whose state is synchronized with the database automatically.
+BMP: Bean-Managed Persistence - A BMP bean is an entity that synchronizes its state with the database manually.
+If a connection to an external resource cannot be obtained, a java EE application may throw a system exception. 
+Because the EJBException is a subclass of the RuntimeException, you do not have to specify it in the throws clause of the method declaration.
+If a system exception is thrown, the EJB container might destroy the bean instance. Therefore, a system exception cannot be handled by the bean's client program.
+EJBException is a subclass of the RuntimeException, you do not have to specify it in the throws clause of the method declaration.
+EAR file can contain application.xml, rar, jar and war files.
+For session persistence, all objects which are stored in the session should be serializable. The objects referenced by these session attributes should also be serializable.
+Whenever you change an object's state in the HttpSession, callsession.setAttribute(...) to flag the object as changed and save the changes to a backup server or database.
+The ServletContext is not serializable, so do not use it as an instance variable (unless it is marked as transient) for any object directly or indirectly stored within the HttpSession.
+EJB remotes may not be serializable. When they are not serializable, you need to override the default serialization mechanism.
+Remote Method Invocation (RMI) is used for calling methods on remote objects. Thus, it shares both states and behaviours.
+RMI is recommended for a distributed technology for a system consisting exclusively Java objects. CORBA is used when the objects from two different platforms and it uses Interface description Language (IDL).
+Java  IDL allow Java Clients to invoke operations on CORBA objects that have been defined using IDL and implemented in any language with a CORBA mapping.
+Common Object Request Broker Architecture (CORBA) is an industry standard developed by the Object Management Group (OMG) to aid in distributed objects programming.CORBA implementation are called Object Request Broker (ORB).
+CORBA interfaces are written in IDL, not in Java. CORBA is not language dependent. This technology is used for sharing objects, showing how the objects look like. It therefore transfers object states only.
+CORBA services:
+	- Object life cycle: defines how CORBA objects are created, removed, moved, and copied
+	- Naming: defines how CORBA objects can have friendly symbolic names
+	- Events: decouples the communication between distributed objects
+	- Relationships: provides arbitrary typed n-ary relationships between CORBA objects
+	- Externalization: coordinates the transformation of CORBA objects to and from external media
+	- Transactions: coordinates atomic access to CORBA objects
+	- Concurrency Control: provides a locking service for CORBA objects in order to ensure serializable access
+	- Property: supports the association of name-value pairs with CORBA objects
+	- Trader: supports the finding of CORBA objects based on properties describing the service offered by the object
+	- Query: supports queries on objects
+
+ORM tools are slower than JDBC but provide improved developer productivity. ORM implementations can optimize persistence strategies to scale in both single server and clustered environments. They provide the same level of transaction capabilities than JDBC.
+
+Message Digest is a secure one-way hash functions that take arbitrary-sized data and output a fixed-length hash value. MD5, SHA-1 and SHA-256 are examples of Message Digest Algorithm. It represents text in the form of single string of digits.
+Blowfish, CAST5, RC4, 3DES are Symmetric Key Algorithms.
+MD5 and SHA are One Way Encryption algorithms.
+
+Java supports RMI and HTTP over SSL.
+Java applications installed directly onto a client machine do not run inside a sandbox and no permissions are checked before an operation is executed. Only Web Start Application and Applets run inside a sandbox environment.
+Secure Manager checks whether the current thread can create a new class loader and checks whether a class can access a member of another class. Applet viewer automatically installs a Security Manager.
+The Heap Size can't be restricted through Security Manager.
+Securing Restful Services: OAuth Libraries, Programmatic Security using SecurityContext interface, Declarative Security by configuring in web.xml. XML Signature is meant for SOAP based web services.
+The handler framework used with SOAP based web services allows intercepting a message at various points in its transmission.
+Listeners are hosted by the container. They are notified by specific events that occurs during a servlet's life cycle. When a war file is deployed, if you want to invoke some code you can use a listener called ServletContextListener.
+Asynchronous messaging is not suited when instant response are required. It decouples senders and receivers. It is better suited to smaller message sizes and better use of bandwidth is an advantage.
+A HTTP client has no way to signal that it no longer needs a session. Each session has an associated timeout so that its resources can be reclaimed.
+Filters provides functionality that can be attached to any servlet or jsp. Filter can transform the content of a request or response and can block the request-and-response pair from passing any further.
+In the life cycle of a servlet init() and destroy() methods are invoked only once.
+The Servlet 3.0 specification supports file upload out of the box, so any web container that implements the specification can parse multipart requests and make mime attachments available through the HttpServletRequest object. It
+can be configured either through @multipartConfig Annotation or through <multipart-config> tag in web.xml.
+Facelets is view declaration language for JavaServer Faces technology. Facelets are more preferred than JSPs for JSF as Facelets Technology supports all the features in JSF where as JSP does not support some of the features in JSF
+Facelets is part of JSF specification and refers to the view declaration language for JSF and it supports templating.
+JSF provides UI reusable and extensible components, bind UI components on a page to server-side data and provides server side validation.
+JSF technology provides in built support for server side validation. It uses a single controller servlet called FacesServlet to receive all requests. JSF pages are interpreted by web container.
+JSF components are processed at view render time, while JSTL tags at view build time. Event Driven Model is friendly to AJAX. Managed Beans can be tested outside the container.
+JSF don't provide client side validation. JSF is a server-side component framework for building Java technology-based web applications.
+JSF offers a clear separation between behaviour and presentation and it can map HTTP requests to component-specific event handling methods.
+JSF pages are not properly indexed by Search Engines where as JSP pages are correctly indexed by Search Engines. JSF cannot be previewed outside the web container
+JSF consists of the following:
+	- An API for representing components and managing their state; handling events, server-side validations and data conversion; defining page validation; 
+	supporting internationalization and accessibility and providing extensibility for all these features.
+	- Tag libraries for adding components to web pages and for connecting components to server-side objects.
+A JSF framework provides Faces Servlet which is configured to receive all requests. This is based on Front Controller pattern. 
+Composite Component is a special type of JavaServer Faces template that acts as a component and it is a new feature in JSF 2.0.
+Standard HTML editors will not render the JSF accurately.
+JSF Validation mechanism can prevent Cross-site scripting.
+A JSF backing bean defines UI component properties, each of which is bound to either a component's value or a component instance. 
+A JSF backing bean can also define methods that perform functions associated with a component, including validation, event handling, and navigation processing.It can be tested without container dependency.
+A JSF backing bean can be unit tested outside the container.
+Advantages of JSF framework over traditional JSP and Servlet Technology:
+	- Wire component-generated events to server-side application code.
+	- Bind UI components on a page to server-side data.
+	- Save and restore UI state beyond the life of server requests.
+
+JSF Phases:
+- Restore View Phase: 
+	When a request for a JavaServer Faces page is made, usually by an action such as when a link or a button component is clicked, the JavaServer Faces implementation begins the Restore View phase.
+	During this phase, the JavaServer Faces implementation builds the view of the page, wires event handlers and validators to components in the view, and saves the view in the FacesContext instance, which contains all the
+	information needed to process a single request. All the application’s components, event handlers, converters, and validators have access to the FacesContext instance.
+
+	If the request for the page is an initial request, the JavaServer Faces implementation creates an empty view during this phase and the lifecycle advances to the Render Response phase, during which the empty view is populated
+	with the components referenced by the tags in the page.
+
+	If the request for the page is a postback, a view corresponding to this page already exists in the FacesContext instance. During this phase, the JavaServer Faces implementation restores the view by using the state
+	information saved on the client or the server.
+
+- Apply Request Values Phase: 
+	After the component tree is restored during a postback request, each component in the tree extracts its new value from the request parameters by using its decode (processDecodes()) method. The value is then stored locally on
+	each component.
+
+	If any decode methods or event listeners have called the renderResponse method on the current FacesContext instance, the JavaServer Faces implementation skips to the Render Response phase.
+
+	If any events have been queued during this phase, the JavaServer Faces implementation broadcasts the events to interested listeners.
+
+	If some components on the page have their immediate attributes (see The immediate Attribute) set to true, then the validations, conversions, and events associated with these components will be processed during this phase. If
+	any conversion fails, an error message associated with the component is generated and queued on FacesContext. This message will be displayed during the Render Response phase, along with any validation errors resulting from
+	the Process Validations phase.
+
+	At this point, if the application needs to redirect to a different web application resource or generate a response that does not contain any JavaServer Faces components, it can call the FacesContext.responseComplete method.
+
+	At the end of this phase, the components are set to their new values, and messages and events have been queued.
+
+	If the current request is identified as a partial request, the partial context is retrieved from the FacesContext, and the partial processing method is applied.
+	
+- Process Validations Phase:
+	During this phase, the JavaServer Faces implementation processes all validators registered on the components in the tree, by using its validate (processValidators) method. It examines the component attributes that specify
+	the rules for the validation and compares these rules to the local value stored for the component. The JavaServer Faces implementation also completes conversions for input components that do not have the immediate attribute
+	set to true.
+
+	If the local value is invalid, or if any conversion fails, the JavaServer Faces implementation adds an error message to the FacesContext instance, and the lifecycle advances directly to the Render Response phase so that the
+	page is rendered again with the error messages displayed. If there were conversion errors from the Apply Request Values phase, the messages for these errors are also displayed.
+
+	If any validate methods or event listeners have called the renderResponse method on the current FacesContext, the JavaServer Faces implementation skips to the Render Response phase.
+
+	At this point, if the application needs to redirect to a different web application resource or generate a response that does not contain any JavaServer Faces components, it can call the FacesContext.responseComplete method.
+
+	If events have been queued during this phase, the JavaServer Faces implementation broadcasts them to interested listeners.
+
+	If the current request is identified as a partial request, the partial context is retrieved from the Faces Context, and the partial processing method is applied.
+
+- Update Model Values Phase:
+	After the JavaServer Faces implementation determines that the data is valid, it traverses the component tree and sets the corresponding server-side object properties to the components’ local values. The JavaServer Faces
+	implementation updates only the bean properties pointed at by an input component’s value attribute. If the local data cannot be converted to the types specified by the bean properties, the lifecycle advances directly to the
+	Render Response phase so that the page is re-rendered with errors displayed. This is similar to what happens with validation errors.
+
+	If any updateModels methods or any listeners have called the renderResponse method on the current FacesContext instance, the JavaServer Faces implementation skips to the Render Response phase.
+
+	At this point, if the application needs to redirect to a different web application resource or generate a response that does not contain any JavaServer Faces components, it can call the FacesContext.responseComplete method.
+
+	If any events have been queued during this phase, the JavaServer Faces implementation broadcasts them to interested listeners.
+
+	If the current request is identified as a partial request, the partial context is retrieved from the FacesContext, and the partial processing method is applied.
+
+- Invoke Application Phase:
+	During this phase, the JavaServer Faces implementation handles any application-level events, such as submitting a form or linking to another page.
+
+	At this point, if the application needs to redirect to a different web application resource or generate a response that does not contain any JavaServer Faces components, it can call the FacesContext.responseComplete method.
+
+	If the view being processed was reconstructed from state information from a previous request and if a component has fired an event, these events are broadcast to interested listeners.
+
+	Finally, the JavaServer Faces implementation transfers control to the Render Response phase.
+	
+- Render Response Phase:
+	During this phase, JavaServer Faces builds the view and delegates authority to the appropriate resource for rendering the pages.
+
+	If this is an initial request, the components that are represented on the page will be added to the component tree. If this is not an initial request, the components are already added to the tree, 
+	so they need not be added again.
+
+	If the request is a postback and errors were encountered during the Apply Request Values phase, Process Validations phase, or Update Model Values phase, the original page is rendered again during this phase. 
+	If the pages contain h:message or h:messages tags, any queued error messages are displayed on the page.
+
+	After the content of the view is rendered, the state of the response is saved so that subsequent requests can access it. The saved state is available to the Restore View phase.
+
+Facelets technology allows managed beans to be automatically registered as resources available for JavaServer Faces application.
+The Lifecycle of a Facelets Application:
+	The following steps describe that process as applied to a Facelets-based application.
+
+	1 - When a client, such as a browser, makes a new request to a page that is created using Facelets, a new component tree or javax.faces.component.UIViewRoot is created and placed in the FacesContext.
+	2 - The UIViewRoot is applied to the Facelets, and the view is populated with components for rendering.
+	3 - The newly built view is rendered back as a response to the client.
+	4 - On rendering, the state of this view is stored for the next request. The state of input components and form data is stored.
+	5 - The client may interact with the view and request another view or change from the JavaServer Faces application. At this time the saved view is restored from the stored state.
+	6 - The restored view is once again passed through the JavaServer Faces lifecycle, which eventually will either generate a new view or re-render the current view if there 
+	were no validation problems and no action was triggered.
+	7 - If the same view is requested, the stored view is rendered once again.
+	8 - If a new view is requested, then the process described in Step 2 is continued.
+	9 - The new view is then rendered back as a response to the client.
+
+
+A managed bean should have a no argument constructor and can be configured either through annotations or through XML. Each Managed bean property can be associated with a converter instance.
+
+
+Cohesion is the degree to which methods and attributes of a class focus on only one purpose of the system.
+Abstraction enables program open for extension, hides the concrete implementation details and improves reusability.
+As per EJB 3.1 specification, the enterprise bean class implements the business methods and any life cycle methods. A business interface is not required if the enterprise bean exposes a local, no-interface view.
+The ejb classes can be packaged within a war file.
+Singleton session bean can be configured to perform application startup tasks and are designed for concurrent access. Once a singleton session bean instance is initialized, it is not destroyed if the singleton's business or 
+lifecycle methods cause system exceptions. This ensures that the same singleton instance is used throughout the application lifecycle.
+
+A publisher's API is provided for interactions between programs and the UDDI registry for the purpose of storing or charging data in the registry.
+An inquiry API is provided for programs that want to access the registry to read information from the registry. Authenticated access is required for publisher's API while it is not required for inquiry API.
+Second-level cache helps improve performance by avoiding expensive database calls, keeping the entity data local to the application. A second-level cache is typically transparent to the application, 
+as it is managed by the persistence provider and underlies the persistence context of an application. Persistence providers are not required to support a second-level cache. One consequence of using a second-level cache in 
+an application is that the underlying data may have changed in the database tables, while the value in the cache has not, a circumstance called a Stale Read. 
+The second level cache sits between entity manager and database and it is available across entity managers. The following cache mode settings are defined by the Java Persistence API.
+	- ALL: All entity data is stored in the second-level cache for this persistence unit.
+	- NONE: No data is cached in the persistence unit. The persistence provider must not cache any data.
+	- ENABLE_SELECTIVE: Enable caching for entities that have been explicitly set with the @Cacheable annotation.
+	- DISABLE_SELECTIVE: Enable caching for all entities except those that have been explicitly set with the @Cacheable(false) annotation.
+	- UNSPECIFIED: The caching behavior for the persistence unit is undefined. The persistence provider’s default caching behavior will be used.
+
+A JCA component (Resource Adapter) is packaged as a RAR file. Ejb component is packaged as a JAR file. A single EAR file can contain any number of WAR, RAR and JAR files.
+JAX-WS handlers are interceptors that can be plugged into the JAX-WS runtime environment to do additional processing of inbound and outbound messages.
+This is a list of all the handlers from the jaxws-handler project:
+	- ClientAuthenticationSOAPHandler: Sets a userid and password pair to the SOAP header, and should be deployed at the client side only.
+	- ServiceAuthenticationSOAPHandler: Retrieves the userid and password pair from the SOAPHeader, and should be deployed at the service side only.
+	- ClientPerformanceMonitorLogicalHandler: Measures the time that a message exchange takes from entering this handler (inbound) to returning (outbound). The time includes those exchanges taken by a round-trip network, service execution, 
+	and possibly other handlers at the client and service sides. It should be deployed at the client side.
+	- ServicePerformanceMonitorLogicalHandler: Measures the time that a message exchange takes from entering this handler (inbound) to returning (outbound). The time includes those exchanges taken by service execution and possibly other 
+	handlers at the service sides. It should be deployed at the service side.
+	- EnvelopeLoggingLogicalHandler: Logs the whole SOAP message and may be deployed at either the service side or client side.
+	- HTTPHeaderLoggingLogicalHandler: Logs the HTTP request headers and is deployed at the service side, when the binding protocol is HTTP.
+	- JAXPPayloadLoggingLogicalHandler: Demonstrates how to retrieve the message payload using javax.xml.transform.Source. It can be deployed at either the service or client side.
+JAX-WS specifies two types of handlers:
+	- Protocol handlers are specific to a protocol and may access or change the protocol-specific aspects of a message
+	- Logical handlers are protocol-agnostic and act only on the payload of a message
+	
+A MessageContext may be injected into the service implementation class to provide or consume message-exchange context information. LogicalMessageContext and SOAPMessageContext are inputs to LogicalHandler and SOAPHandler, respectively.
+JAX-WS defines the following standard properties in the MessageContext interface:
+	- MESSAGE_OUTBOUND_PROPERTY (Boolean): The message direction—true for outbound messages, false for inbound. Handlers may use this property to determine if the processing is on an outbound or inbound message.
+	- INBOUND_MESSAGE_ATTACHMENTS (java.util.Map): Attachments to an inbound message. These can be used to acquire the attachments in inbound message.
+	- OUTBOUND_MESSAGE_ATTACHMENTS (java.util.Map): Attachments to an outbound message. A proxy can use these to send attachments not described through WSDL MIME binding.
+
+In JAX-WS 2.0, developers can use QUERY_STRING and PATH_INFO properties to support REST-style (Representational State Transfer) Web services.
+The properties below are specific to endpoints with HTTP-based binding, running inside a servlet container:
+	- SERVLET_CONTEXT (javax.servlet.ServletContext): The ServletContext object of the Web application that contains the Web endpoint.
+	- SERVLET_REQUEST (javax.servlet.http.HttpServletRequest ): The HTTPServletRequest object associated with the request currently being served.
+	- SERVLET_RESPONSE (javax.servlet.http.HttpServletResponse): The HTTPServletResponse object associated with the request currently being served.
+
+An Application exception signals an error in the business logic of an enterprise bean. Application exceptions are typically exceptions that you've coded yourself. When an enterprise bean throws an application exception,
+the container does not wrap it in another exception. The client should be able to handle any application exception it receives. If a system exception occurs within a transaction, the EJB container rolls back the transaction.
+However, if an application exception is thrown within a transaction, the container does not roll back the transaction.
+Every checked exception that is mentioned in the method signature is considered an Application Exception. Any checked or unchecked exception that is annotated with @ApplicationException is an Application Exception.
+You can use @ApplicationException(rollback=true) if you want the transaction to be rolled back automatically.
+
+An application that uses CDI must have a file named beans.xml. The file can be completely empty (it has content only in certain limited situations), but it must be present. 
+For a web application, the beans.xml file must be in the WEB-INF directory. For EJB modules or JAR files, the beans.xml file must be in the META-INF directory.
+If there is no beans.xml file in your META-INF or WEB-INF then that war file or jar file will not be processed by Contexts and Dependency Injection (CDI).
+
+The most fundamental services provided by CDI are follows:
+	- Contexts: The ability to bind the lifecycle and interactions of stateful components to well-defined, but extensible lifecycle contexts.
+	- Dependency Injection: "The ability to inject components into an application in a typesafe way, including the ability to choose at deployment time which implementation of a particular interface to inject.
+These services make it easy for developers to use enterprise beans along with JavaServer Faces technology in web applications.
+SOAP Envelope is the root element of a SOAP message and Body is a mandatory element. Header and Fault are optional elements.
+
+- Checking Caller Identity Programmatically: In general, security management should be enforced by the container in a manner that is transparent to the web component. The security API described in this section should be used only in the less frequent situations in which the 
+web component methods need to access the security context information.
+Servlet 3.0 specifies the following methods of the HttpServletRequest interface that enable you to verify a caller's identity programmatically, and to use that information to grant or deny access to data:
+	- The HttpServletRequest interface provides the following methods that enable you to access security information about the component’s caller:getRemoteUser: Determines the user name with which the client authenticated. 
+	The getRemoteUser method returns the name of the remote user (that is, the caller) associated by the container with the request. If no user has been authenticated, this method returns null.
+	- isUserInRole: Determines whether a remote user is in a specific security role. If no user has been authenticated, this method returns false. This method expects a String user role-name parameter.
+	The <security-role-ref> element should be declared in the deployment descriptor with a <role-name> sub-element containing the role name to be passed to the method. Using security role references is discussed in Declaring and Linking Role References.
+	- getUserPrincipal: Determines the principal name of the current user and returns a java.security.Principal object. If no user has been authenticated, this method returns null. Calling the getName method on the Principal returned by getUserPrincipal returns the name of the remote user.
+Security Domain is a scope over which a common security policy is defined and enforced by the Security Service Provider. It is also called a Security Policy Domain or Realm.
+@DeclareRoles defines roles for security checking. @RolesAllowed defines roles that are allowed to access a method. @Resource annotation is used to inject a resource. There is no such annotation called @UrlAllowed.
+- Authenticating Users Programmatically: Servlet 3.0 was introduced 3 new methods of the HttpServletRequest interface that enable you to authenticate users for a web application programmatically.
+	- The authenticate() method allows an application to instigate authentication of the request caller by the container from within an unconstrained request context. 
+	A login dialog box displays and collects the user's name and password for authentication purposes.
+	- The login() method allows an application to collect username and password information as an alternative to specifying form-based authentication in an application deployment descriptor.
+	- The logout() method is provided to allow an application to reset the caller identity of a request.
+@PermitAll - Indicates that the given method or all business methods of the given EJB are accessible by everyone.
+@DenyAll - Indicates that the given method in the EJB cannot be accessed by anyone.
+@RolesAllowed - Indicates that the given method or all business methods in the EJB ca be accessed by users associated with the list of roles.
+@DeclareRoles - Define roles for security checking. To be used by EJBContext.isCallerInRole, HttpServletRequest.isUserInRole and WebServiceContext.isUserInRole.
+@RunAs - Specifies the run-as role for the given components.
+
+In the web.xml deployment descriptor restriction based on role name security constraints can be specified. We can configure restrictions based on Http Methods and URL patterns in web.xml. User based or Group based security can't be specified in web.xml.
+web.xml Deployment Descriptor Elements:
+	- context-param
+	- description
+	- display-name
+	- distributable
+	- ejb-ref
+	- ejb-local-ref
+	- env-entry
+	- error-page
+	- filter
+	- filter-mapping
+	- icon
+	- jsp-config
+	- listener
+	- login-config
+	- mime-mapping
+	- resource-env-ref
+	- resource-ref
+	- security-constraint
+	- security-role
+	- servlet
+	- servlet-mapping
+	- session-config
+	- web-app
+	- welcome-file-list
+
+Replay attacks are the network attacks in which an attacker spies the conversation between the sender and the receiver and takes the authenticated information e.g. sharing key and then contact to the receiver with that key. The most suitable
+strategy to mitigate this attack type is Cryptographic nonce.
+Elements of the Security Model:
+	- Platform Security: Provides a safe and secure platform for developing and running applications. Compile-time data type checking and automatic memory management leads to more robust code and reduces memory corruption and vulnerabilities. 
+	Bytecode verification ensures code conforms to the JVM specification and prevents hostile code from corrupting the runtime environment. Class loaders ensure that untrusted code cannot interfere with the running of other Java programs.
+	- Cryptography: Provides an extensible, full featured API for building secure applications:
+		- Algorithm and implementation independent
+		- Provider-based (pluggable) architecture
+	- Authentication and Access Control: Enables single sign-on of multiple authentication mechanisms and fine-grained access to resources based on the identity of the user or code signer.  Recent support (in JDK 5) for timestamped signatures makes 
+	it easier to deploy signed code by avoiding the need to re-sign code when the signer's certificate expires. 
+	- Secure Communications: Authenticates peers over an untrusted network and protects the integrity and privacy of data transmitted between them.
+	- Public Key Infrastructure (PKI): Eases the development and deployment of complex PKI applications. Recent support (in JDK 5) for OCSP provides a more scalable and timely method for applications to check certificate revocation status.
+
+Java Authentication and Authorization Service (JAAS) provides a pluggable and extensible framework for programmatic user authentication and authorization. JAAS can be used for authentication of users, to reliably and securely determine
+who is currently executing Java code. JAAS implements a standard Pluggable Authentication Module (PAM) framework. JAAS provides support for Single Sign On. JAAS provides user based, group based and role based authorization.
+Java Generic Security Services (Java GSS-API) is a token-based API used to securely exchange messages between communicating applications.
+Java Cryptography Extension (JCE) provides a framework and implementations for encryption, key generation and key agreement, and Message Authentication Code (MAC) algorithms. Support for encryption includes symmetric, asymmetric,
+block and stream ciphers. Block ciphers operate on groups of bytes and stream ciphers operate on one byte at a time.
+Java Cryptography Architecture (JCA) supports APIs for digital signatures, message digests certificates, certificates and certificate validation, encryption (symmetric/asymmetric block/stream ciphers), key generation and management, and secure random 
+number generation. Java Cryptography Architecture algorithms can be plugged into a JVM during run time.
+Java Secure Sockets Extension (JSSE) provides a framework and an implementation for a Java version of the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols.
+Simple Authentication and Security Layer (SASL) is an Internet standard (RFC 2222) that specifies a protocol for authentication and optional establishment of a security layer between client and server applications. 
+SASL defines how authentication data is to be exchanged but does not itself specify the contents of that data. 
+SASL is a framework into which specific authentication mechanisms that specify the contents and semantics of the authentication data can fit.
+
+Application-Layer Security: component containers are responsible for providing application-layer security, security services for a specific application type tailored to the needs of the application. 
+At the application layer, application firewalls can be used to enhance application protection by protecting the communication stream and all associated application resources from attacks.
+Security properties are not transferable to applications running in other environments and protect data only while it is residing in the application environment.
+The advantages of using application-layer security include the following.
+	- Security is uniquely suited to the needs of the application.
+	- Security is fine grained, with application-specific settings.
+The disadvantages of using application-layer security include the following.
+	- The application is dependent on security attributes that are not transferable between application types.
+	- Support for multiple protocols makes this type of security vulnerable.
+	- Data is close to or contained within the point of vulnerability.
+
+
+Transport-Layer Security used to transmit information over the wire between clients and providers; thus, transport-layer security relies on secure HTTP transport (HTTPS) using Secure Sockets Layer (SSL). 
+Eavesdropping and Tampering can be avoided by Transport-Layer Security protocol.
+Transport security is a point-to-point security mechanism that can be used for authentication, message integrity, and confidentiality.
+	- Transport-layer security is performed in a series of phases, as follows.
+		- The client and server agree on an appropriate algorithm.
+		- A key is exchanged using public-key encryption and certificate-based authentication.
+		- A symmetric cipher is used during the information exchange.
+
+	- Digital certificates are necessary when running HTTPS using SSL. 
+	- The HTTPS service of most web servers will not run unless a digital certificate has been installed. Digital certificates have already been created for the GlassFish Server.
+
+	- The advantages of using transport-layer security include the following.
+		- It is relatively simple, well-understood, standard technology.
+		- It applies to both a message body and its attachments.
+
+	- The disadvantages of using transport-layer security include the following.
+		- It is tightly coupled with the transport-layer protocol.
+		- It represents an all-or-nothing approach to security. This implies that the security mechanism is unaware of message contents, so that you cannot selectively apply security to 
+		portions of the message as you can with message-layer security.
+	- Protection is transient. The message is protected only while in transit. Protection is removed automatically by the endpoint when it receives the message.
+	- It is not an end-to-end solution, simply point-to-point.
+
+Message-Layer Security security information is contained within the SOAP message and/or SOAP message attachment, which allows security information to travel along with the message or attachment. A portion of the message can be signed and encrypted.
+For example, a portion of the message may be signed by a sender and encrypted for a particular receiver.
+	- The advantages of message-layer security include the following.
+		- Security stays with the message over all hops and after the message arrives at its destination.
+		- Security can be selectively applied to different portions of a message and, if using XML Web Services Security, to attachments.
+		- Message security can be used with intermediaries over multiple hops.
+		- Message security is independent of the application environment or transport protocol.
+
+	- The disadvantage of using message-layer security is that it is relatively complex and adds some overhead to processing.
+
+XML signature is meant for message authentication and security. XML Encryption is meant for message confidentiality. WS-Security uses XML Signature.
+WS-Security provides Message Layer Security. HTTPS provides only Transport Layer Security.
+XML Encryption and Security Tokens to address common security requirements in SOAP based webservices.
+Security Assertion Markup Language (SAML) is a standard which allows business entities to make assertions regarding the identity attributes, and entitlements of a subject (an entity that is often a human user) to another entities, 
+such as a partner company or another enterprise application. Defining and maintaining a standard, XML-based framework for creating and exchanging security information between online partners. It is an XML standard for exchanging authentication and 
+authorization data between entities. It is built upon standards like XML-Signature, XML-Encryption...
+Demilitarized Zone (DMZ) is the zone between two firewalls. DMZ may act as a proxy server.
+HTTP tunneling performs protocol encapsulation, by enclosing data packets of one protocol (SOAP, JRMP, etc) within HTTP Packets.
+
+- Realm: A realm is a security policy domain defined for a web or application server. A realm contains a collection of users, who may or may not be assigned to a group. A realm is a complete database of users and groups identified as valid 
+users of one or more applications and controlled by the same authentication policy.
+The Java EE server authentication service can govern users in multiple realms. The file, admin-realm, and certificate realms come preconfigured for the GlassFish Server.
+In the file realm, the server stores user credentials locally in a file named keyfile. You can use the Administration Console to manage users in the file realm. When using the file realm, the server authentication service verifies user identity 
+by checking the file realm. This realm is used for the authentication of all clients except for web browser clients that use HTTPS and certificates.
+The admin-realm is also a file realm and stores administrator user credentials locally in a file named admin-keyfile. You can use the Administration Console to manage users in this realm in the same way you manage users in the file realm.
+- User: A user is an individual or application program identity that has been defined in the GlassFish Server. In a web application, a user can have associated with that identity a set of roles that entitle the user to access all resources 
+protected by those roles. Users can be associated with a group. A Java EE user is similar to an operating system user. Typically, both types of users represent people. However, these two types of users are not the same. 
+The Java EE server authentication service has no knowledge of the user name and password you provide when you log in to the operating system. 
+The Java EE server authentication service is not connected to the security mechanism of the operating system. The two security services manage users that belong to different realms.
+- Group: A group is a set of authenticated users, classified by common traits, defined in the GlassFish Server. A Java EE user of the file realm can belong to a group on the GlassFish Server. (A user in the certificate realm cannot.) A group on the GlassFish Server is 
+a category of users classified by common traits, such as job title or customer profile.
+- Role: A role is an abstract name for the permission to access a particular set of resources in an application. A role can be compared to a key that can open a lock. Many people might have a copy of the key. The lock doesn’t care who you are, only that you have the right key.
+- Principal: An entity that can be authenticated by an authentication protocol in a security service that is deployed in an enterprise. A principal is identified by using a principal name and authenticated by using authentication data.
+- Security policy domain, also known as security domain or realm: A scope over which a common security policy is defined and enforced by the security administrator of the security service.
+- Security attributes: A set of attributes associated with every principal. The security attributes have many uses: for example, access to protected resources and auditing of users. Security attributes can be associated with a principal by an authentication protocol.
+- Credential: An object that contains or references security attributes used to authenticate a principal for Java EE services. A principal acquires a credential upon authentication or from another principal that allows its credential to be used.
+A credential is a structured set of information. An authentication module uses to either to allow or deny access.
+
+Byte Code Verifies checks:
+	- Methods have parameters of the correct type.
+	- No illegal data conversions.
+	- No improper access to restricted classes, interfaces, variables, and methods.
+
+Declarative security expresses an application component’s security requirements by using either deployment descriptors or annotations.
+Programmatic security is embedded in an application and is used to make security decisions. Programmatic security is useful when declarative security alone is not sufficient to express the security model of an application.
+Message Security: Works with web services and incorporates security features, such as digital signatures and encryption, into the header of a SOAP message, working in the application layer, ensuring end-to-end security. 
+Message security is not a component of Java EE 6 and is mentioned here for informational purposes only.
+
+Security Attacks:
+Spoofing - Presenting false identity.
+Denial of Service - Impeding legitimate use. Switch Filter can address it.
+Tampering - Altering the data improperly.
+Session Hijacking - Using session id to gain unauthorized access.
+Eavesdropping - Capturing small packets from the network transmitted by other computers and reading the data content in search of any type of information.
+
+
+SSL can address Authentication, Confidentiality and Integrity. SSL does not address Authorization. SSL uses Public Key Cryptography and provides only Transport Layer Security. SSL does not provide Message Layer Security.
+The SSL protocol is designed to be as efficient as securely possible. SSL handshake validate client to server. With HTTPS, SSL sits above the TCP/IP layer and bellow the application protocol layer.
+As a general rule, you must address the following issues to enable SSL for a server:
+	- There must be a Connector element for an SSL connector in the server deployment descriptor.
+	- There must be valid keystore and certificate files.
+	- The location of the keystore file and its password must be specified in the server deployment descriptor.
+An SSL HTTPS connector is already enabled in the GlassFish Server.
+
+The characteristics of application security that, when properly addressed, help to minimize the security threats faced by an enterprise include the following:
+	- Authentication: The means by which communicating entities, such as client and server, prove to each other that they are acting on behalf of specific identities that are authorized for access. This ensures that users are who they say they are.
+	- Authorization, or access control: The means by which interactions with resources are limited to collections of users or programs for the purpose of enforcing integrity, confidentiality, or availability constraints. 
+	This ensures that users have permission to perform operations or access data.
+	- Data integrity: The means used to prove that information has not been modified by a third party, an entity other than the source of the information. For example, a recipient of data sent over an open network must be able to detect and discard messages that 
+	were modified after they were sent. This ensures that only authorized users can modify data.
+	- Confidentiality, or data privacy: The means used to ensure that information is made available only to users who are authorized to access it. This ensures that only authorized users can view sensitive data.
+	- Non-repudiation: The means used to prove that a user who performed some action cannot reasonably deny having done so. This ensures that transactions can be proved to have happened.
+	- Quality of Service: The means used to provide better service to selected network traffic over various technologies.
+	- Auditing: The means used to capture a tamper-resistant record of security-related events for the purpose of being able to evaluate the effectiveness of security policies and mechanisms. To enable this, the system maintains a record of transactions and security information.
+
+The Java EE platform supports the following authentication mechanisms:
+	- Basic authentication: Specifying HTTP basic authentication requires that the server request a user name and password from the web client and verify that the user name and password are valid by comparing them against a 
+	database of authorized users in the specified or default realm. Basic authentication is the default when you do not specify an authentication mechanism.
+	- Form-based authentication: Allows the developer to control the look and feel of the login authentication screens by customizing the login screen and error pages that an HTTP browser presents to the end user.
+	- Digest authentication: authenticates a user based on a user name and a password. However, unlike basic authentication, digest authentication does not send user passwords over the network. Instead, the client sends a one-way cryptographic hash of the 
+	password and additional data. Although passwords are not sent on the wire, digest authentication requires that clear-text password equivalents be available to the authenticating container so that it can validate received authenticators by calculating the expected digest.
+	- Client authentication: 
+	- Mutual authentication: 
+
+Trust between Containers:
+	- When an enterprise bean is designed so that either the original caller identity or a designated identity is used to call a target bean, the target bean will receive the propagated identity only. The target bean will not receive any authentication data.
+	- There is no way for the target container to authenticate the propagated security identity. However, because the security identity is used in authorization checks (for example, method permissions or with the isCallerInRole method), it is vitally 
+	important that the security identity be authentic. Because no authentication data is available to authenticate the propagated identity, the target must trust that the calling container has propagated an authenticated security identity.
+	- By default, the GlassFish Server is configured to trust identities that are propagated from different containers. Therefore, you do not need to take any special steps to set up a trust relationship.
+
+In Enterprise Information Systems (EIS) applications, components request a connection to an EIS resource. As part of this connection, the EIS can require a sign-on for the requester to access the resource. 
+The application component provider has two choices for the design of the EIS sign-on:
+	- Container-managed sign-on: The application component lets the container take the responsibility of configuring and managing the EIS sign-on. The container determines the user name and password for establishing a connection to an EIS instance. 
+	In container-managed sign-on, an application component does not have to pass any sign-on security information to the getConnection() method. The security information is supplied by the container
+	- Component-managed sign-on: The application component code manages EIS sign-on by including code that performs the sign-on process to an EIS. For more information, see Component-Managed Sign-On.
+	In component-managed sign-on, an application component is responsible for passing the needed sign-on security information for the resource to the getConnection method.
+You can also configure security for resource adapters. 
+
+Web frameworks are used for features like automated session management, UI Templating, Internationalization and Localization, Validation, Easy Integration and etc. Web frameworks may not provide better performance.
+JSP supports page, request, session and application scope. Servlet supports request, session and application scope. Servlets can respond to any type of request, they are commonly used to extend the applications hosted by web servers. It is not 
+a common practice for servlets to deal with non-HTTP data. Using servlets to directly access a relational database is not a good programming schema, but this operation is allowable.
+In JSF, navigation rules are configured in the faces-config.xml and these navigation rules are applied in the Invoke Application phase.
+SOAP based webservices can be stateful and expose WSDL. They cannot expose directory structure-like URIs and their resources are not manipulated using a fixed set of operations like create, read, update and delete.
+The SessionSynchronization allows a Stateful Session Bean instance to be notified by its container of transaction boundaries.
+REST services should not require state stored in the server, do not need to have a WSDL and are protocol independent.
+Bookmarkable and flexibility to choose data formats are advantages of REST over SOAP.
+
+
+The Java EE security model lets you configure a web component or enterprise bean so that system resources are accessed only by authorized users.
+The Java EE transaction model lets you specify relationships among methods that make up a single transaction so that all methods in one transaction are treated as a single unit.
+JNDI lookup services provide a unified interface to multiple naming and directory services in the enterprise so that application components can access these services.
+The Java EE remote connectivity model manages low-level communications between clients and enterprise beans. After an enterprise bean is created, a client invokes methods on it as if it were in the same virtual machine.
+Java EE server: The runtime portion of a Java EE product. A Java EE server provides EJB and web containers.
+Enterprise JavaBeans (EJB) container: Manages the execution of enterprise beans for Java EE applications. Enterprise beans and their container run on the Java EE server.
+Web container: Manages the execution of web pages, servlets, and some EJB components for Java EE applications. Web components and their container run on the Java EE server.
+Application client container: Manages the execution of application client components. Application clients and their container run on the client.
+Applet container: Manages the execution of applets. Consists of a web browser and Java Plug-in running on the client together.
+
+Java Naming and Directory Interface API
+The Java Naming and Directory Interface (JNDI) API provides naming and directory functionality, enabling applications to access multiple naming and directory services such as LDAP, DNS, and NIS. The JNDI API provides
+applications with methods for performing standard directory operations, such as associating attributes with objects and searching for objects using their attributes. Using JNDI, a Java EE application can store and retrieve any
+type of named Java object, allowing Java EE applications to coexist with many legacy applications and systems.
+Java EE naming services provide application clients, enterprise beans, and web components with access to a JNDI naming environment. A naming environment allows a component to be customized without the need 
+to access or change the component’s source code. A container implements the component’s environment and provides it to the component as a JNDI naming context.
+A Java EE component can locate its environment naming context by using JNDI interfaces. A component can create a javax.naming.InitialContext object and look up the environment naming context in InitialContext under the name
+java:comp/env. A component’s naming environment is stored directly in the environment naming context or in any of its direct or indirect subcontexts.
+
+A Java EE component can access named system-provided and user-defined objects. The names of system-provided objects, such as JTA UserTransaction objects, are stored in the environment naming context java:comp/env. The Java EE
+platform allows a component to name user-defined objects, such as enterprise beans, environment entries, JDBC DataSource objects, and message connections. An object should be named within a subcontext of the naming environment
+according to the type of the object. For example, enterprise beans are named within the subcontext java:comp/env/ejb, and JDBC DataSource references are named within the subcontext java:comp/env/jdbc.
+
+
+Requirements of a JAX-WS Endpoint: JAX-WS endpoints must follow these requirements.
+	- The implementing class must be annotated with either the javax.jws.WebService or the javax.jws.WebServiceProvider annotation.
+	- The implementing class may explicitly reference an SEI through the endpointInterface element of the @WebService annotation but is not required to do so. 
+	If no endpointInterface is specified in @WebService, an SEI is implicitly defined for the implementing class.
+	- The business methods of the implementing class must be public and must not be declared static or final.
+	- Business methods that are exposed to web service clients must be annotated with javax.jws.WebMethod.
+	- Business methods that are exposed to web service clients must have JAXB-compatible parameters and return types. See the two tables of JAXB default data type bindings in Types Supported by JAX-WS.
+	- The implementing class must not be declared final and must not be abstract.
+	- The implementing class must have a default public constructor.
+	- The implementing class must not define the finalize method.
+	- The implementing class may use the javax.annotation.PostConstruct or the javax.annotation.PreDestroy annotations on its methods for lifecycle event callbacks.
+	- The @PostConstruct method is called by the container before the implementing class begins responding to web service clients.
+	- The @PreDestroy method is called by the container before the endpoint is removed from operation.
+
+
+JAX-RS 
+The following principles encourage RESTful applications to be simple, lightweight, and fast:
+	- Resource identification through URI
+	- Uniform interface
+	- Self-descriptive messages
+	- Stateful interactions through hyperlinks
+
+Annotations:
+	@Path
+	@GET
+	@POST
+	@PUT
+	@DELETE
+	@HEAD
+	@PathParam
+	@QueryParam
+	@Consumes
+	@Produces
+	@Provider
+Annotations for Field and Bean Properties of Resource Classes: JAX-RS annotations for resource classes let you extract specific parts or values from a Uniform Resource Identifier (URI) or request header.
+	@Context: Injects information into a class field, bean property, or method parameter
+	@CookieParam: Extracts information from cookies declared in the cookie request header
+	@FormParam: Extracts information from a request representation whose content type is application/x-www-form-urlencoded
+	@HeaderParam:Extracts the value of a header
+	@MatrixParam: Extracts the value of a URI matrix parameter
+	@PathParam: Extracts the value of a URI template parameter
+	@QueryParam: Extracts the value of a URI query parameter
+
+Extracting Path Parameters: URI path templates are URIs with variables embedded within the URI syntax. The @PathParam annotation lets you use variable URI path fragments when you call a method.
+Extracting Query Parameters: Use the @QueryParam annotation to extract query parameters from the query component of the request URI.
+Extracting Form Data: Use the @FormParam annotation to extract form parameters from HTML forms.
+Extracting the Java Type of a Request or Response: The javax.ws.rs.core.Context annotation retrieves the Java types related to a request or response. The javax.ws.rs.core.UriInfo interface provides information about the components of a request URI.
+	
+Requirements of a message-driven bean class:
+	- It must be annotated with the @MessageDriven annotation if it does not use a deployment descriptor.
+	- The class must be defined as public.
+	- The class cannot be defined as abstract or final.
+	- It must contain a public constructor with no arguments.
+	- It must not define the finalize method.
+
+In CDI, a bean is a source of contextual objects that define application state and/or logic. A Java EE component is a bean if the lifecycle of its instances may be managed by the container according to the lifecycle context model defined in the CDI specification.
+More specifically, a bean has the following attributes:
+A bean has the following attributes:
+	- A (nonempty) set of bean types
+	- A (nonempty) set of qualifiers
+	- A scope
+	- Optionally, a bean EL name
+	- A set of interceptor bindings
+	- A bean implementation
+	- A bean type defines a client-visible type of the bean. Almost any Java type may be a bean type of a bean.
+	- A bean type may be an interface, a concrete class, or an abstract class and may be declared final or have final methods.
+	- A bean type may be a parameterized type with type parameters and type variables.
+	- A bean type may be an array type. Two array types are considered identical only if the element type is identical.
+	- A bean type may be a primitive type. Primitive types are considered to be identical to their corresponding wrapper types in java.lang.
+	- A bean type may be a raw type.
+
+
+CDI Managed Beans: A managed bean is implemented by a Java class, which is called its bean class. A top-level Java class is a managed bean if it is defined to be a managed bean by any other Java EE technology specification, 
+such as the JavaServer Faces technology specification, or if it meets all the following conditions:
+	- It is not a nonstatic inner class.
+	- It is a concrete class or is annotated @Decorator.
+	- It is not annotated with an EJB component-defining annotation or declared as an EJB bean class in ejb-jar.xml.
+	- It has an appropriate constructor. That is, one of the following is the case:
+	- The class has a constructor with no parameters.
+	- The class declares a constructor annotated @Inject.
+	- No special declaration, such as an annotation, is required to define a managed bean.
+
+
+Beans as Injectable Objects: The concept of injection has been part of Java technology for some time. Since the Java EE 5 platform was introduced, annotations have made it possible to inject resources and some other 
+kinds of objects into container-managed objects. CDI makes it possible to inject more kinds of objects and to inject them into objects that are not container-managed.
+The following kinds of objects can be injected:
+	- (Almost) any Java class
+	- Session beans
+	- Java EE resources: data sources, Java Message Service topics, queues, connection factories, and the like
+	- Persistence contexts (JPA EntityManager objects)
+	- Producer fields
+	- Objects returned by producer methods
+	- Web service references
+	- Remote enterprise bean references
+
+
+Scopes:
+	- Request @RequestScoped - A user’s interaction with a web application in a single HTTP request.
+	- Session @SessionScoped - A user’s interaction with a web application across multiple HTTP requests.
+	- Application @ApplicationScoped - Shared state across all users’ interactions with a web application.
+	- Dependent @Dependent - The default scope if none is specified; it means that an object exists to serve exactly one client (bean) and has the same lifecycle as that client (bean).
+	- Conversation @ConversationScoped - A user’s interaction with a JavaServer Faces application, within explicit developer-controlled boundaries that extend the scope across multiple invocations 
+	of the JavaServer Faces lifecycle. All long-running conversations are scoped to a particular HTTP servlet session and may not cross session boundaries.
+
+Java EE components, such as servlets and enterprise beans, and JavaBeans components do not by definition have a well-defined scope. These components are one of the following:
+	- Singletons, such as Enterprise JavaBeans singleton beans, whose state is shared among all clients
+	- Stateless objects, such as servlets and stateless session beans, which do not contain client-visible state
+	- Objects that must be explicitly created and destroyed by their client, such as JavaBeans components and stateful session beans, whose state is shared by explicit reference passing between clients
+
+If, however, you create a Java EE component that is a managed bean, it becomes a scoped object, which exists in a well-defined lifecycle context.
+Beans that use session, application, or conversation scope must be serializable, but beans that use request scope do not have to be serializable.
+
+
+A producer method generates an object that can then be injected. Typically, you use producer methods in the following situations:
+	- When you want to inject an object that is not itself a bean
+	- When the concrete type of the object to be injected may vary at runtime
+	- When the object requires some custom initialization that the bean constructor does not perform
+A producer field is a simpler alternative to a producer method; it is a field of a bean that generates an object. It can be used instead of a simple getter method. 
+Producer fields are particularly useful for declaring Java EE resources such as data sources, JMS resources, and web service references. 
+A producer method or field is annotated with the javax.enterprise.inject.Produces annotation.
+
+
+An interceptor class often contains a method annotated @AroundInvoke, which specifies the tasks the interceptor will perform when intercepted methods are invoked. 
+It can also contain a method annotated @PostConstruct, @PreDestroy, @PrePassivate, or @PostActivate, to specify lifecycle callback interceptors, and a method annotated @AroundTimeout, 
+to specify EJB timeout interceptors. An interceptor class can contain more than one interceptor method, but it must have no more than one method of each type.
+
+
+A decorator bean class must also have a delegate injection point, which is annotated javax.decorator.Delegate. 
+This injection point can be a field, a constructor parameter, or an initializer method parameter of the decorator class.
+Decorators are outwardly similar to interceptors. However, they actually perform tasks complementary to those performed by interceptors. 
+Interceptors perform cross-cutting tasks associated with method invocation and with the lifecycles of beans, but cannot perform any business logic. 
+Decorators, on the other hand, do perform business logic by intercepting business methods of beans. 
+This means that instead of being reusable for different kinds of applications as are interceptors, their logic is specific to a particular application.
+A decorator can be declared as an abstract class, so that it does not have to implement all the business methods of the interface.
+
+
+A stereotype is a kind of annotation, applied to a bean, that incorporates other annotations.
+
+Container-Managed Entity Managers: With a container-managed entity manager, an EntityManager instance’s persistence context is automatically propagated by the container to all application components that use the EntityManager 
+instance within a single Java Transaction API (JTA) transaction.
+Application-Managed Entity Managers: With an application-managed entity manager, on the other hand, the persistence context is not propagated to application components, and the lifecycle of EntityManager instances is managed by the application.
+Requirements for Entity Classes: An entity class must follow these requirements.
+	- The class must be annotated with the javax.persistence.Entity annotation.
+	- The class must have a public or protected, no-argument constructor. The class may have other constructors.
+	- The class must not be declared final. No methods or persistent instance variables must be declared final.
+	- If an entity instance is passed by value as a detached object, such as through a session bean’s remote business interface, the class must implement the Serializable interface.
+	- Entities may extend both entity and non-entity classes, and non-entity classes may extend entity classes.
+	- Persistent instance variables must be declared private, protected, or package-private and can be accessed directly only by the entity class’s methods. 
+	- Clients must access the entity’s state through accessor or business methods.
+	- JPA Entities class support class inheritance, polymorphic associations, and polymorphic queries.
+	- JPA Entities class can be abstract.
+
+You manage entity instances by invoking operations on the entity by means of an EntityManager instance. Entity instances are in one of four states: new, managed, detached, or removed.
+	- New entity instances have no persistent identity and are not yet associated with a persistence context.
+	- Managed entity instances have a persistent identity and are associated with a persistence context.
+	- Detached entity instances have a persistent identity and are not currently associated with a persistence context.
+	- Removed entity instances have a persistent identity, are associated with a persistent context, and are scheduled for removal from the data store.
+
+Persistence Units: A persistence unit defines a set of all entity classes that are managed by EntityManager instances in an application. This set of entity classes represents the data contained within a single data store.
+Persistence units are defined by the persistence.xml configuration file.
+The JAR file or directory whose META-INF directory contains persistence.xml is called the root of the persistence unit. The scope of the persistence unit is determined by the persistence unit’s root. 
+Each persistence unit must be identified with a name that is unique to the persistence unit’s scope.
+Persistent units can be packaged as part of a WAR or EJB JAR file or can be packaged as a JAR file that can then be included in an WAR or EAR file.
+	- If you package the persistent unit as a set of classes in an EJB JAR file, persistence.xml should be put in the EJB JAR’s META-INF directory.
+	- If you package the persistence unit as a set of classes in a WAR file, persistence.xml should be located in the WAR file’s WEB-INF/classes/META-INF directory.
+	- If you package the persistence unit in a JAR file that will be included in a WAR or EAR file, the JAR file should be located in either
+		- The WEB-INF/lib directory of a WAR
+		- The EAR file’s library directory
+
+Query Language Terminology: The following list defines some of the terms referred to in this chapter:
+	- Abstract schema: The persistent schema abstraction (persistent entities, their state, and their relationships) over which queries operate. The query language translates queries over this persistent schema abstraction 
+	into queries that are executed over the database schema to which entities are mapped.
+	- Abstract schema type: The type to which the persistent property of an entity evaluates in the abstract schema. That is, each persistent field or property in an entity has a corresponding state field of the same type in the abstract schema. 
+	The abstract schema type of an entity is derived from the entity class and the metadata information provided by Java language annotations.
+	- Backus-Naur Form (BNF): A notation that describes the syntax of high-level languages. The syntax diagrams in this chapter are in BNF notation.
+	- Navigation: The traversal of relationships in a query language expression. The navigation operator is a period.
+	- Path expression: An expression that navigates to a entity’s state or relationship field.
+	- State field: A persistent field of an entity.
+	- Relationship field: A persistent field of an entity whose type is the abstract schema type of the related entity.
+
+Lock Modes: The application may increase the level of locking for an entity by specifying the use of lock modes. Lock modes may be specified to increase the level of optimistic locking or to request the use of pessimistic locks.
+The use of optimistic lock modes causes the persistence provider to check the version attributes for entities that were read (but not modified) during a transaction as well as for entities that were updated.
+The use of pessimistic lock modes specifies that the persistence provider is to immediately acquire long-term read or write locks for the database data corresponding to entity state.
+	- OPTIMISTIC: Obtain an optimistic read lock for all entities with version attributes.
+	- OPTIMISTIC_FORCE_INCREMENT: Obtain an optimistic read lock for all entities with version attributes, and increment the version attribute value.
+	- PESSIMISTIC_READ: Immediately obtain a long-term read lock on the data to prevent the data from being modified or deleted. Other transactions may read the data while the lock is maintained, but may not modify or delete the data.
+	The persistence provider is permitted to obtain a database write lock when a read lock was requested, but not vice versa.
+	- PESSIMISTIC_WRITE: Immediately obtain a long-term write lock on the data to prevent the data from being read, modified, or deleted.
+	- PESSIMISTIC_FORCE_INCREMENT: Immediately obtain a long-term lock on the data to prevent the data from being modified or deleted, and increment the version attribute of versioned entities.
+	- READ: A synonym for OPTIMISTIC. Use of LockModeType.OPTIMISTIC is to be preferred for new applications.
+	- WRITE: A synonym for OPTIMISTIC_FORCE_INCREMENT. Use of LockModeType.OPTIMISTIC_FORCE_INCREMENT is to be preferred for new applications.
+	- NONE: No additional locking will occur on the data in the database.
+
+Using Pessimistic Locking: Versioned entities as well as entities that do not have version attributes can be locked pessimistically. To lock entities pessimistically, set the lock mode to PESSIMISTIC_READ, PESSIMISTIC_WRITE, or PESSIMISTIC_FORCE_INCREMENT.
+If a pessimistic lock cannot be obtained on the database rows, and the failure to lock the data results in a transaction rollback, a PessimisticLockException is thrown. 
+If a pessimistic lock cannot be obtained, but the locking failure doesn’t result in a transaction rollback, a LockTimeoutException is thrown.
+Pessimistically locking a version entity with PESSIMISTIC_FORCE_INCREMENT results in the version attribute being incremented even if the entity data is unmodified. When pessimistically locking a versioned entity, the persistence provider will perform the version 
+checks that occur during optimistic locking, and if the version check fails, an OptimisticLockException will be thrown. Attempting to lock a non-versioned entity with PESSIMISTIC_FORCE_INCREMENT is not portable and may result in a 
+PersistenceException if the persistence provider doesn’t support optimistic locks for non-versioned entities. Locking a versioned entity with PESSIMISTIC_WRITE results in the version attribute being incremented if the transaction was successfully committed.
+Pessimistic Locking Timeouts: The length of time in milliseconds the persistence provider should wait to obtain a lock on the database tables may be specified using the javax.persistence.lock.timeout property. If the time it takes to obtain a lock exceeds the value of 
+this property, a LockTimeoutException will be thrown, but the current transaction will not be marked for rollback. If this property is set to 0, the persistence provider should throw a LockTimeoutException if it cannot immediately obtain a lock.
+This property may be set programmatically by passing it to the EntityManager methods that allow lock modes to be specified, the Query.setLockMode and TypedQuery.setLockMode methods, the @NamedQuery annotation, and as a 
+property to the Persistence.createEntityManagerFactory method. It may also be set as a property in the persistence.xml deployment descriptor.
+If javax.persistence.lock.timeout is set in multiple places, the value will be determined in the following order:
+	1 - The argument to one of the EntityManager or Query methods.
+	2 - The setting in the @NamedQuery annotation.
+	3 - The argument to the Persistence.createEntityManagerFactory method.
+	4 - The value in the persistence.xml deployment descriptor.
+
+		
+
+- Client Tier runs in the client Machine. It consists of application clients that access a Java EE server and that are usually located on a different machine from the server.
+- Present Tier generates html and javascript code which is executed by Client Tier.
+- Web Tier consists of components that handle the interaction between clients and the Business Tier. Responsibilities:
+	- Dispatching the presentation to the client.
+	- Keeping track of HTTP sessions.
+	- Managing resource access.
+	
+- Business Tier is responsible for managing the transaction. Contains the business logic.
+- Integration Tier contains the APIs to connect to the Resource Tier components.
+- Database or Legacy System or ERP are part of the Resource Tier. The Enterprise Information System (EIS) Tier consists of database servers, enterprise resource planning systems, and other legacy data sources, like mainframes.
+
+
+Non-functional requirements that have a positive impact by increasing capacity: Performance, Availability and Scalability.
+To determine availability of an application, Total Down Time, Application Startup TimeStamp and Application Shutdown TimeStamp are enough.
+Capacity is the raw power in an element like CPU speed, fast network connection or large storage capacity.
+
+
+(https://jaksa.wordpress.com/2009/05/01/active-and-passive-replication-in-distributed-systems/)
+
+- In active replication each client request is processed by all the servers. This requires that the process hosted by the servers is deterministic. Deterministic means that, given the same initial state and a request sequence, 
+all processes will produce the same response sequence and end up in the same final state. 
+In order to make all the servers receive the same sequence of operations, an atomic broadcast protocol must be used. 
+An atomic broadcast protocol guarantees that either all the servers receive a message or none, plus that they all receive messages in the same order. 
+The big disadvantage for active replication is that in practice most of the real world servers are non-deterministic. 
+Still active replication is the preferable choice when dealing with real time systems that require quick response even under the presence of faults or with systems that must handle byzantine faults.
+Active replication may respond quicker than passive replication.
+
+
+- In passive replication there is only one server (called primary) that processes client requests. After processing a request, the primary server updates the state on the other (backup) servers and 
+sends back the response to the client. If the primary server fails, one of the backup servers takes its place. Passive replication may be used even for non-deterministic processes. In concept it is similar to that in warm backups.
+The disadvantage of passive replication compared to active is that in case of failure the response is delayed.
+
+
+(http://blakesmith.me/2012/12/08/understanding-horizontal-and-vertical-scaling.html)
+
+- In a vertical scaling model, the process of adding more capacity means taking existing actors in a system and increasing their individual power. To scale vertically (or scale up) means to add resources to a single node
+in the system, typically involving the addition of CPUs or memory to a single computer. It increases the height of the system.
+
+- In a horizontal scaling model, instead of increasing the capacity of each individual actor in the system, we simply add more actors to the system. To scale horizontally (or scale out) means to add more nodes to a system, 
+such as adding a new computer to a distributed software application. It increases the width of the system.
+
+
+-> Enterprise Beans:
+A message-driven bean  (MDB) is an enterprise bean that allows Java EE applications to process messages asynchronously.  
+A message-driven bean instance can contain states across the handling of client messages, such as a JMS API connection, an open database connection or an object reference to an enterprise bean object.
+MDBs do not expose a client view. MDB supports interceptors. Bean Managed Transaction is supported in MDB. MDBs execute upon receipt of a single client message. MDBs can receive messages either Topic or Queue.
+This type of bean normally acts as a JMS message listener, which is similar to an event listener but receives JMS messages instead of events. 
+The messages can be sent by any Java EE component (an application client, another enterprise bean, or a web component) or by a JMS application or system that does not use Java EE technology.
+Message-driven beans can process JMS messages or other kinds of messages. Client components do not locate message-driven beans and invoke methods directly on them.
+MDB can be configured to receive messages from JCA resource adapters, as defined by the JCA specification.
+The instance variables of the message-driven bean instance can contain some state across the handling of client messages, such as a JMS API connection, an open database connection, or an object reference to an enterprise bean object.
+A message can be delivered to a message-driven bean within a transaction context, so all operations within the onMessage method are part of a single transaction. If message processing is rolled back, the message will be redelivered.
+JMS is not suitable for Java to Non-Java integration. A JMS Queue can participate in a distributed transaction.
+JMS provider can be integrated with the application server using the Java EE Connector architecture and a single application server might support multiple JMS providers. You access the JMS provider through a resource adapter.
+A single JMS provider can be plugged in to application servers from different vendors.
+JMS supports Message delivery acknowledgements, synchronous messaging and distributed transactions. The JMS provider can be integrated with the application server using the Java EE Connector Architecture.
+Having a message-based interface enables the following functions:
+- Point to point and publish/subscribe mechanisms. Message-based frameworks can push information to other applications without their requesting it explicitly. The same information can be delivered to many subscribers in parallel.
+- Rhythm independence. JMS frameworks function in asynchronous mode but also offer the capability of simulating a synchronous request/response mode. This allows source and target systems to work simultaneously without having to wait for each other.
+- Guaranteed information delivery. JMS frameworks can manage the messages in transactional mode and ensure message delivery (but without any guarantee of timeliness of delivery).
+- Interoperability between heterogeneous frameworks. The source and target applications can operate in heterogeneous environments without having to handle problems of communication and execution related to their respective frameworks.
+- Making exchanges more fluid. The switch to message mode allows finer-grained information exchange.
+Application Clients can both synchronously and asynchronously receive messages in JMS. EJB components and Servlets can send messages.
+Two parts of a JMS application, Destination and Connection Factory, are best maintained administratively rather than programmatically. They are called administered objects.
+- A message-driven bean’s instances retain no data or conversational state for a specific client.
+- All instances of a message-driven bean are equivalent, allowing the EJB container to assign a message to any message-driven bean instance. The container can pool these instances to allow streams of messages to be processed concurrently.
+- A single message-driven bean can process messages from multiple clients.
+- They execute upon receipt of a single client message.
+- They are invoked asynchronously.
+- They are relatively short-lived.
+- They do not represent directly shared data in the database, but they can access and update this data.
+- They can be transaction-aware.
+- They are stateless.
+
+Clients access enterprise beans either through a no-interface view or through a business interface. A no-interface view of an enterprise bean exposes the public methods of the enterprise bean implementation class to clients. Clients using the no-interface view of 
+an enterprise bean may invoke any public methods in the enterprise bean implementation class or any superclasses of the implementation class. A business interface is a standard Java programming language interface that contains the business methods of the enterprise bean.
+A client can access a session bean only through the methods defined in the bean’s business interface or through the public methods of an enterprise bean that has a no-interface view. 
+The business interface or no-interface view defines the client’s view of an enterprise bean. All other aspects of the enterprise bean (method implementations and deployment settings) are hidden from the client.
+Session beans can have more than one business interface. Session beans should, but are not required to, implement their business interface or interfaces.
+Using Enterprise Beans in Clients: The client of an enterprise bean obtains a reference to an instance of an enterprise bean through either dependency injection, using Java programming language annotations, 
+or JNDI lookup, using the Java Naming and Directory Interface syntax to find the enterprise bean instance.
+Dependency injection is the simplest way of obtaining an enterprise bean reference. Clients that run within a Java EE server-managed environment, JavaServer Faces web applications, JAX-RS web services, other enterprise beans, 
+or Java EE application clients, support dependency injection using the javax.ejb.EJB annotation.
+Applications that run outside a Java EE server-managed environment, such as Java SE applications, must perform an explicit lookup. JNDI supports a global syntax for identifying Java EE components to simplify this explicit lookup.
+Portable JNDI Syntax: Three JNDI namespaces are used for portable JNDI lookups: java:global, java:module, and java:app.
+	- The java:global JNDI namespace is the portable way of finding remote enterprise beans using JNDI lookups.
+	- The java:module namespace is used to look up local enterprise beans within the same module.
+	- The java:app namespace is used to look up local enterprise beans packaged within the same application. That is, the enterprise bean is packaged within an EAR file containing multiple Java EE modules.
+
+Deciding on Remote or Local Access: When you design a Java EE application, one of the first decisions you make is the type of client access allowed by the enterprise beans: remote, local, or web service. Whether to allow local or remote access depends on the following factors.
+	- Tight or loose coupling of related beans: Tightly coupled beans depend on one another. For example, if a session bean that processes sales orders calls a session bean that emails a confirmation message to the customer, these beans are tightly coupled. 
+	Tightly coupled beans are good candidates for local access. Because they fit together as a logical unit, they typically call each other often and would benefit from the increased performance that is possible with local access.
+	- Type of client: If an enterprise bean is accessed by application clients, it should allow remote access. In a production environment, these clients almost always run on machines other than those on which the GlassFish Server is running. 
+	If an enterprise bean’s clients are web components or other enterprise beans, the type of access depends on how you want to distribute your components.
+	- Component distribution: Java EE applications are scalable because their server-side components can be distributed across multiple machines. In a distributed application, for example, the server that the web components run on may not be 
+	the one on which the enterprise beans they access are deployed. In this distributed scenario, the enterprise beans should allow remote access.
+	- Performance: Owing to such factors as network latency, remote calls may be slower than local calls. On the other hand, if you distribute components among different servers, you may improve the application’s overall performance. 
+	Both of these statements are generalizations; performance can vary in different operational environments. Nevertheless, you should keep in mind how your application design might affect performance.
+If you aren’t sure which type of access an enterprise bean should have, choose remote access. This decision gives you more flexibility. In the future, you can distribute your components to accommodate the growing demands on your application.
+Although it is uncommon, it is possible for an enterprise bean to allow both remote and local access. If this is the case, either the business interface of the bean must be explicitly designated as a business interface by being decorated with the @Remote or @Local annotations, 
+or the bean class must explicitly designate the business interfaces by using the @Remote and @Local annotations. The same business interface cannot be both a local and a remote business interface.
+
+Local Clients: A local client has these characteristics.
+	- It must run in the same application as the enterprise bean it accesses.
+	- It can be a web component or another enterprise bean.
+	- To the local client, the location of the enterprise bean it accesses is not transparent.
+
+Remote Clients: A remote client of an enterprise bean has the following traits:
+	- It can run on a different machine and a different JVM from the enterprise bean it accesses. (It is not required to run on a different JVM.)
+	- It can be a web component, an application client, or another enterprise bean.
+	- To a remote client, the location of the enterprise bean is transparent.
+	- The enterprise bean must implement a business interface. That is, remote clients may not access an enterprise bean through a no-interface view.
+
+Web Service Clients: A web service client can access a Java EE application in two ways. First, the client can access a web service created with JAX-WS.
+Second, a web service client can invoke the business methods of a stateless session bean. Message beans cannot be accessed by web service clients.
+Provided that it uses the correct protocols (SOAP, HTTP, WSDL), any web service client can access a stateless session bean, whether or not the client is written in the Java programming language. The client doesn’t even “know” what technology 
+implements the service: stateless session bean, JAX-WS, or some other technology. In addition, enterprise beans and web components can be clients of web services. This flexibility enables you to integrate Java EE applications with web services.
+A web service client accesses a stateless session bean through the bean’s web service endpoint implementation class. By default, all public methods in the bean class are accessible to web service clients. 
+The @WebMethod annotation may be used to customize the behavior of web service methods. If the @WebMethod annotation is used to decorate the bean class’s methods, only those methods decorated with @WebMethod are exposed to web service clients.
+
+The parameters of remote calls are more isolated than those of local calls. With remote calls, the client and the bean operate on different copies of a parameter object. If the client changes the value of the object, the value of the copy in the bean does not change. 
+This layer of isolation can help protect the bean if the client accidentally modifies the data.
+In a local call, both the client and the bean can modify the same parameter object. In general, you should not rely on this side effect of local calls. Perhaps someday you will want to distribute your components, replacing the local calls with remote ones.
+As with remote clients, web service clients operate on different copies of parameters than does the bean that implements the web service.
+Because remote calls are likely to be slower than local calls, the parameters in remote methods should be relatively coarse-grained. A coarse-grained object contains more data than a fine-grained one, so fewer access calls are required. 
+For the same reason, the parameters of the methods called by web service clients should also be coarse-grained.
+
+The Contents of an Enterprise Bean: To develop an enterprise bean, you must provide the following files:
+	- Enterprise bean class: Implements the business methods of the enterprise bean and any lifecycle callback methods.
+	- Business interfaces: Define the business methods implemented by the enterprise bean class. A business interface is not required if the enterprise bean exposes a local, no-interface view.
+	- Helper classes: Other classes needed by the enterprise bean class, such as exception and utility classes.
+Package the programming artifacts in the preceding list either into an EJB JAR file (a stand-alone module that stores the enterprise bean) or within a web application archive (WAR) module.
+An EJB JAR file is portable and can be used for various applications.
+To include enterprise bean class files in a WAR module, the class files should be in the WEB-INF/classes directory.
+To include a JAR file that contains enterprise beans in a WAR module, add the JAR to the WEB-INF/lib directory of the WAR module.
+WAR modules that contain enterprise beans do not require an ejb-jar.xml deployment descriptor. If the application uses ejb-jar.xml, it must be located in the WAR module’s WEB-INF directory.
+
+- The Lifecycle of a Stateful Session Bean: "Passive", "Ready" and "Does Not Exist" States
+The client initiates the lifecycle by obtaining a reference to a stateful session bean. The container performs any dependency injection and then invokes the method annotated with @PostConstruct, if any. The bean is now ready to have its business methods invoked by the client.
+While in the ready stage, the EJB container may decide to deactivate, or passivate, the bean by moving it from memory to secondary storage. (Typically, the EJB container uses a least-recently-used algorithm to select a bean for passivation.) 
+The EJB container invokes the method annotated @PrePassivate, if any, immediately before passivating it. If a client invokes a business method on the bean while it is in the passive stage, the EJB container activates the bean, 
+calls the method annotated @PostActivate, if any, and then moves it to the ready stage.
+At the end of the lifecycle, the client invokes a method annotated @Remove, and the EJB container calls the method annotated @PreDestroy, if any. The bean’s instance is then ready for garbage collection.
+Your code controls the invocation of only one lifecycle method: the method annotated @Remove. All other methods in are invoked by the EJB container.
+	1 - Create;
+	2 - Dependency Injection, if any;
+	3 - PostConstruct callback, if any;
+	4 - Init method, or ejbCreate<METHOD>, if any;
+	5 - Remove;
+	6 - PreDestroy callback, if any;
+
+- The Lifecycle of a Stateless Session Bean, Singleton Session Bean and Message-Driven Bean: "Ready" and "Does Not Exist" States
+The container performs any dependency injection and then invokes the method annotated @PostConstruct, if it exists.  The bean is now ready to have its business methods invoked by a client. 
+At the end of the lifecycle, the EJB container calls the method annotated @PreDestroy, if it exists. The bean’s instance is then ready for garbage collection.
+	1 - Dependency Injection, if any;
+	2 - PostConstruct callback, if any;
+	3 - PreDestroy callback, if any;
+
+The timer service of the enterprise bean container enables you to schedule timed notifications for all types of enterprise beans except for stateful session beans.
+Timers are used to schedule timed notifications in enterprise beans. They can be created either programmatically or through annotations. Timers can be used with all types of beans except stateful session beans.
+Timers are persistent by default. If the server is shut down or crashes, persistent timers are saved and will become active again when the server is restarted. Timers can be persisted and they are persisted by default.
+If a timer is created within transaction, when the transaction is rolled back, the timer creation is also rolled back.
+Programmatic timers are set by explicitly calling one of the timer creation methods of the TimerService interface. When a programmatic timer expires (goes off), the container calls the method 
+annotated @Timeout in the bean’s implementation class. The @Timeout method contains the business logic that handles the timed event.
+Automatic timers are created upon the successful deployment of an enterprise bean that contains a method annotated with the java.ejb.Schedule or java.ejb.Schedules annotations.
+Adding a @Schedule annotation on an enterprise bean marks that method as a timeout method according to the calendar schedule specified in the attributes of @Schedule.
+Transactions and Timers: An enterprise bean usually creates a timer within a transaction. If this transaction is rolled back, the timer creation also is rolled back. Similarly, if a bean cancels a timer within a transaction that gets rolled back, the timer cancellation is rolled back. 
+In this case, the timer’s duration is reset as if the cancellation had never occurred.
+In beans that use container-managed transactions, the @Timeout method usually has the Required or RequiresNew transaction attribute to preserve transaction integrity. With these attributes, the EJB container begins the new transaction 
+before calling the @Timeout method. If the transaction is rolled back, the container will call the @Timeout method at least one more time.
+
+Benefits of Enterprise Beans: For several reasons, enterprise beans simplify the development of large, distributed applications. 
+	- First, because the EJB container provides system-level services to enterprise beans, the bean developer can concentrate on solving business problems. The EJB container, rather than the bean developer, 
+	is responsible for system-level services, such as transaction management and security authorization.
+	- Second, because the beans rather than the clients contain the application’s business logic, the client developer can focus on the presentation of the client. The client developer does not have to code the routines that implement 
+	business rules or access databases. As a result, the clients are thinner, a benefit that is particularly important for clients that run on small devices.
+	- Third, because enterprise beans are portable components, the application assembler can build new applications from existing beans. Provided that they use the standard APIs, these applications can run on any compliant Java EE server.
+
+When to Use Enterprise Beans: You should consider using enterprise beans if your application has any of the following requirements.
+	- The application must be scalable. To accommodate a growing number of users, you may need to distribute an application’s components across multiple machines. 
+	Not only can the enterprise beans of an application run on different machines, but also their location will remain transparent to the clients.
+	- Transactions must ensure data integrity. Enterprise beans support transactions, the mechanisms that manage the concurrent access of shared objects.
+	- The application will have a variety of clients. With only a few lines of code, remote clients can easily locate enterprise beans. These clients can be thin, various, and numerous.
+
+In EJB 3.0 Session beans can be remotely accessed through Remote Business Interface. 
+In EJB 3.0 new model Session bean is a POJO managed by the EJB container and callback methods can be defined either in the bean class itself or in a bean listener class.
+EJB 3.0 persistence use JPA. Implementing Web Services in an EJB component container reduce development time (A stateless session bean can be exposed as a Webservice using a few annotations).
+Advantages of Exposing an EJB as a Webservice instead of exposing a POJO as Webservice:
+  - EJB offers a richer set of protocols for your web services, you can access your services through SOAP and RMI.
+  - Since EJB are running in an EJB container, you have access to framework like declarative security and transactions.
+  - When Stateless session beans are exposed as Webservices, Scalability is improved.
+  - EJB Container provide Transaction Manager and Security. It does not provide Lyfe Cycle Management of Servlets and Executing JSPs.
+
+Interface EJBContext: The EJBContext interface provides an instance with access to the container-provided runtime context of an enterprise bean instance.
+This interface is extended by the SessionContext, EntityContext, and MessageDrivenContext interfaces to provide additional methods specific to the enterprise interface bean type.
+Methods:
+	- getCallerIdentity(): Deprecated. Use Principal getCallerPrincipal() instead.
+	- getCallerPrincipal(): Obtain the java.security.Principal that identifies the caller.
+	- getContextData(): Returns the context data associated with this invocation or lifecycle callback.
+	- getEJBHome(): Obtain the enterprise bean's remote home interface.
+	- getEJBLocalHome(): Obtain the enterprise bean's local home interface.
+	- getEnvironment(): Deprecated. Use the JNDI naming context java:comp/env to access enterprise bean's environment.
+	- getRollbackOnly(): Test if the transaction has been marked for rollback only.
+	- getTimerService(): Get access to the EJB Timer Service.
+	- getUserTransaction(): Obtain the transaction demarcation interface.
+	- isCallerInRole(java.security.Identity role): Deprecated. Use boolean isCallerInRole(String roleName) instead.
+	- isCallerInRole(java.lang.String roleName): Test if the caller has a given security role.
+	- lookup(java.lang.String name): Lookup a resource within the java: namespace.
+	- setRollbackOnly(): Mark the current transaction for rollback.
+
+------------------------------------
+The process for creating, deploying, and executing a web application can be summarized as follows:
+	- Develop the web component code.
+	- Develop the web application deployment descriptor, if necessary.
+	- Compile the web application components and helper classes referenced by the components.
+	- Optionally, package the application into a deployable unit.
+	- Deploy the application into a web container.
+	- Access a URL that references the web application.
+
+Local Transaction affects only one resource. Distributed Transaction may affect more than one resource. This Distributed Transaction functionality is also built upon the open XA standard for distributed transactions. Servlets does not support Distributed Transaction.
+Managing Distributed Transactions: JMS client applications use JMS API local transactions (described in Using JMS API Local Transactions), which allow the grouping of sends and receives within a specific JMS session. 
+Java EE applications commonly use distributed transactions to ensure the integrity of accesses to external resources. For example, distributed transactions allow multiple applications to perform atomic updates on the same database, 
+and they allow a single application to perform atomic updates on multiple databases.
+
+In a Java EE application that uses the JMS API, you can use transactions to combine message sends or receives with database updates and other resource manager operations. 
+You can access resources from multiple application components within a single transaction. For example, a servlet can start a transaction, access multiple databases, invoke an enterprise bean that sends a JMS message, 
+invoke another enterprise bean that modifies an EIS system using the Connector architecture, and finally commit the transaction. Your application cannot, however, both send a 
+JMS message and receive a reply to it within the same transaction; the restriction described in Using JMS API Local Transactions still applies.
+
+You can take advantage of an EJB container when the application is distributed.
+Distributed transactions within the EJB container can be either of two kinds:
+ - Container-managed transactions: The EJB container controls the integrity of your transactions without your having to call commit or rollback. Container-managed transactions are recommended for Java EE applications that use the JMS API. 
+ You can specify appropriate transaction attributes for your enterprise bean methods.
+ Use the Required transaction attribute (the default) to ensure that a method is always part of a transaction. If a transaction is in progress when the method is called, the method will be part of that transaction; if not, a new transaction will be 
+ started before the method is called and will be committed when the method returns.
+ - Bean-managed transactions: You can use these in conjunction with the javax.transaction.UserTransaction interface, which provides its own commit and rollback methods that you can use to delimit transaction boundaries. 
+ Bean-managed transactions are recommended only for those who are experienced in programming transactions.
+
+To ensure that all messages are received and handled within the context of a transaction, use container-managed transactions and use the Required transaction attribute (the default) for the onMessage method. 
+This means that if there is no transaction in progress, a new transaction will be started before the method is called and will be committed when the method returns.
+If you use bean-managed transactions, the delivery of a message to the onMessage method takes place outside the distributed transaction context. The transaction begins when you call the UserTransaction.begin method within the onMessage method, 
+and it ends when you call UserTransaction.commit or UserTransaction.rollback. Any call to the Connection.createSession method must take place within the transaction. 
+If you call UserTransaction.rollback, the message is not redelivered, whereas calling setRollbackOnly for container-managed transactions does cause a message to be redelivered.
+
+Neither the JMS API specification nor the Enterprise JavaBeans specification specifies how to handle calls to JMS API methods outside transaction boundaries. The Enterprise JavaBeans specification does state that the EJB container is responsible for 
+acknowledging a message that is successfully processed by the onMessage method of a message-driven bean that uses bean-managed transactions. Using bean-managed transactions allows you to process the message by using more than 
+one transaction or to have some parts of the message processing take place outside a transaction context. In most cases, however, container-managed transactions provide greater reliability and are therefore preferable.
+
+When you create a session in an enterprise bean, the container ignores the arguments you specify, because it manages all transactional properties for enterprise beans. It is still a good idea to specify arguments of true and 0 to the createSession method to make this situation clear:
+
+	session = connection.createSession(true, 0);
+	
+When you use container-managed transactions, you normally use the Required transaction attribute (the default) for your enterprise bean’s business methods.
+You do not specify a message acknowledgment mode when you create a message-driven bean that uses container-managed transactions. The container acknowledges the message automatically when it commits the transaction.
+If a message-driven bean uses bean-managed transactions, the message receipt cannot be part of the bean-managed transaction, so the container acknowledges the message outside the transaction.
+If the onMessage method throws a RuntimeException, the container does not acknowledge processing the message. In that case, the JMS provider will redeliver the unacknowledged message in the future.
+
+
+
+(https://www.oracle.com/technetwork/java/javaee/persistence-jsp-136066.html)
+JPA entities can be used outside container environment hence promoting re-usability and coding effort.
+JPA on its own does not provide transactional support.
+JPA 2.0 introduced these features:
+	- Entity Meta Model
+	- Criteria API
+	- JDBC Properties
+	- Typed Query
+	- Pessimistic Locking
+	- Validation
+JPA entities can be used on both presentation layer and business logic layer, thus reducing coding effort, size of code and maintenance cost associated.
+JPA support bi-directional relationships and allow cascade deletes. JPA can be used for Web as well as standalone applications.
+The Java EE container manages the lifecycle of container-managed entity managers.
+Application-managed entity managers don't automatically propagate the JTA transaction context.
+In JPA, Criteria Queries provide better performance than JPQL Dynamic Queries.
+The enterprise integration design pattern best matches the use of JPA EntityManager is Domain Store.
+Advantages of JPA over JDBC:
+ - Application can be isolated from the database.
+ - Maintainability increases.
+ - Reduces development time.
+Advantages of JPA over CMP Entity Beans:
+ - JPA components need not be deployed in an Application Server and CMP Entity Beans need to be deployed in an Application Server.
+ - JPA supports POJO model and CMP Entity Beans need to implement an interface.
+ Both JPA and CMP Entity Beans support Query Language and both can be integrated with Session Beans.
+
+
+ 
+ (https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html)
+Messages sent to a queue remain in the queue until the message consumer for that queue consumes them.
+QueueBrowser allows you to browse the messages in the queue.
+The JMS API provides no mechanism for browsing a topic. Messages usually disappear from a topic as soon as they appear. If there are no message consumers to consume them, the JMS provider removes them. If there are any durable subscribers
+available, then the message is retained in queue until they consume.
+
+
+Web Service Centric Architecture is more suitable when the scenario talks about clients on different platforms
+Web Centric Architecture is more suitable when the scenario talks about thin clients.
+EJB Centric Architecture is more suitable when the scenario talks about transactional data.
+
+MIDlet is a Java class or group of classes that comprise the basic unit of execution in a Java ME MIDP application. A MIDP application, or MIDlet, is deployed as a MIDlet suite.
+A MIDlet suite is a combination of a JAR file that collects the MIDlets and the associated files necessary to create the MIDP application, and a 
+Java Application Descriptor (JAD) file that identifies the application to target devices. A MIDlet suite can be built, executed, and deployed to mobile devices.
+MIDlet is uploaded to a web server and accessed via target device's built-in browser and normally are deployed as a suite composed of a Java Archive (.jar) file and a Java Application Descriptor (.jad) file.
+Java Network Launch Protocol (JNLP) specified the Main JAR file name, JRE version and Runtime parameters.
+
+Bean Pooling allows a container to use beans as flyweights. Stateless Session Beans support Bean Pooling. Bean Pooling is not responsible for load distribution.
+
+Servlets and JSP are not transactional in nature and you do not need it to access database.
+Servlets and JSP are used when static templates are combined with data from dynamic HTML output and to function as request processors and request dispatcher.
+JSP Expression Language dynamically read application data stored in JavaBeans components, various data structures, and implicit objects. It can invoke static and public methods and access application scope attributes.
+JSP should contain only presentation logic, retrieving Session Attribute, Embedding Javascript code and iterating over an ArrayList. JSTL represent presentation logic. JSP does not support event driven model.
+Setting a Session Attribute is the responsibility of the Controller, it is not the responsibility of the View.
+Servlet may contain workflow logic and JSP may contain presentation logic. JSP is always thread-safe. In the absence of the isThreadSafe attribute, it defaults to true. If we set the isThreadSafe attribute to false, the JSP 
+engine makes sure that only one thread at a time is executing the JSP file.
+Java servlets are better than other technologies when working with binary files since these do not require any special handling. PDF is one type of binary files.
+There are many other technologies that better process text-based files, including HTML, JSON and XML, than servlets, such as JSP and JSF.
+
+A JDBC connection pool is a group of reusable connections for a particular database. When an application closes a connection, the connection is returned to the pool. A single JDBC connection pool cannot represent multiple databases.
+
+Signed Applets do not have any security restrictions, if the user allows (trusts) the applet to be run in its signed state.
+Javascript functions enable communication between applets by receiving messages from one applet and invoking methods of other applets.
+Communication between two applets or loading web pages in a browser window is not restricted by the sand box model.
+
+
+Java Cryptography Architecture uses a provider structure with a variety of APIs related to security, including Digital Signature, Message Digest (hashs), Certificate, Certificate Validations, 
+creation and management of Key and creation of Secure Random Number. It is designed based on having implementation independence implementation interoperability and algorithm extensibility.
+- Implementation Independence: Applications do not need to implement security algorithms. Rather, they can request security services from the Java platform.
+- Implementation Interoperability: Providers are interoperable across applications. Specifically, an application is not bound to a specific provider, and a provider is not bound to a specific application.
+- Algorithm Extensibility: The Java platform includes a number of built-in providers that implement a basic set of security services that are widely used today. However, some applications may rely 
+on emerging standards not yet implemented, or on proprietary services. The Java platform supports the installation of custom providers that implement such services.
+
+
+About Authentication mechanism in the web tier, Java EE supports Basic, Form and Digest Authentication. HTTP basic authentication and form-based authentication are not very secure authentication mechanisms. 
+SSL is used in conjunction with these authentication methods to make them secure.
+
+About Securing Enterprise Information Systems Applications, Java EE provides support for both Container Managed and Component Managed Sign On.
+In Container Managed Sign On, the application component lets the container take the responsibility of configuring and managing the EIS sign-on.
+In Component Managed Sign On, the application component code manages EIS sign-on by including code that performs the sign-on process to an EIS.
+
+
+Through JSTL, SQL queries can be executed, support XML and internationalization. JSTL reduces the amount of scriplet code. But it does not have inbuilt support for JPA.
+
+Encapsulation consists of separating the external aspects of an object which are accessible to other objects, from the internal implementation details of the object, which are hidden from other objects.
+Polymorphism is a characteristic of being able to assign a different behaviour or value in a subclass, to something that was declared in a parent class. For example, a method can be declared in a parent class, 
+but each subclass can have a different implementation of that method.
+Delegation is the implementation of objects that forward certain method calls to another object, a delegate. It is used to replace inheritance with composition. In delegation, at least two objects are involved in handling a request.
+Separation of Concerns principle states that every unit in the system needs to have a clearly defined responsibility and functionality. This applies to all levels of the system, from EARs to methods.
+
+
+Inheritance allows you to restrict the behaviour of objects and is a way to form new classes using classes that have already been defined.
+Violation of Liskov Substitution Principle (LSP) in turns violates Open Closed Principle.
+
+Maintainability is the ability to correct flaws in the system whereas manageability is the ability to ensure the continued health of the system.
+
+Business Process Execution Language (BPEL) is a web service orchestration language. It is purely XML, so it is portable across platforms and vendors. It is an industry standard. It use WSDL and is executed by BPEL engine.
+
+Service-oriented architecture (SOA) Key Design Principles - Loose Coupling, Interoperability, Reusability, Discoverability.
+SOA Manifest:
+ - Business value is given more importance than technical strategy.
+ - Strategic goals are given more importance than project-specific benefits.
+ - Intrinsic inter-operability is given more importance than custom integration.
+ - Shared services are given more importance than specific-purpose implementations.
+ - Flexibility is given more importance than optimization.
+ - Evolutionary refinement is given more importance than pursuit of initial perfection.
+Characteristics:
+ - Is a logic representation of a repeatable business activity that has a specified outcome (e.g. check customer credit, provide weather data, consolidate drilling reports)
+ - Is self-contained
+ - May be composed of other services
+ - Is a "black-box" to consumers of the service
+ 
+About Java EE programming model:
+ - Supports the processing of content, data biding, and the development SOAP based and RESTful Web Services.
+ - JAX-WS greatly simplifies the web service implementation model and can be either a remote procedure call (RPC) style binding or a document style biding.
+
+   
+Webservices:
+ - A Webservice client can access a web service created with JAX-WS.
+ - A Webservice client can invoke the business methods of a Stateless session bean, exposed as Web services.
+ - A Webservice client can invoke a JAX-WS based Web service asynchronously.
+ - Only Stateful session beans can not be exposed as Webservice.
+ - Client need not be aware if the Webservice is deployed on a Java EE or non Java EE environment.
+ - A Java ME client can access a Webservice.
+ - Non Java clients can access a Stateless session bean exposed as a Webservice.
+ - A Java class can be generated from a WSDL file.
+ - A Java class can be associated with a WSDL file.
+ 
+
+JPQL not support INSERT statement. To insert a record, you have to use persist() method of EntityManager.
+In a single query, positional and named parameters can not be mixed. Input parameters can only be used in the WHERE clause or HAVING clause of a query.
+
+When a container migrates a HttpSession object between JVMs in a distributed environment, the session attributes within this session may be notified by the container.
+ 
+Web Container provide Connection Pooling and Concurrency Access. It does not provide Transaction Manager and Asynchronous Messaging.
+
+It is not possible deploy an EAR file in a Servlet Container like Apache Tomcat. You can deploy only war files in Servlet Container. You can deploy EAR files only in application servers.
+A Servlet interacting with JPA components packaged in a war file can be deployed in a Servlet Container.
+An Application Server has both Web Container and EJB Container..
+Security Realm can be configured in a Web Container and EJB Container. Container Managed Transaction is only supported by EJB Container.
+
+In Server Push, the server does not terminate a HTTP connection after the response data has been served to the client. The HTTP connection is kept open indefinitely in Server Push. Server Push is also called Comet.
+Server Push provide better end user experience for browser based applications. Server Push is similar to Broadcasting. The server asynchronously send data to the client in the Server PuSh architecture.
+By definition, Server Push is a mechanism for sending unsolicited data from a web server to a web browser. The unsolicited characteristic implies that the transmission is asynchronous.
+In Client Pull, a new HTTP Connection is opened every time a document is requested.
+Disadvantages of Client Pulling:
+	- The pulling frequency needs to be hight to ensure high data accuracy, but high pulling frequency may introduce redundant checks leading to high network traffic.
+	- Low pulling frequency may lead to missed updates.
+
+
+When logging information, we should wrap log API calls into a logger object. Using it provides an abstraction level to better manage the process. 
+There should be a default logging mechanism that saves all the information into various destinations, such as files or databases, based on severity levels.
+A customized logging service comes in handy in many situations, e.g. sending SEVERE level messages to the administrator through emails. This service should go along with a generic solution.
+
+The HTTPSession object created in one web application (ServletContext) can not be accessed by another application.
+
+AJAX based web pages may not be properly indexed by Search Engines, because they produce content dynamically. It is not friendly Search Engine Optimization (SEO) too.
+Advantages of AJAX:
+	- Better user experience.
+	- Response time is faster.
+	- Network traffic is reduced.
+
+Servlet 3.0 provides asynchronous processing support for servlets and filters.
+Asynchronous support for servlets can be added either through deployment descriptor or through annotations.
+Using asynchronous support for servlets, Server Push can be achieved.
+AsyncContext provides context for a asynchronous operation of a servlet.
+
+Cookies are stored by the browser and they can be persisted. The servlet sends cookies to the browser by adding fields to HTTP response headers.
+Disadvantages of using cookies:
+	- Limited data size.
+	- Increased communication over head.
+	- Client Side data can be modified.
+Advantages of using cookies over URL rewriting:
+	- More transparent.
+	- Lower Overhead.
+	- Less development effort.
+URL-Rewriting appends session id to every URL, which will be displayed in browser window, kept in browser history and can be captured by many intermediary nodes on the internet to the application servers. Furthermore, many web sites link to third party sites
+for images or javascripts, and those sites could capture session id through Referrer HTTP header. So whenever possible, turn URL rewriting off.
+
+HTTP Session does not directly extend List or Map. It is up to the vendor to decide the implementation of this. It may be either Map or some other collection.
+Storing large objects such as collections of search results in HTTP Session is an anti-pattern.
+It is advisable to make the values of HTTPSession attributes to be Serializable in a cluestered environment.
+	
+In web.xml deployment we can specify protected url of the web application and authentication mechanisms to be used. 
+We can not specify SSL certificate to be used for data transfer between browser and web server neither roles can be mapped to actual usernames of the Realm.
+
+Templates to create Composite View and Custom Tag Libraries prevent duplicate GUI code.
+
+Object Mapping provides OO view of legacy system. In order to obtain this you need to have full access to the legacy code.
+If you do not have access to the mainframe code you can use screen scraper to log on the mainframe system and access what ever you want. Screen scraper will act as an adapter between legacy and Java EE application.
+
+A resource adapter is analogous to a JDBC driver. Both provide a standard API through which an application can access a resource that is outside the Java EE server. 
+For a resource adapter, the target system is an EIS; for a JDBC driver, it is a DBMS. Resource adapters and JDBC drivers are rarely created by application developers. In most cases, both types of software are built by vendors that sell tools, servers, or integration software.
+The enterprise information systems (EIS) tier consists of database servers, enterprise resource planning systems, and other legacy data sources, like mainframes. 
+These resources typically are located on a separate machine than the Java EE server, and are accessed by components on the business tier.
+The resource adapter mediates communication between the Java EE server and the EIS by means of contracts. The application contract defines the API through which a Java EE component, such as an enterprise bean, accesses the EIS. 
+This API is the only view that the component has of the EIS. The system contracts link the resource adapter to important services that are managed by the Java EE server. The resource adapter itself and its system contracts are transparent to the Java EE component.
+ - Management Contracts: The Java EE Connector Architecture defines system contracts that enable resource adapter lifecycle and thread management.
+ - Lifecycle Management: The Connector Architecture specifies a lifecycle management contract that allows an application server to manage the lifecycle of a resource adapter. 
+ This contract provides a mechanism for the application server to bootstrap a resource adapter instance during the deployment or application server startup. This contract also provides a means for the application server to notify the 
+ resource adapter instance when it is undeployed or when an orderly shutdown of the application server takes place.
+ - Work Management Contract: The Connector Architecture work management contract ensures that resource adapters use threads in the proper, recommended manner. This contract also enables an application server to manage threads for resource adapters.
+ - Generic Work Context Contract: The work management contract between the application server and a resource adapter enables a resource adapter to do a task, such as communicating with the EIS or delivering messages, by delivering Work instances for execution.
+ - Outbound and Inbound Contracts: The Connector Architecture defines the following outbound contracts, system-level contracts between an application server and an EIS that enable outbound connectivity to an EIS.
+
+
+When designing your application, you need to decide whether to use synchronous or asynchronous integration with its target EISs and existing applications. 
+Both synchronous and asynchronous integration approaches are valid for application integration, and the choice should be based on the integration requirements and use cases.
+Base your decision on the following guidelines.
+
+ - Quality of services required: The use of a queue or a publish-subscribe system provides higher quality of services, such as message routing and reliable message delivery, than synchronous communications.
+ - Application throughput: Asynchronous messaging can lead to better throughput because a queue buffers messages, supports message routing, and guarantees message delivery.
+ - Transactional integration: A synchronous communication model is more suitable when an application needs to perform secure and transactional access to one or more EISes synchronously for client 
+ request processing. In such cases an application can afford the overhead of tighter coupling with an EIS to ensure higher quality request processing and error handling.
+ - Programming model complexity: An asynchronous communication programming model is more complex than the more common synchronous request-response model. 
+ While the asynchronous model provides more services, the cost is greater application complexity and more work on the part of developers.
+
+
+Java Web Start is an application-deployment technology that gives you the power to launch full-featured applications with a single click from your Web browser. 
+Java applets and Java Web Start, by default, run with a SecurityManager. Applications executed via the Java command, by default, do not run with a SecurityManager.
+You can now download and launch applications, such as a complete spreadsheet program or an Internet chat client, without going through complicated installation procedures.
+Java Web Start includes the security features of the Java platform, so the integrity of your data and files is never compromised. In addition, Java Web Start technology enables you to use the latest Java SE technology with any browser.
+With Java Web Start, you launch applications simply by clicking on a Web page link. If the application is not present on your computer, Java Web Start automatically downloads all necessary files. It then caches the files on your computer so the application 
+is always ready to be relaunched anytime you want—either from an icon on your desktop or from the browser link. And no matter which method you use to launch the application, the most current version of the application is always presented to you.
+ 
+ 
+Java EE modules are of the following types:
+ - EJB modules, which contain class files for enterprise beans and, optionally, an EJB deployment descriptor. EJB modules are packaged as JAR files with a .jar extension.
+ - Web modules, which contain servlet class files, web files, supporting class files, image and HTML files, and, optionally, a web application deployment descriptor. Web modules are packaged as JAR files with a .war (web archive) extension.
+ - Application client modules, which contain class files and, optionally, an application client deployment descriptor. Application client modules are packaged as JAR files with a .jar extension.
+ - Resource adapter modules, which contain all Java interfaces, classes, native libraries, and, optionally, a resource adapter deployment descriptor. 
+ Together, these implement the Connector architecture for a particular EIS. Resource adapter modules are packaged as JAR files with an .rar (resource adapter archive) extension.
+
+
+Managing transactions in EJB 3.0
+- Container managed transactions in EJB 3.0 (@TransactionManagement(TransactionManagementType.CONTAINER)):
+	- Transactional Attributes: 
+		- Required: This is the default attribute if the transactional attribute is not specified. This indicates to the container that the annotated business method has to execute within a transaction. If the client is not associated with a transaction, the container starts a 
+		new transaction before running the method. More specifically, when there is an active transaction, and if a business method is called from within the active transaction, then the method executes as if it is part of the transaction. 
+		This means that the success or the failure of the transaction will be propagated to this transaction. When the caller is not part of a transaction, then a new transaction is started.
+		- Requires New: The transactional attribute ‘Requires New’ will also start a new transaction irrespective of the fact that the caller is in active transaction or not.
+		This attribute can be applied to business methods where the result of the calling transaction is not dependent on the business method that is annotated with ‘Requires New’.
+		- Supports: The transactional attribute ‘Supports’ defines that the transactional mode has to be propagated from the caller to the business method that is annotated with ‘Supports’.
+		This means that if the caller is in an active transaction, then the business method will also execute as part of the active transaction. This means that a failure in the business method will revert the caller’s transaction also. 
+		If the caller is not part of the transactional context, then the business method will also execute in a non-transactional context.
+		- Not Supported: This transactional attribute can be used for scenarios where a part of the business operation shouldn’t be executed in a transactional context at all.
+		If the caller is part of the transaction, then the caller’s transaction is suspended and resumed once the execution of the business method that is annotated with ‘Not Supports’ is completed. 
+		If the caller is not part of any transaction, then also the business method will execute outside the transactional context.
+		- Mandatory: The transactional attribute ‘Mandatory’ can be used when we wanted to make sure that some business method has to be executed as part of a transaction.
+		 If the caller’s code is not part of the transaction, then an exception will be thrown. Have a look at the below code.
+		- Never: This is a rarely used transactional attribute as an exception will be thrown if a caller, as part of an active transaction, executes a business method that is annotated with ‘Never’.
+	
+	- Methods Not Allowed in Container-Managed Transactions: You should not invoke any method that might interfere with the transaction boundaries set by the container. The list of prohibited methods follows:
+		- The commit, setAutoCommit, and rollback methods of java.sql.Connection
+		- The getUserTransaction method of javax.ejb.EJBContext
+		- Any method of javax.transaction.UserTransaction
+		You can, however, use these methods to set boundaries in application-managed transactions.
+
+- Bean Managed transactions in EJB 3.0 (@TransactionManagement(value=TransactionManagementType.BEAN)): Transaction handling at the application level. In bean-managed transaction demarcation, the code in the session or message-driven bean explicitly marks 
+the boundaries of the transaction. Although beans with container-managed transactions require less coding, they have one limitation: When a method is executing, it can be associated with either a single transaction or no transaction at all. 
+If this limitation will make coding your bean difficult, you should consider using bean-managed transactions. Only a Stateful Session Bean with container-managed transaction demarcation can receive session synchronization notifications.
+	- JTA Transactions: JTA, or the Java Transaction API, allows you to demarcate transactions in a manner that is independent of the transaction manager implementation. GlassFish Server implements the transaction manager with the Java Transaction Service (JTS). However, 
+	your code doesn’t call the JTS methods directly but instead invokes the JTA methods, which then call the lower-level JTS routines.
+	A JTA transaction is controlled by the Java EE transaction manager. You may want to use a JTA transaction because it can span updates to multiple databases from different vendors. A particular DBMS’s transaction manager may not work with heterogeneous databases. 
+	However, the Java EE transaction manager does have one limitation: It does not support nested transactions. In other words, it cannot start a transaction for an instance until the preceding transaction has ended.
+	To demarcate a JTA transaction, you invoke the begin, commit, and rollback methods of the javax.transaction.UserTransaction interface.
+
+	- Returning without Committing
+	In a stateless session bean with bean-managed transactions, a business method must commit or roll back a transaction before returning. However, a stateful session bean does not have this restriction.
+	In a stateful session bean with a JTA transaction, the association between the bean instance and the transaction is retained across multiple client calls. Even if each business method called by the client opens and closes the database connection, 
+	the association is retained until the instance completes the transaction.
+	In a stateful session bean with a JDBC transaction, the JDBC connection retains the association between the bean instance and the transaction across multiple calls. If the connection is closed, the association is not retained.
+
+	- Methods Not Allowed in Bean-Managed Transactions:  Do not invoke the getRollbackOnly and setRollbackOnly methods of the EJBContext interface in bean-managed transactions. These methods should be used only in container-managed transactions. 
+	For bean-managed transactions, invoke the getStatus and rollback methods of the UserTransaction interface.
+
+
+- Transaction Timeouts
+	- For container-managed transactions, you can use the Administration Console to configure the transaction timeout interval. See Starting the Administration Console.
+	- For enterprise beans with bean-managed JTA transactions, you invoke the setTransactionTimeout method of the UserTransaction interface.
+
+
+Entity Manager is an interface for managing entites whereas Persistence Context is an annotation that can be applied on Entity Manager instances.
+
+Cascade Operations:
+	- ALL: All cascade operations will be applied to the parent entity’s related entity. All is equivalent to specifying cascade={DETACH, MERGE, PERSIST, REFRESH, REMOVE}
+	- DETACH: If the parent entity is detached from the persistence context, the related entity will also be detached.
+	- MERGE: If the parent entity is merged into the persistence context, the related entity will also be merged.
+	- PERSIST: If the parent entity is persisted into the persistence context, the related entity will also be persisted.
+	- REFRESH: If the parent entity is refreshed in the current persistence context, the related entity will also be refreshed.
+	- REMOVE: If the parent entity is removed from the current persistence context, the related entity will also be removed.
+
+For systems without a commit/rollback mechanism available, one can undo a failed transaction with a Compensating Transaction, which will bring the system back to its initial state.
+Compensating Transactions are often designed into Webservices that participate in the execution of business processes that are part of a service-oriented architecture solution.
+
+3 important characteristics of a bad design that should be avoided:
+	- Rigidity - It is hard to change because every change affects too many other parts of the system.
+	- Fragility - When you make a change, unexpected parts of the system break.
+	- Immobility - It is hard to reuse in another application because it cannot be disentangled from the current application.
+
+
+Software Design Principles (SOLID)
+	- Single Responsibility Principle: A class should have only one reason to change. If we have 2 reasons to change for a class, we have to split the functionality in two classes.
+	- Open Close Principle: Software entities like classes, modules and functions should be open for extension but closed for modifications.
+	- Liskov's Substitution Principle: Derived types must be completely substitutable for their base types.
+	- Interface Segregation Principle: Clients should not be forced to depend upon interfaces that they don't use.
+	- Dependency Inversion Principle: High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.
+
+
+Encapsulation: Encapsulation means putting together all the variables (instance variables) and the methods into a single unit called Class.
+Inheritance: The ability to create classes that share the attributes and methods of existing classes, but with more specific features. Inheritance is mainly used for code reusability.
+Polymorphism: It describes the feature of languages that allows the same word or symbol to be interpreted correctly in different situations based on the context.
+	- Static Polymorphism (compile time polymorphism/ Method Overloading): The ability to execute different method implementations by altering the argument used with the method name is known as method overloading.
+	- Dynamic Polymorphism (run time polymorphism/ Method Overriding): When you create a subclass by extending an existing class, the new subclass contains data and methods that were defined in the original superclass. In other words, any child class object has all 
+	the attributes of its parent. Sometimes, however, the superclass data fields and methods are not entirely appropriate for the subclass objects; in these cases, you want to override the parent class members.
+Examples of Polymorphism:
+	- Overriding an existing method
+	- More than one class implements the same interface
+
+Inheritance is sometimes referred to as white box reuse
+Composition is sometimes referred to as black box reuse
+
+An object is an instance of a class.
+Encapsulation provides the security that keeps data and methods safe from inadvertent changes.
+Inheritance is a parent-child relationship of a class which is mainly used for code reusability.
+Polymorphism definition is that Poly means many and morphos means forms.
+Using abstraction one can simulate real world objects.
+Abstraction provides advantage of code reuse
+Abstraction enables program open for extension
+
+
+
+Object Oriented Principles:
+- Encapsulate what varies - Identify the aspects of your application that vary and separate them from what stays the same.
+- Favour composite over inheritance. 
+- Program to an interface, not implementation -  To allow polymorphism to take place. By dealing with objects through interfaces, we can get different behavior even without knowing what the actual object is..
+- Strive for loosely couple designs between objects that interact - The more one object knows and cares about the implementation of another object, the tighter the coupling between them..
+- Classes should be open for extension but closed for modification - You should design classes such that they can be extended without changing their code..
+- Depend on abstractions. Do not depend on concrete classes.
+- Only talk to your friends (The Law of Demeter) - In any method of an object, you should only invoke methods that belong to:
+	- The object itself
+	- Objects passed in as a parameter to the method
+	- Any object the method creates or instantiates
+	- Any components of the object.
+- Don’t call us, we’ll call you - In this principle, low-level components do not call high-level components, instead it’s the other way around..
+- A class should only have one reason to change - This principle deals with cohesion, how classes should, as much as possible, have only one focused responsibility..
+
+
+
+As a general rule, you must address the following issues to enable SSL for a server:
+	- There must be a Connector element for an SSL connector in the server deployment descriptor.
+	- There must be valid keystore and certificate files.
+	- The location of the keystore file and its password must be specified in the server deployment descriptor.
+
+
+What is a web service?
+W3C defintion for a web service is, “a software system designed to support interoperable machine-to-machine interaction over a network”.
+There are several variables that can characterize web services, including that:
+	- They can be tightly coupled, and their deployment can be based on the use of invocation frameworks.
+	- They can perform either in a synchronous request/reply mode or in an asynchronous mode.
+	- They can be exposed by J2EE or non-J2EE providers.
+	- They might or might not offer support for transactions and security.
+
+Web Services Description Language (WSDL) is an xml file that describes the web service technically in a machine readable format. That is, using this WSDL file we can understand things like:
+	- Port / Endpoint – URL of the web service (using which we should access it)
+	- Input message format
+	- Output message format
+	- Security protocol that needs to be followed (like https)
+	- Which protocol the web service uses
+
+
+Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites. XSS attacks occur when an attacker uses a web application to send malicious code, 
+generally in the form of a browser side script, to a different end user. Flaws that allow these attacks to succeed are quite widespread and occur anywhere a web application uses input from a user within the output it generates without validating or encoding it.
+An attacker can use XSS to send a malicious script to an unsuspecting user. The end user’s browser has no way to know that the script should not be trusted, and will execute the script. Because it thinks the script came from a trusted source, the 
+malicious script can access any cookies, session tokens, or other sensitive information retained by the browser and used with that site. These scripts can even rewrite the content of the HTML page.
+
+
+
+Choosing interface technologies
+- You have existing Java applications or plan a new one: use JMS or JCA.
+- You need to interact with partners: use web services for transport and connection.
+- You need to cross the barrier between languages: use JMS or web services.
+
+
+Benefits moving application from a two-tier to three tier system:
+	- Maintainability: Easy to maintain and modify as the changes do not affect other modules.
+	- Reusability: Each tier can be re-used by other applications.
+	- Security: Clients do not have direct access to the application server.
+Separating a system into various pieces makes it harder to be maintained and supported (operability).
+A three tier architecture can increase security because it adds an extra level of indirection between the web server and the database. A three tier architecture is more scalable than a two tier architecture because each tier can be scaled differently if necessary.
+The application server can cache persistent data to increase performance and scalability. With three tier architecture Operability deteriorates comparing to two-tier.
+
+
+
+In Java 6 multiple inheritance of type is supported but of implementation isn't. Multiple inheritance of type is the ability of a class to implement more than one interface. An object can have multiple types: the type of its 
+own class and the types of all the interfaces that the class implements.
+Regarding multiple inheritance of implementation, it is impossible since  a class cannot directly extend multiple classes. Note that as of Java 7, however, a class can inherit different implementations 
+of methods defined (as default or static) in the interfaces that its implements.
+A well-designed client tier can help to reduce the amount of data exchanged between the client and the server machine, resulting in smaller latency (response time minimized).
+
+The use of symmetric encryption is effective in terms of both safety and performance cost. However, this requires both sides of communications to share the same key in advance.
+The asymmetric method is good when it comes to safety. The downside is that it is very expensive regarding performance. However, the positive point is that the sender and receiver do not need to share keys in advance.
+As a result, we should use asymmetric encryption when setting up a connection and to share symmetric keys, then use these symmetric keys for follow-up data transfer.
+
+Java Web Start application can run outside of a security box when included under the security these elements of the JNLP file: all-permissions and j2ee-application-client-permissions.
+
+
+Decrease the number of servers in an application running on a system consisting of multiple web servers and multiple application servers: Availability and reliability deteriorate, whereas maintainability improves.
+
+
+A WebService client can invoke the business methods of a stateless session bean. Message beans cannot be accessed by Webservice clients.
+Provided that it uses the correct protocols (SOAP, HTTP, WSDL), any Webservice client can access a stateless session bean, whether or not the client is written in the Java programming language.
+By default, all public methods in th ebean class are accessible to web service clients. This extract implies that a method needs not to be defined in any interface.
+The default behaviour if a remote invocation on an enterprise bean is Parameters are passed by value and method return value is returned by value as well.
+Methods in both Stateful and Stateless Session Beans can  be asynchronously invoked.
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+TO REVIEW 
+
+
+- WS-SECURITY
+- Security Manager
+- Http Session
+- Applets
+OK - Timer Service
+OK - UDDI
