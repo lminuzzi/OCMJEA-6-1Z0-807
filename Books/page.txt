@@ -61,36 +61,36 @@ Sun Certified Enterprise Architect for Java EE Study Guide (2nd ed.) [Cade & She
 * - The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes. 
 Exchanging product families is made easier and promotes consistency among products by implementing the common interface.
 It is independent of how its objects are created, composed and represented. It is configured with one of multiple families of objects.
-- The Builder pattern separates the construction of a complex object from its representation so the same construction process can create different objects.
-- The Factory Method pattern defines an interface for creating an object, but lets the subclasses decide which class to instantiate. JDBC and JMS are based on this pattern.
+- The Builder pattern separates the construction of a complex object from its representation so the same construction process can create different objects. Create a complex object by specifying only its type contents and have the assembly and parts independent.
+- The Factory Method pattern defines an interface for creating an object, but lets the subclasses decide which class to instantiate. JDBC and JMS are based on this pattern and it provides methods for creating EJBObjects (EJBHome).
 - The Prototype pattern allows an object to create customized objects without knowing their exact class or the details of how to create them.
 * - The Singleton pattern ensures that a class has only one instance, and provides a global point of access to that class.
 
 - Structural patterns control the relationships between large portions of your applications.
-- The Adapter pattern acts as an intermediary between two classes, converting the interface of one class so that it can be used with the other.
-- The Bridge pattern divides a complex component into two separate but related inheritance hierarchies: the functional abstraction and the internal implementation.
+- The Adapter pattern acts as an intermediary between two classes, converting the interface of one class so that it can be used with the other. It implements an interface known to its clients and provides an instance of a class not known to its clients.
+- The Bridge pattern divides a complex component into two separate but related inheritance hierarchies: the functional abstraction and the internal implementation. It creates a separation between abstractions and classes that implement those abstractions.
 * - The Composite pattern enables you to create hierarchical tree structures of varying complexity, while allowing every element in the structure to operate with a uniform interface.
 This pattern minimizes the complexity of an object that consists of many different objects. This pattern allows you to easily add new types of component.
-- The Decorator pattern enables you to add or remove object functionality without changing the external appearance or function of the object. It is very widely used in java.io API.
+- The Decorator pattern enables you to add or remove object functionality without changing the external appearance or function of the object. It is very widely used in java.io API. EJB Remote interface implementation is an example of decorator pattern.
 * - The Façade pattern provides a unified interface to a group of interfaces in a subsystem. The number of remote calls are reduced. Promotes loose coupling between the sub system and its clients.
 - The Flyweight pattern reduces the number of low-level, detailed objects within a system by sharing objects.
-- The Proxy pattern provides a surrogate or placeholder object to control access to the original object. RMI use this pattern.
+- The Proxy pattern provides a surrogate or place holder object to control access to the original object. RMI use this pattern.
 
 - Behavioural patterns influence how state and behaviour flow through a system.
 - The Chain of Responsibility pattern establishes a chain within a system, so that a message can either be handled at the level where it is first received, or be directed to an object that can handle it.
 - The Command pattern encapsulates a request in an object, which enables you to store the command, pass the command to a method, and return the command like any other object.
 - The Interpreter pattern interprets a language to define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
 - The Iterator pattern provides a consistent way to sequentially access items in a collection that is independent of and separate from the underlying collection.
-- The Mediator pattern simplifies communication among objects in a system by introducing a single object that manages message distribution among other objects.
-- The Memento pattern preserves a “snapshot” of an object’s state, so that the object can return to its original state without having to reveal its content to the rest of the world
+- The Mediator pattern simplifies communication among objects in a system by introducing a single object that manages message distribution among other objects. Message-Oriented Middleware (MOM) use this pattern.
+- The Memento pattern preserves a “snapshot” of an object’s state, so that the object can return to its original state without having to reveal its content to the rest of the world. Is is close to the concept of Stateful Session Bean Passivation technique used by the EJB container.
 * - The Observer pattern provides a way for a component to flexibly broadcast messages to interested receivers. Changes in the observable are broadcasted to all observers. JMS use this pattern.
 - The State pattern allows an object to alter its behaviour when its internal state changes.
 * - The Strategy pattern defines a group of classes that represent a set of possible behaviours. Can be used when you need different variants of an algorithm. It offers an alternative to sub classing.
 The Strategy pattern allows you to change behaviour without recompiling any client code. Basically you define a method in an abstract class. The variations of this behaviour are then defined in other classes that
 inherit from the abstract class. The client can then use any of these classes without the need to recompile. Easy to add new behaviour without the need to edit any code.
 Provides a way to configure a class with one of the many behaviour. Defines a family of algorithms, encapsulates each one, and makes them interchangeable.
-- The Template Method pattern provides a method that allows subclasses to override parts of the method without rewriting it. Defines a skeleton of an algorithm, deferring some steps to subclasses.
-- The Visitor pattern provides a maintainable, easy way to represent an operation to be performed on the elements of an object structure.
+- The Template Method pattern provides a method that allows subclasses to override parts of the method without rewriting it. Defines a skeleton of an algorithm, deferring some steps to subclasses. Helps you to make few logical changes in a class that can be used in many editions.
+- The Visitor pattern provides a maintainable, easy way to represent an operation to be performed on the elements of an object structure. It add new operations easily without changing the classes of the elements on which it operates.
 - The Intercepting Filter pattern provides the ability to manipulate a request prior to processing or to manipulate the response before sending the results of the request.
 - The Context Object pattern is used to encapsulate the specifics of protocol implementation to be shared. It avoids using protocol-specific system information outside of its relevant context.
 - The Front Controller pattern creates central control logic for presentation request handling. Creates a centralized access point for presentation-tier request handling.
@@ -142,34 +142,38 @@ In Payload Extractor the recurring extraction and error-handling logic are imple
 - The Intercepting Filter - Centralizes control with loosely coupled handlers, Improves reusability, Declarative and flexible configuration, Information sharing is inefficient. All the requests to be undergoing the same undergoing handling processes, such as 
 user authentication, request information logging or data compression.
 - The Domain Store pattern is used to separate persistence from your object model. It is the best match for the EntityManager interface.
-- The MVC pattern is an example of Separation of Concerns and Modularity principle.
+- The MVC pattern is an example of Separation of Concerns and Modularity principle. MVC pattern is implemented on Web Tier in N-Tier architecture system.
+- The Fast Lane Reader design pattern provides a more efficient way to access tabular, read only data. A fast lane reader component directly accesses persistent data using JDBC components, instead of using entity beans. 
+The result is improved performance and less coding, because the component represents data in a form that is closer to how the data are used.
 
 J2EE Patterns:
 Presentantion Tier
-	Intercepting Filter - facilitates preprocessing and post-processing of a request.
-	Front Controller - provides a centralized controller for managing the handling of requests.
-	Composite View - creates an aggregate View from atomic subcomponents (Facelets, Struts Tiles).
-	View Helper - encapsulates logic that is not related to presentation formatting into Helper components.
-	Dispatcher View - combines a Dispatcher component with the Front Controller and View Helper patterns, deferring many activities to View processing.
-	Service to Worker - combines a Dispatcher component with the Front Controller and View Helper patterns.
+	- Intercepting Filter: facilitates preprocessing and post-processing of a request.
+	- Front Controller: provides a centralized controller for managing the handling of requests.
+	- Composite View: creates an aggregate View from atomic subcomponents (Facelets, Struts Tiles).
+	- View Helper: encapsulates logic that is not related to presentation formatting into Helper components.
+	- Dispatcher View: combines a Dispatcher component with the Front Controller and View Helper patterns, deferring many activities to View processing.
+	- Service to Worker: combines a Dispatcher component with the Front Controller and View Helper patterns.
 
 Business Tier
-	Business Delegate - reduces coupling between presentation-tier clients and business services. It hides the underlying implementation details of the business service, such as lookup and access details of the EJB architecture.
-	Service Locator - multiple clients can reuse the Service Locator object to reduce code complexity, provide a single point of control, and improve performance by providing a caching facility.
-	Session Facade - encapsulate the complexity of interactions between the business objects participating in a workflow. The Session Facade manages the business objects, and provides a uniform coarse-grained service access layer to clients.
-	Transfer Object - used to send and retrieve datas inside a single method call. When the client requests the EJB for the business data, the EJB can construct the Transfer Object, populate it with its attribute values, and pass it by value to the client.
-	Transfer Object Assembler - uses Transfer Objects to retrieve data from various business objects and other objects that define the model or part of the model.
-	Composite Entity - it model, represent, and manage a set of interrelated persistent objects rather than representing them as individual fine-grained entity beans. A
-	Composite Entity bean represents a graph of objects.
-	Value List Handler - suggests an alternate approach of using ejb-finder methods, controlling the search, cache the results and provide the results to the client using a lightweight mechanism. Critical concern in a distributed paradigm is the latency time.
+	- Business Delegate: reduces coupling between presentation-tier clients and business services. It hides the underlying implementation details of the business service, such as lookup and access details of the EJB architecture.
+	- Service Locator: multiple clients can reuse the Service Locator object to reduce code complexity, provide a single point of control, and improve performance by providing a caching facility.
+	- Session Facade: encapsulate the complexity of interactions between the business objects participating in a workflow. The Session Facade manages the business objects, and provides a uniform coarse-grained service access layer to clients.
+	Session Facade hides business objects workflow layer. Use a session bean as a facade to encapsulate the complexity of interactions between the business objects participating in a workflow. 
+	The Session Facade manages the business objects, and provides a uniform coarse-grained service access layer to clients
+	- Transfer Object: used to send and retrieve datas inside a single method call. When the client requests the EJB for the business data, the EJB can construct the Transfer Object, populate it with its attribute values, and pass it by value to the client.
+	- Transfer Object Assembler: uses Transfer Objects to retrieve data from various business objects and other objects that define the model or part of the model.
+	- Composite Entity: it model, represent, and manage a set of interrelated persistent objects rather than representing them as individual fine-grained entity beans. A
+	- Composite Entity bean represents a graph of objects.
+	- Value List Handler: suggests an alternate approach of using ejb-finder methods, controlling the search, cache the results and provide the results to the client using a lightweight mechanism. Critical concern in a distributed paradigm is the latency time.
 
 Integration Tier
-	Data Access Object - abstracts and encapsulate all access to the data source. The DAO manages the connection with the data source to obtain and store data.
-	Domain Store - provides a powerful mechanism to implement transparent persistence for your object model. It combines and links several other patterns including Data Access Objects. Patter using in ORM frameworks.
-	Web Service Broker - exposes aplication services using XML and web protocols.
-	Service Activator - enables asynchronous access to enterprise beans and other business services. It receive asynchronous client requests and messages. On receiving a message, the Service Activator locates and invokes 
+	- Data Access Object: abstracts and encapsulate all access to the data source. The DAO manages the connection with the data source to obtain and store data.
+	- Domain Store: provides a powerful mechanism to implement transparent persistence for your object model. It combines and links several other patterns including Data Access Objects. Patter using in ORM frameworks.
+	- Web Service Broker: exposes aplication services using XML and web protocols.
+	- Service Activator: enables asynchronous access to enterprise beans and other business services. It receive asynchronous client requests and messages. On receiving a message, the Service Activator locates and invokes 
 	the necessary business methods on the business service components to fulfill the request asynchronously. In EJB2.0, Message Driven beans can be used to implement Service Activator for message based enterprise applications. 
-	The Service Activator is a JMS Listener and delegation service that creates a message façade for the EJBs.
+	- The Service Activator is a JMS Listener and delegation service that creates a message façade for the EJBs.
 
 Another Patterns:
 Application Service/Controller
@@ -202,31 +206,43 @@ If you are not focused on this issue, you are likely to create Stateful tasks th
 ---------------------
 
 Streaming API for XML (Stax) is an event-driven. pull-parsing API for reading and writing XML documents. This Java API will enable you to create bidirectional XML parsers that are fast, relatively easy to program, and have a light memory footprint. It is a Pull API.
+It have high performance and light memory footprint.
 
 Simple API for XML (SAX) is an event-driven online algorithm for parsing XML documents. It is a Push API.
 
 Java Architecture for XML Biding (JAXB) provides an API and tool that allow automatic two-way mapping between XML documents and Java objects. With a given Document Type Definition (DTD) and a schema definition,
 the JAXB compiler can generate a set of Java classes that allow developers to build applications that can read, manipulate and recreate XML documents without writing any logic process XML elements.
+JAXB components: the binding compiler (which binds a given XML schema to a set of generated Java classes) and the binding runtime framework (which provides unmarshalling, marshalling, and validation functionalities). Client, Web and EJB containers supports JAXB.
+JAXB can be used independently. JAXB can be used with JAX-WS.
 
 Java API for XML Processing (JAXP) enables applications to parse, transform, validate and query XML documents using an API that is independent of a particular XML processor implementation.
 JAXP provides a pluggability layer to enable vendors to provide their own implementations without introducing dependencies in application code
 JAXP also provides namespace support, allowing you to work with DTDs that might otherwise have naming conflicts. Designed to be flexible, JAXP allows you to use any XML-compliant parser from within your application.
 JAXP also supports the Extensible Stylesheet Language Transformations (XSTL) standard, giving you control over the presentation of the data and enabling you to convert the data to other documents or to other formats, such as HTML.
+JAXP supports DOM. JAXP supports SAX. parse and transform XML documents independent of a particular XML processing implementation and support namespace - work with schemas that might otherwise have naming conflicts.
 
 Universal Description, Discovery and Integration (UDDI) is an XML-based language registry for businesses worldwide to list themselves on the Internet and a mechanism to register and locate web service applications.
 Java API for XML Registries (JAXR) is the API used to publish or access a web service in a registry (UDDI).
 
-The SOAP with Attachments API for Java (SAAJ) provides the API for creating and sending SOAP messages by means of the javax.xml.soap package.
-It is used for the SOAP messaging that goes on behind the scenes in JAX-RPC and JAXR implementations
+The SOAP with Attachments API for Java (SAAJ) provides the API for creating and sending SOAP messages by means of the javax.xml.soap package. SAAJ is a low-level API on which JAX-WS and JAXR depend.
+It is used for the SOAP messaging that goes on behind the scenes in JAX-RPC and JAXR implementations.
 XML over HTTP is lightweight compared to SOAP.
 
-JAX-WS is meant for SOAP based services and JAX-RS for REST based services. In Restful Service implementation, the performance is high with caching options because of the stateless nature.
+JAX-WS is meant for SOAP based services and JAX-RS for REST based services. In Restful Service implementation, the performance is high with caching options because of the stateless nature. JAX-WS is higher-level API for Webservice.
 Most of the JAX-RS annotations are runtime annotations, therefore, runtime reflection will generate the helper classes and artifacts for the resource. JAX-RS resource classes can be packaged in an enterprise archive file and 
 deployed in any Java EE server. JAX-RS provides annotations for specifying the type of HTTP Request like GET, POST... JAX-WS use these low level APIs: JAXB, SAAJ, JAXP, StaX
 JAX-RS provides support for conditional GET and PUT HTTP requests. Conditional GET requests help save bandwidth by improving the efficiency of client processing. The conditional PUT can help avoid the lost update problem.
 A GET request can return a Not Modified (304) response if the representation has not changed since the previous request. For example, a web site can return 304 responses for all its static images that have not changed since the previous request.
 A PUT request can return a Precondition Failed (412) response if the representation has been modified since the last request. The conditional PUT can help avoid the lost update problem.
 JAX-WS provides support for both SOAP based Webservices and RESTful services. JAX-WS support synchronous and asynchronous communication. JAX-WS support MTOM. JAX-WS use JAXB or data binding and support development of RESTful Web Services.
+JAX-WS provides a new dynamic Dispatch client API that is more generic and offers more flexibility than the existing Java API for XML-based RPC (JAX-RPC)-based Dynamic Invocation Interface (DII).
+JAX-WS specification defines client APIs for accessing web services. JAX-WS specification defines techniques for implementing web service endpoints. JAX-WS supports message handlers that can process message requests and responses.
+It can be used to invoke a Web Service with xml/http binding and not traditional SOAP binding. JAX-WS Standards Supported:
+	- JAX-WS 2.0/2.1 (JSR 224)
+	- WS-I Basic Profile 1.1
+	- WS-I Attachments Profile 1.0
+	- WS-I Simple SOAP Binding Profile 1.0
+	- WS-Addressing 1.0 - Core, SOAP Binding, WSDL Binding
 
 Java Native Interface (JNI) -  is a native programming interface. It allows Java code that runs inside a Java Virtual Machine (VM) to interoperate with applications and libraries written in other programming languages, such as C, C++, and assembly.
 Java Native Interface is used to allow Java to communicate with programs written in languages like C++. In effect you are wrapping the C++ code to make it available to Java. For example you will wrap a C++ method called debitAccount (int amount) with a similar Java
@@ -237,10 +253,14 @@ network services using the industry standard IDL (Object Management Group Interf
 
 Java Connector Architecture (JCA) provides a Java solution to the problem of connectivity between the many application servers and EISs already in existence. By using the J2EE Connector architecture, EIS vendors no longer need to customize their product for each application
 server. Application server vendors who conform to the J2EE Connector architecture do not need to add custom code whenever they want to add connectivity to a new EIS.
+The JCA coupling interface is strictly defined through Common Client Interface. System contracts and container-component contracts are hidden for the application component, but they do strongly link caller and called.
 
 JAX-RPC was used in the earlier version of Java EE for developing SOAP based web services and is replaced with JAX-WS in the current version of Java EE.
 
 Message Transmission Optimization Mechanism (MTOM) is a method of efficiently sending binary data to and from Webservices. It uses XML-binary Optimized Packaging (XOP) to transmit binary data.
+
+Enterprise Service Bus (ESB) refers to a software architecture construct. This construct is typically implemented by technologies found in a category of middleware infrastructure products, usually based on recognized standards, which provide foundational 
+services for more complex architectures via an event-driven and standards-based messaging engine (the bus).
 
 Java Naming and Directory Interface (JNDI) is part of the Java platform, providing applications based on Java technology with a unified interface to multiple naming and directory services. Using JNDI, applications based on Java technology can store 
 and retrieve named Java objects of any type. In addition, JNDI provides methods for performing standard directory operations, such as associating attributes with objects and searching for objects using their attributes.
@@ -257,13 +277,16 @@ Java EE applications are run on reference runtimes, that can be microservices or
 Servlets - Virtual Platform Layer
 Integration tier is the best place to place your JDBC code
 Stateful session beans alone can not be exposed as Webservices. They hold conversational states. They will be the bottleneck when application deals with too many clients.
+Stateful session beans can be passivated and during the method call non transient and non serializable variables have to be set to null. Stateless session beans will be removed immediately just after the method call, so there is no need to call remove method.
+When the container passivates a stateful session beans the following activities should be done: Non transient, non serializable variables have to be set to null in the ejbPassivate () method.
 If a system exception occurs within a transaction, the EJB container rolls back the transaction. If an application exception is thrown within a transaction, the container does not roll back the transaction.
+The EJB container must support JTA (Java Transaction API) but not necessary to support JTS (Java Transaction Service).
 Point to Point Messages: Queue, One message is sent to only one receiver.
 JCA provides support for Connection Pooling, Transaction and Security, but also the tighter coupling compared to other Integration tier Technology. 
 JCA is the most suitable integration tier technology to interact with Enterprise Information System (EIS) and when you have to propagate transaction and security context.
 JCA resources can participate in distributed transaction. Using JCA Java EE components can interact with Enterprise Information System (EIS), and EIS can interact with Java EE components.
 JCA components are portable across difference Java EE Application Servers and it specification is implemented by Resource Adapters. Resource Adapters are packaged in the format of RAR file.
-EJB clients use the RMI-IIOP protocol to access the remote ejb component. It uses the best features of RMI and CORBA. It used by CORBA based clients to access EJBs.
+EJB clients use the RMI-IIOP protocol to access the remote EJB component. It uses the best features of RMI and CORBA. It used by CORBA based clients to access EJBs.
 Keytool allows the user to create, manage and administer their own public/private key pairs and associated certificates that are intended for use in authentication services and in representing digital signatures.
 A data encrypted by the public key can be decrypted only by the private key.
 Principal is an entity that can be uniquely identified and authenticated by a JEE security module before system access is allowed or denied. It may represent a human user or another system.
@@ -278,6 +301,8 @@ Applications launched with Java Web Start are, by default, run in a restricted e
 Applets, by default, run in a restricted environment. Applets read but not modify some system properties.
 Applets can only connect back to the host where they came from using the same address used to load them. Thus, if an applet is loaded from a domain name, it must use this domain name to open connections.
 Applets that are loaded from the local file system (from a directory in the user's CLASSPATH) - local applets - have no restrictions. Applets can only read secure system properties.
+Applets are not allowed to read, write, modify, or delete files on the target client machine. Applets can Read the text file from the back end server where it has downloaded.
+When your applet needs to communicate with other applet running on separate machine both needs be applets signed.
 The best scenario to use URL-Rewriting for Session Tracking is when cookies are disabled in the browser. Cookies, URL-Rewriting and HttpSession are used for Session Tracking.
 When request for a JavaServer Faces page is made, such as when a link or a button is clicked, the JavaServer Faces implementation begins the Restore View phase.
 During this phase only, the view of the page is built, event handlers and validators are wired.
@@ -290,6 +315,7 @@ the business by interacting with entity tier. If the business service requires c
 Container passivates only stateful session bean instances.
 Stateful Session Beans: The instance variables represent the state of a unique client/bean session. Because the client interacts (“talks”) with its bean, this state is often called the conversational state. 
 A Session Bean is not shared; it can have only one client. When the client terminates, its session bean appears to terminate and is no longer associated with the client.
+Both session and entity beans are more suitable for instance response synchronous communications and may not be suitable for asynchronous communications.
 The state is retained for the duration of the client/bean session. If the client removes the bean, the session ends and the state disappears.
 In order to access Stateful Session Bean from Servlets, we have to use JNDI lookup and Bean Locator pattern, which is defined as the encapsulation of JNDI services.
 Stateful session beans are appropriate if any of the following conditions are true.
@@ -298,10 +324,12 @@ Stateful session beans are appropriate if any of the following conditions are tr
 	- The bean mediates between the client and the other components of the application, presenting a simplified view to the client.
 	- Behind the scenes, the bean manages the work flow of several enterprise beans.
 
-A stateless session bean does not maintain a conversational state with the client. When a client invokes the methods of a stateless bean, the bean’s instance variables may contain a state specific to that client but only for the duration of the invocation. 
+A Stateless Session Bean does not maintain a conversational state with the client. When a client invokes the methods of a stateless bean, the bean’s instance variables may contain a state specific to that client but only for the duration of the invocation. 
+Stateful/Stateless Session Bean represents a business process. Per client basis. Associated with a client request and are not shared, not persisted. It is a short lived business component.
 When the method is finished, the client-specific state should not be retained. Clients may, however, change the state of instance variables in pooled stateless beans, and this state is held over to the next invocation of the pooled stateless bean. 
 Except during method invocation, all instances of a stateless bean are equivalent, allowing the EJB container to assign an instance to any client. That is, the state of a stateless session bean should apply across all clients.
 Stateless session bean instances are scalable, can be exposed as web services, have Bean pooling and are not passivated. EJB Container considers the ejbs that are exposed as webservices as normal ejbs.
+Session beans instance can be recreated by EJB Handle.
 Stateless session bean provide a service to the client. Because they can support multiple clients, stateless session beans can offer better scalability for applications that require large numbers of clients.
 To improve performance, you might choose a stateless session bean if it has any of these traits.
 	- The bean’s state has no data for a specific client.
@@ -328,6 +356,10 @@ The order in which the interceptor classes are invoked is determined by the orde
 
 CMP Entity Beans run only within the container. JPA Entities can run outside the container. CMP Entity Beans are transactional in nature. JPA Entities should be used with EJBs to make them transactional.
 CMP and BMP are replaced by JPA in EJB 3.0. Both BMP and JDBC require a lot of boilerplate code to be written.
+In EJB 2.1, CMP will increase Bean portability across database servers and CMP is used only for entity beans.
+In EJB 2.1, BMP should be used when performance is essential and storing standard data types, when performance is essential and storing complex data types and when performance is not essential and storing complex data types.
+EJB 2.1 Entity beans are business entities that are persisted in the relational database. It is used for handling transaction and concurrency of a application. 
+Entity beans are per row basis. Session beans are per client basis and it can be used to handle client"s session (stateful session bean).
 JPA: Java Persistence Architecture API: The JPA is a Java specification for accessing, persisting, and managing data between Java objects/classes and a relational database.
 CMP: Container-Managed Persistence - A CMP bean is an entity bean whose state is synchronized with the database automatically.
 BMP: Bean-Managed Persistence - A BMP bean is an entity that synchronizes its state with the database manually.
@@ -504,9 +536,11 @@ A managed bean should have a no argument constructor and can be configured eithe
 
 
 As per EJB 3.1 specification, the enterprise bean class implements the business methods and any life cycle methods. A business interface is not required if the enterprise bean exposes a local, no-interface view.
-The ejb classes can be packaged within a war file.
+EJB 3.0 Session Bean is a POJO managed by the EJB Container. EJB 3.0 callback methods can be defined either in the bean class itself or in a bean listener class.
+The EJB classes can be packaged within a war file.
 Singleton session bean can be configured to perform application startup tasks and are designed for concurrent access. Once a singleton session bean instance is initialized, it is not destroyed if the singleton's business or 
 lifecycle methods cause system exceptions. This ensures that the same singleton instance is used throughout the application lifecycle.
+Transaction, security, distribution, concurrency management are application characteristics that can be implemented by EJB. But Naming Service will be implemented by JNDI (Java Naming and Directory Interface).
 
 A publisher's API is provided for interactions between programs and the UDDI registry for the purpose of storing or charging data in the registry.
 An inquiry API is provided for programs that want to access the registry to read information from the registry. Authenticated access is required for publisher's API while it is not required for inquiry API.
@@ -585,6 +619,7 @@ Security Domain is a scope over which a common security policy is defined and en
 @DeclareRoles - Define roles for security checking. To be used by EJBContext.isCallerInRole, HttpServletRequest.isUserInRole and WebServiceContext.isUserInRole.
 @RunAs - Specifies the run-as role for the given components.
 
+Java security policy files contain class permissions.
 In the web.xml deployment descriptor restriction based on role name security constraints can be specified. We can configure restrictions based on Http Methods and URL patterns in web.xml. User based or Group based security can't be specified in web.xml.
 web.xml Deployment Descriptor Elements:
 	- context-param
@@ -659,7 +694,7 @@ Transport security is a point-to-point security mechanism that can be used for a
 		- A key is exchanged using public-key encryption and certificate-based authentication.
 		- A symmetric cipher is used during the information exchange.
 
-	- Digital certificates are necessary when running HTTPS using SSL. 
+	- Digital certificates are necessary when running HTTPS using SSL. HTTPS is a stateful protocol and we can open multiple SSL sessions simultaneously.
 	- The HTTPS service of most web servers will not run unless a digital certificate has been installed. Digital certificates have already been created for the GlassFish Server.
 
 	- The advantages of using transport-layer security include the following.
@@ -735,6 +770,7 @@ SQL Injection is a technique that enables an attacker to perform unauthorized SQ
 
 SSL can address Authentication, Confidentiality and Integrity. SSL does not address Authorization. SSL uses Public Key Cryptography and provides only Transport Layer Security. SSL does not provide Message Layer Security.
 The SSL protocol is designed to be as efficient as securely possible. SSL handshake validate client to server. With HTTPS, SSL sits above the TCP/IP layer and bellow the application protocol layer.
+SSL runs above TCP/IP and below HTTP.
 As a general rule, you must address the following issues to enable SSL for a server:
 	- There must be a Connector element for an SSL connector in the server deployment descriptor.
 	- There must be valid keystore and certificate files.
@@ -1020,16 +1056,17 @@ If javax.persistence.lock.timeout is set in multiple places, the value will be d
 
 		
 
-- Client Tier runs in the client Machine. It consists of application clients that access a Java EE server and that are usually located on a different machine from the server.
-- Present Tier generates html and javascript code which is executed by Client Tier.
+- Client Tier runs in the client Machine. It consists of application clients that access a Java EE server and that are usually located on a different machine from the server. Client Tier  is the point from where the users connect to the application.
+- Present Tier generates html and javascript code which is executed by Client Tier. Presentation Tier  is used to host the presentation components and manage session for each user.
 - Web Tier consists of components that handle the interaction between clients and the Business Tier. Responsibilities:
 	- Dispatching the presentation to the client.
 	- Keeping track of HTTP sessions.
 	- Managing resource access.
 	
-- Business Tier is responsible for managing the transaction. Contains the business logic.
-- Integration Tier contains the APIs to connect to the Resource Tier components.
+- Business Tier is responsible for managing the transaction. Contains the business logic. It is is where the business application processing takes place.
+- Integration Tier contains the APIs to connect to the Resource Tier components. It handles the connection to database, inserting, retrieving, and updating data into the data tier.
 - Database or Legacy System or ERP are part of the Resource Tier. The Enterprise Information System (EIS) Tier consists of database servers, enterprise resource planning systems, and other legacy data sources, like mainframes.
+EIS Tier is where the application's data is persisted in relational databases or legacy systems.
 
 
 Non-functional requirements that have a positive impact by increasing capacity: Performance, Availability and Scalability.
@@ -1070,9 +1107,10 @@ This type of bean normally acts as a JMS message listener, which is similar to a
 The messages can be sent by any Java EE component (an application client, another enterprise bean, or a web component) or by a JMS application or system that does not use Java EE technology.
 Message-driven beans can process JMS messages or other kinds of messages. Client components do not locate message-driven beans and invoke methods directly on them.
 MDB can be configured to receive messages from JCA resource adapters, as defined by the JCA specification.
+In MDB, Bean class must not implement Home and Remote interfaces. There is no home interface and no remote interface. Bean class should implement onMessage() method. Bean class should implement MessageDrivenBean.
 The instance variables of the message-driven bean instance can contain some state across the handling of client messages, such as a JMS API connection, an open database connection, or an object reference to an enterprise bean object.
 A message can be delivered to a message-driven bean within a transaction context, so all operations within the onMessage method are part of a single transaction. If message processing is rolled back, the message will be redelivered.
-JMS is not suitable for Java to Non-Java integration. A JMS Queue can participate in a distributed transaction.
+JMS is not suitable for Java to Non-Java integration. A JMS Queue can participate in a distributed transaction. JMS messages are routed via a message broker.
 JMS provider can be integrated with the application server using the Java EE Connector architecture and a single application server might support multiple JMS providers. You access the JMS provider through a resource adapter.
 A single JMS provider can be plugged in to application servers from different vendors.
 JMS supports Message delivery acknowledgements, synchronous messaging and distributed transactions. The JMS provider can be integrated with the application server using the Java EE Connector Architecture.
@@ -1095,6 +1133,7 @@ Two parts of a JMS application, Destination and Connection Factory, are best mai
 - They can be transaction-aware.
 - They are stateless.
 
+Publish/Subscribe follows many to many model and one to many model. Point-to-Point follows one to one model.
 Clients access enterprise beans either through a no-interface view or through a business interface. A no-interface view of an enterprise bean exposes the public methods of the enterprise bean implementation class to clients. Clients using the no-interface view of 
 an enterprise bean may invoke any public methods in the enterprise bean implementation class or any superclasses of the implementation class. A business interface is a standard Java programming language interface that contains the business methods of the enterprise bean.
 A client can access a session bean only through the methods defined in the bean’s business interface or through the public methods of an enterprise bean that has a no-interface view. 
@@ -1205,7 +1244,8 @@ When to Use Enterprise Beans: You should consider using enterprise beans if your
 	- Transactions must ensure data integrity. Enterprise beans support transactions, the mechanisms that manage the concurrent access of shared objects.
 	- The application will have a variety of clients. With only a few lines of code, remote clients can easily locate enterprise beans. These clients can be thin, various, and numerous.
 
-In EJB 3.0 Session beans can be remotely accessed through Remote Business Interface. 
+In EJB 3.0 Session beans can be remotely accessed through Remote Business Interface. Client can obtain a Session Bean's Interface through dependency injection and this Session Bean Interface is an ordinary Java interface.
+EJB 3.0 supports interceptor facility for session beans and message-driven beans. Entity beans are replaced by JPA.
 In EJB 3.0 new model Session bean is a POJO managed by the EJB container and callback methods can be defined either in the bean class itself or in a bean listener class. EJB support inheritance and polymorphism.
 EJB 3.0 persistence use JPA. Implementing Web Services in an EJB component container reduce development time (A stateless session bean can be exposed as a Webservice using a few annotations).
 Advantages of Exposing an EJB as a Webservice instead of exposing a POJO as Webservice:
@@ -1213,7 +1253,11 @@ Advantages of Exposing an EJB as a Webservice instead of exposing a POJO as Webs
   - Since EJB are running in an EJB container, you have access to framework like declarative security and transactions.
   - When Stateless session beans are exposed as Webservices, Scalability is improved.
   - EJB Container provide Transaction Manager and Security. It does not provide Lyfe Cycle Management of Servlets and Executing JSPs.
-
+Benefits of EJB 3.x development over previous versions.:
+	- All container services can be configured and delivered to any POJO in the application via annotations.
+	- Special component classes are not needed.
+	- Annotations are easy to use and prove sufficient for most application needs.
+  
 Interface EJBContext: The EJBContext interface provides an instance with access to the container-provided runtime context of an enterprise bean instance.
 This interface is extended by the SessionContext, EntityContext, and MessageDrivenContext interfaces to provide additional methods specific to the enterprise interface bean type.
 Methods:
@@ -1329,15 +1373,26 @@ JPA entities can be used outside container environment hence promoting reusabili
 - Used when model has complex relationships between tables.
 Application-managed entity managers don't automatically propagate the JTA transaction context.
 In JPA, Criteria Queries provide better performance than JPQL Dynamic Queries.
+JPA primary key must implement java.io.Serializable and it can be defined as wrapper classes in the case of primitives.
+In JPA primary key, if the class is mapped to multiple fields or properties of the entity class, the names and types of the primary key fields or properties in the primary key class must match those of the entity class.
 The enterprise integration design pattern best matches the use of JPA EntityManager is Domain Store.
 Advantages of JPA over JDBC:
- - Application can be isolated from the database.
- - Maintainability increases.
- - Reduces development time.
+	- Application can be isolated from the database.
+	- Maintainability increases.
+	- Reduces development time.
 Advantages of JPA over CMP Entity Beans:
- - JPA components need not be deployed in an Application Server and CMP Entity Beans need to be deployed in an Application Server.
- - JPA supports POJO model and CMP Entity Beans need to implement an interface.
+	- JPA components need not be deployed in an Application Server and CMP Entity Beans need to be deployed in an Application Server.
+	- JPA supports POJO model and CMP Entity Beans need to implement an interface.
  Both JPA and CMP Entity Beans support Query Language and both can be integrated with Session Beans.
+Benefits of using JPA over Entity Beans (EJB 2.1):
+	- Requires fewer classes and interfaces
+	- Virtually eliminates lengthy deployment descriptors through annotations
+	- Addresses most typical specifications through annotation defaults Provides cleaner, easier, standardized object-relational mapping
+	- Eliminates the need for lookup code
+	- Adds support for inheritance, polymorphism, and polymorphic queries.
+	- Adds support for named (static) and dynamic queries. Provides a Java Persistence query language - an enhanced EJB QL
+	- Makes it easier to test entities outside of the EJB container Can be used outside of the container Can be used with pluggable, third-party persistence providers
+	- Improved object modeling.
 JPA Disadvantages:
 	- Imply loss of performance cause include additional layer.
 	- Can not explicitly tuning SQL by hand.
@@ -1363,16 +1418,37 @@ MIDlet is uploaded to a web server and accessed via target device's built-in bro
 Java Network Launch Protocol (JNLP) specified the Main JAR file name, JRE version and Runtime parameters.
 
 Bean Pooling allows a container to use beans as flyweights. Stateless Session Beans support Bean Pooling. Bean Pooling is not responsible for load distribution.
+Bean pooling is the technique used when there is a need for more users to use the system with fewer resources and improves the scalability of the application.
 
-Servlets and JSP are not transactional in nature and you do not need it to access database.
-Servlets and JSP are used when static templates are combined with data from dynamic HTML output and to function as request processors and request dispatcher.
+Servlets and JSP are not transactional in nature and you do not need it to access database. Servlets and JSP handles presentation and generates dynamic content. It can handle HTTP session.
+Servlet will be implemented as Front Controller and JSP will act as the View in MVC architecture.
+Servlets and JSP are used: 
+	- When static templates are combined with data from dynamic HTML output 
+	- To function as request processors and request dispatcher.
+	- To handle HTTP requests
+	- To filter HTTP request
+	- Can act as Front controller, HTTP Action Handler
+	- When dynamic HTML contents needs to be generated
 JSP Expression Language dynamically read application data stored in JavaBeans components, various data structures, and implicit objects. It can invoke static and public methods and access application scope attributes.
 JSP should contain only presentation logic, retrieving Session Attribute, Embedding Javascript code and iterating over an ArrayList. JSTL represent presentation logic. JSP does not support event driven model.
 Setting a Session Attribute is the responsibility of the Controller, it is not the responsibility of the View.
 Servlet may contain workflow logic and JSP may contain presentation logic. JSP is always thread-safe. In the absence of the isThreadSafe attribute, it defaults to true. If we set the isThreadSafe attribute to false, the JSP 
 engine makes sure that only one thread at a time is executing the JSP file.
-Java servlets are better than other technologies when working with binary files since these do not require any special handling. PDF is one type of binary files.
+Java servlets are better than other technologies when working with binary files since these do not require any special handling. PDF is one type of binary files. To generate WML documents JSP Java EE technology is most suitable.
 There are many other technologies that better process text-based files, including HTML, JSON and XML, than servlets, such as JSP and JSF.
+Although servlets and JSP pages can be used interchangeably, each has its own strengths.
+Servlets are best suited for service-oriented applications (web service endpoints are implemented as servlets) and the control functions of a presentation-oriented application, such as dispatching requests and handling nontextual data.
+Servlets are best suited for service-oriented applications (web service endpoints are implemented as servlets) and the control functions of a presentation-oriented application, such as dispatching requests and handling nontextual data.
+	- Servlets are most effectively used for implementing logic and generating binary content.
+	- Use Servlets to Implement Services.
+	- Servlets are usually not visual components, except for some that generate binary content.
+	- Instead, think of a servlet as an information service provided by an application.
+	- A servlet can perform whatever service it provides - templating, security, personalization, application control - and then select a presentation component (often a JSP page) to which it forwards the request for display.
+	- Use Servlets as Controllers.
+	- Use Servlets to Generate Binary Content.
+	- Avoid Writing Servlets That Print Mostly Static Text.
+
+JSP pages are more appropriate for generating text-based markup such as HTML, Scalable Vector Graphics (SVG), Wireless Markup Language (WML), and XML.
 
 A JDBC connection pool is a group of reusable connections for a particular database. When an application closes a connection, the connection is returned to the pool. A single JDBC connection pool cannot represent multiple databases.
 
@@ -1380,6 +1456,7 @@ Signed Applets do not have any security restrictions, if the user allows (trusts
 Javascript functions enable communication between applets by receiving messages from one applet and invoking methods of other applets.
 Communication between two applets or loading web pages in a browser window is not restricted by the sand box model.
 Applets that are loaded from the local file system user's CLASSPATH have none of the restrictions that applets loaded over the network do.
+Java Applets Downloaded classes have restricted access to the threads and to I/O system
 The security manager does not monitor the memory, CPU or network bandwidth usage of an applet.
 When running applets from the command line a different security manager will be used (assuming a typically configured JRE) than when an applet is invoked in a web browser
 Remote Unsigned Applets
@@ -1486,6 +1563,7 @@ Advantages of AJAX:
 	- Better user experience.
 	- Response time is faster.
 	- Network traffic is reduced.
+AJAX is a JavaScript library and hence large JavaScript library downloads to the client and cross browser compatibility will be a problem.
 
 Servlet 3.0 provides asynchronous processing support for servlets and filters.
 Asynchronous support for servlets can be added either through deployment descriptor or through annotations.
@@ -1515,6 +1593,7 @@ Templates to create Composite View and Custom Tag Libraries prevent duplicate GU
 
 Object Mapping provides OO view of legacy system. In order to obtain this you need to have full access to the legacy code.
 If you do not have access to the mainframe code you can use screen scraper to log on the mainframe system and access what ever you want. Screen scraper will act as an adapter between legacy and Java EE application.
+Object Mapping is the process of building legacy object wrappers, so that legacy system will be easily accessible by these objects.
 
 A resource adapter is analogous to a JDBC driver. Both provide a standard API through which an application can access a resource that is outside the Java EE server. 
 For a resource adapter, the target system is an EIS; for a JDBC driver, it is a DBMS. Resource adapters and JDBC drivers are rarely created by application developers. In most cases, both types of software are built by vendors that sell tools, servers, or integration software.
@@ -1529,11 +1608,18 @@ This API is the only view that the component has of the EIS. The system contract
  - Work Management Contract: The Connector Architecture work management contract ensures that resource adapters use threads in the proper, recommended manner. This contract also enables an application server to manage threads for resource adapters.
  - Generic Work Context Contract: The work management contract between the application server and a resource adapter enables a resource adapter to do a task, such as communicating with the EIS or delivering messages, by delivering Work instances for execution.
  - Outbound and Inbound Contracts: The Connector Architecture defines the following outbound contracts, system-level contracts between an application server and an EIS that enable outbound connectivity to an EIS.
+The Java EE platform provides the following EIS integration technologies:
+	- J2EE Connector architecture (JCA): The J2EE Connector architecture provides a standard architecture for integrating Java EE applications with existing EISs and applications
+	 - Java Message Service (JMS): JMS is a standard Java API defined for enterprise messaging systems
+	 - JDBC API: The JDBC API defines a standard Java API for integration with relational database systems.
 
 
 When designing your application, you need to decide whether to use synchronous or asynchronous integration with its target EISs and existing applications. 
 Both synchronous and asynchronous integration approaches are valid for application integration, and the choice should be based on the integration requirements and use cases.
 Base your decision on the following guidelines.
+Synchronous Communication:
+	- Good for transaction processing.
+	- Suitable for one to one communication.
 
  - Quality of services required: The use of a queue or a publish-subscribe system provides higher quality of services, such as message routing and reliable message delivery, than synchronous communications.
  - Application throughput: Asynchronous messaging can lead to better throughput because a queue buffers messages, supports message routing, and guarantees message delivery.
@@ -1549,7 +1635,9 @@ You can now download and launch applications, such as a complete spreadsheet pro
 Java Web Start includes the security features of the Java platform, so the integrity of your data and files is never compromised. In addition, Java Web Start technology enables you to use the latest Java SE technology with any browser.
 With Java Web Start, you launch applications simply by clicking on a Web page link. If the application is not present on your computer, Java Web Start automatically downloads all necessary files. It then caches the files on your computer so the application 
 is always ready to be relaunched anytime you want—either from an icon on your desktop or from the browser link. And no matter which method you use to launch the application, the most current version of the application is always presented to you.
- 
+An unsigned jar in Java Web Start sandbox can access System Properties and use the JNLP APIs to interact with the system clipboard. It cannot access network printers on the system or load native libraries from client machine.
+In JDK 1.1, only signed applets are trusted. In JDK1.2, any applet with right permissions can be trusted.
+NLP API in the Java Web Start Interact with client's computer's clipboard and Application online status.
  
 Java EE modules are of the following types:
  - EJB modules, which contain class files for enterprise beans and, optionally, an EJB deployment descriptor. EJB modules are packaged as JAR files with a .jar extension.
@@ -1570,8 +1658,8 @@ Via these objects, the container decorates Enterprise Bean classes and provides 
 The EJB Container also does resource management through Instance Pooling and swapping (in the case of Stateless Session Beans) and Passivation / Activation, in the case of Stateful Session Beans and Entity Beans. Note: Even while the Bean is passivated, the 
 client’s connection to the EJBObject is maintained. Before Passivation, all non-transient nonserializable fields must be set to NULL.
 
-Managing transactions in EJB 3.0
-- Container managed transactions in EJB 3.0 (@TransactionManagement(TransactionManagementType.CONTAINER)):
+Managing transactions in EJB 3.0: The indication about CMT/BMT is declared in the deployment descriptor.
+- Container Managed Transactions (CMT) in EJB 3.0 (@TransactionManagement(TransactionManagementType.CONTAINER)):
 In an enterprise bean with container-managed transactions, the EJB container sets the boundaries of the transactions. You can use container managed transactions with any type of enterprise bean: session, entity, or message-driven. Container-managed transactions simplify
 development because the enterprise bean code does not explicitly mark the transaction's boundaries. The code does not include statements that begin and end the transaction.
 	- Transactional Attributes: 
@@ -1602,7 +1690,7 @@ development because the enterprise bean code does not explicitly mark the transa
 		- Any method of javax.transaction.UserTransaction
 		You can, however, use these methods to set boundaries in application-managed transactions.
 
-- Bean Managed transactions in EJB 3.0 (@TransactionManagement(value=TransactionManagementType.BEAN)): Transaction handling at the application level. In bean-managed transaction demarcation, the code in the session or message-driven bean explicitly marks 
+- Bean Managed Transactions (BMT) in EJB 3.0 (@TransactionManagement(value=TransactionManagementType.BEAN)): Transaction handling at the application level. In bean-managed transaction demarcation, the code in the session or message-driven bean explicitly marks 
 the boundaries of the transaction. Although beans with container-managed transactions require less coding, they have one limitation: When a method is executing, it can be associated with either a single transaction or no transaction at all. 
 If this limitation will make coding your bean difficult, you should consider using bean-managed transactions. Only a Stateful Session Bean with container-managed transaction demarcation can receive session synchronization notifications.
 	- JTA Transactions: JTA, or the Java Transaction API, allows you to demarcate transactions in a manner that is independent of the transaction manager implementation. GlassFish Server implements the transaction manager with the Java Transaction Service (JTS). However, 
@@ -1662,8 +1750,7 @@ Using abstraction one can simulate real world objects. Abstraction provides adva
 Encapsulation consists of separating the external aspects of an object which are accessible to other objects, from the internal implementation details of the object, which are hidden from other objects.
 Encapsulation means putting together all the variables (instance variables) and the methods into a single unit called Class. Encapsulation provides the security that keeps data and methods safe from inadvertent changes.
 Inheritance is the ability to create classes that share the attributes and methods of existing classes, but with more specific features. Inheritance is mainly used for code reusability.
-Inheritance is a parent-child relationship of a class which is mainly used for code reusability.
-Inheritance is sometimes referred to as white box reuse
+Inheritance is a parent-child relationship of a class which is mainly used for code reusability. Inheritance supports extensibility. Inheritance allows you to form new version of classes. Inheritance is sometimes referred to as white box reuse
 Composition is sometimes referred to as black box reuse
 Cohesion is the degree to which methods and attributes of a class focus on only one purpose of the system. Cohesion Is a measure of how the methods of a class or a module are meaningfully and strongly related and how focused they are in providing a 
 well-defined purpose to the system. A class is identified as a low cohesive class, when it contains many unrelated functions within it. And that what we need to avoid, because big classes with unrelated functions hamper their maintaining.
@@ -1770,6 +1857,7 @@ One-Tier Systems
 	Advantages:
 		- Security cause don't has network calls.
 		- Manageability cause system is in one place.
+		- No client side management required.
 	Disadvantages:
 		- Has no scalability no one component can be increase.
 		- Has no extensibility when add new functionality will impact all system.
@@ -1777,6 +1865,7 @@ One-Tier Systems
 		- Has no availability when system fails, the entire system is unavailable.
 		- Single point of failure.
 		- Can only scale vertically.
+		- Difficult for updates and maintenance.
 		- The biggest weaknesses of one-tier systems are their extensibility, maintainability and scalability.
 
 Two-Tier Systems
@@ -1786,11 +1875,14 @@ Two-Tier Systems
 		- Not very availability when client application fails, the entire system is not unavailable. But it database fails, entire system is unavailable.
 		- Not very extensibility when add new GUI, will not impact the others.
 		- Not very maintainability. Changes in the SGDB will be properly propagated, but changes the GUI should be deployment all client workstations.
+		- Database will be separated from presentation and business logic.
 	Disadvantages:
 		- Has no scalability cause only component can be increase is database.
 		- Has no manageability cause presentation logic desktop in client workstation can't be monitored.
 		- Has no security case sensitive in initialization files is spread of many clients.
 		- Has no performance when receive high workload.(database will crash)
+		- Changes to data schema affects the client tier.
+		- Functional changes should be deployed on all the clients.
 
 N-Tier Systems
 	Advantages:
@@ -1816,6 +1908,7 @@ Benefits moving application from a two-tier to three tier system:
 Separating a system into various pieces makes it harder to be maintained and supported (operability).
 A three tier architecture can increase security because it adds an extra level of indirection between the web server and the database. A three tier architecture is more scalable than a two tier architecture because each tier can be scaled differently if necessary.
 The application server can cache persistent data to increase performance and scalability. With three tier architecture Operability deteriorates comparing to two-tier.
+Adding more application servers for existing ones increase Performance, Availability and Reliability.
 
 Browser Base Solution (HTML Thin Client)
 	Advantages:
@@ -1909,17 +2002,20 @@ Through <jsp:setProperty> tag, you can assign value to a Java Bean Property. You
  
 
 Deciding between Java IDL, RMI-JRMP and RMI-IIOP:
-	- Java IDL - If you have been developing CORBA applications using IDL for some time, you will probably want to stay in this environment. Create the interfaces using IDL, and define the client and server applications using the Java programming language to take 
+	- Java IDL: If you have been developing CORBA applications using IDL for some time, you will probably want to stay in this environment. Create the interfaces using IDL, and define the client and server applications using the Java programming language to take 
 	advantage of its "Write Once, Run Anywhere™" portability, its highly productive implementation environment, and its very robust platform.
-	- RMI-JRMP - If all of your applications are written in the Java programming language, you will probably want to use Java RMI to enable communication between Java objects on different virtual machines and different physical machines. 
-	Using Java RMI without its IIOP option leverages its strengths of code portability, security, and garbage collection. 
-	RMI-IIOP - If you are writing most of your new applications using the Java programming language, but need to maintain legacy applications written in other programming languages as well, you will probably want to use Java RMI with its IIOP compiler option.
+	- RMI-JRMP: If all of your applications are written in the Java programming language, you will probably want to use Java RMI to enable communication between Java objects on different virtual machines and different physical machines. 
+	Using Java RMI without its IIOP option leverages its strengths of code portability, security, and garbage collection. JRMP moves state and object's behaviour. JRMP is the most suitable when the application is not web based and client components will be implemented with Swing UI.
+	RMI-JRMP is used when developing pure java solution.
+	- RMI-IIOP: If you are writing most of your new applications using the Java programming language, but need to maintain legacy applications written in other programming languages as well, you will probably want to use Java RMI with its IIOP compiler option.
+	IIOP moves only state of an object. Since it is faster than JRMP. IIOP is the protocol for CORBA (Common Object Request Broker Architecture). CORBA provides Naming, Transaction and Security services.
 
 When to use Enterprise Java Beans?
 	It is recommended that you use Enterprise Java Beans if Transactions are involved in the application. See below for more details. The application must be scalable. To accommodate a growing number of users, you may need to distribute an application's components across
 	multiple machines. Not only can the enterprise beans of an application run on different machines, but also their location will remain transparent to the clients. Transactions are required to ensure data integrity. Enterprise beans support transactions, 
 	the mechanisms that manage the concurrent access of shared objects. The application will have a variety of clients. With just a few lines of code, remote clients can easily locate enterprise beans. These clients can be thin, various, and numerous.
 
+Off-board server is a proxy for a legacy system.
 
 Internationalization: Adapting a program for use in any country is called Internationalization.
 Localization: The process of adapting a program for use in a particular country is referred to as Localization. During Localization the language of the text, message icons, colours used, dialogues, number formats, time representation and even sorting algorithms are subject to change.
@@ -1954,6 +2050,62 @@ the appropriate bundle for the active locale. If the user switches locales, the 
 Imagine that you have translated MyBundle for two different locales, ja_JP and fr_FR. The original MyBundle will be your default bundle; the one used when others cannot be found, or when no other locale-specific bundles exist. However, in addition to the default bundle, 
 you'll create two more bundles. In the example these bundles would be named MyBundle_ja_JP and MyBundle_fr_FR. The ResourceBundle.getBundle method relies on this naming convention to search for the bundle used for the active locale.
 The java.util.ResourceBundle class is abstract, which means you must use a subclass of ResourceBundle. The JDK provides two subclasses: PropertyResourceBundle and ListResourceBundle. If these don't meet your needs, you can create your own subclass of ResourceBundle.
+
+
+Security-related annotations in an enterprise bean can be used to specify permissions on a class or its business methods.
+
+Reverse proxy load balancing is used when we have servers with varied CPU and memory. We can use powerful servers for handling dynamic data and SSL sessions and other servers to serve only static contents or images. 
+This kind of architecture will enhance the application"s performance. Reverse proxy load balancing are techniques used to target certain requests to certain backend servers for dynamic data. Static images and htmls will be served from proxy server.
+
+Round-Robin load balancing technique: Split the requests equally among all back end application servers.
+
+Application Component Provider can specifiy the deployment descriptor. Application Assembler can specify the deployment descriptor.
+
+Java EE application assembler is the company or person who receives application modules from component providers and assembles them into a Java EE application EAR file. The assembler or deployer can edit the deployment descriptor directly or 
+can use tools that correctly add XML tags according to interactive selections. A software developer performs the following tasks to deliver an EAR file containing the Java EE application:
+	- Assembles EJB JAR and WAR files created in the previous phases into a Java EE application (EAR) file
+	- Specifies the deployment descriptor for the Java EE application
+	- Verifies that the contents of the EAR file are well formed and comply with the Java EE specification
+Application Assembler can directly edit the deployment descriptors and can also add the deployment descriptor for the Java EE application.
+
+
+
+The HTTP protocol is based on a request/response paradigm. The communication generally takes place over a TCP/IP connection on the Internet. The default port is 80, but other ports can be used. This does not preclude HTTP from being implemented 
+on top of any other protocol on the Internet, so long as reliability can be guaranteed. The HTTP protocol is connectionless and stateless After the server has responded to the client's request, the connection between client and server is dropped and forgotten.
+To maintain state the following techniques may be used: Cookies
+A variable or name-value pair created and used by the web server but stored on the client by the browser: URL rewriting
+By changing each link to contain some extra state information it is possible to maintain state between connections. This solution poses a security risk as others may be able to break into the connection.
+
+
+
+When the client calls create() method on stateless session bean Home interface Container references an instance from the method ready pool to the EJBObject.
+Container creates pool of instances and that will be serviced during the create method. The newInstance and ejbCreate methods are already called during instance pool creation.
+
+
+The Service Endpoint Interface (SEI) can follow either the JAX-RPC or JAX-WS rules for WSDL mappings.
+
+
+JMX: API suitable for Java EE management.
+	- JMX is an API to for managing Java applications.
+	- Abstract the instrumentation for management information to a common interface to facilitate integrated management.
+	- Distribute management by moving management functions to the agents.
+	- Real-time deployment of services and updates.
+	- Possible to use to manage any application or device (via JNI or SNMP etc..)
+JMX and related standards Resources are instrumented by one or more Java objects known as Managed Beans(MBeans)
+MBeans are registered in a core managed object server known as an MBean server
+Connectors and Protocol Adapters provide access to JMX agents for management clients and applications.
+
+
+Benefits of implementing SSO approach:
+	- Better availability of remote security services.
+	- Eliminates multiple sign-on issues.
+	 - Avoids session theft.
+JAAS and SAML are the API's used for SSO implementation.
+
+
+
+
+
 
 
 
