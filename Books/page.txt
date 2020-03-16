@@ -11,22 +11,29 @@ Sun Certified Enterprise Architect for Java EE Study Guide (2nd ed.) [Cade & She
 
 
 - Scalability is the ability to support the required quality of service as the system load increases without changing the system. It is the capability of a system, network or process to handle a growing amount of work.
+E.g.: DB connection for every client, difficult to scale.
 
 - Reliability ensures the integrity and consistency of the application and all of its transactions.
 
 - Availability ensures that a service/resource is always accessible.
+E.g.: Poor because database still relies on single point of failure.
 
 - Extensibility is the ability to add additional functionality or modify existing functionality without impacting the existing system functionality. It is a design principle where the implementation takes future growth into consideration.
+E.g.: Difficult because data access logic and business logic are intertwined. Code is coupled with DB schema.
 
 - Maintainability is the ability to correct flows in the existing functionality without impacting other components of the system.
+E.g.: Difficult because data access logic and business logic are intertwined. Code is coupled with DB schema.
 
 - Manageability is the ability to manage the system to ensure the continued health of a system with respect to scalability, reliability, availability, performance, and security.
+E.g.: Poor because of complex client deployment and maintenance.
 
 - Security is the ability to ensure that the system cannot be comprised.
+E.g.: Difficult because client has too much control (handles presentation, business logic and data access logic).
 
 - Operability is the ability to keep an equipment, a system or a whole industrial installation in a safe and reliable functioning condition, according to pre-defined operational requirements.
 
 - Performance - The amount of work accomplished by a computer system.
+E.g.: Each client requires a connection, no connection pooling. Raw data transferred to client for processing that causes heavy network traffic.
 
 
 ------------------
@@ -170,7 +177,7 @@ Business Tier
 Integration Tier
 	- Data Access Object: abstracts and encapsulate all access to the data source. The DAO manages the connection with the data source to obtain and store data.
 	- Domain Store: provides a powerful mechanism to implement transparent persistence for your object model. It combines and links several other patterns including Data Access Objects. Patter using in ORM frameworks.
-	- Web Service Broker: exposes aplication services using XML and web protocols.
+	- Web Service Broker: exposes application services using XML and web protocols.
 	- Service Activator: enables asynchronous access to enterprise beans and other business services. It receive asynchronous client requests and messages. On receiving a message, the Service Activator locates and invokes 
 	the necessary business methods on the business service components to fulfill the request asynchronously. In EJB2.0, Message Driven beans can be used to implement Service Activator for message based enterprise applications. 
 	- The Service Activator is a JMS Listener and delegation service that creates a message façade for the EJBs.
@@ -358,6 +365,7 @@ CMP Entity Beans run only within the container. JPA Entities can run outside the
 CMP and BMP are replaced by JPA in EJB 3.0. Both BMP and JDBC require a lot of boilerplate code to be written.
 In EJB 2.1, CMP will increase Bean portability across database servers and CMP is used only for entity beans.
 In EJB 2.1, BMP should be used when performance is essential and storing standard data types, when performance is essential and storing complex data types and when performance is not essential and storing complex data types.
+The benefit of using DAO with EJB 2.1 BMP entity beans over EJB 2.1 CMP entity beans is reduced database coupling with entity beans.
 EJB 2.1 Entity beans are business entities that are persisted in the relational database. It is used for handling transaction and concurrency of a application. 
 Entity beans are per row basis. Session beans are per client basis and it can be used to handle client"s session (stateful session bean).
 JPA: Java Persistence Architecture API: The JPA is a Java specification for accessing, persisting, and managing data between Java objects/classes and a relational database.
@@ -776,6 +784,8 @@ As a general rule, you must address the following issues to enable SSL for a ser
 	- There must be valid keystore and certificate files.
 	- The location of the keystore file and its password must be specified in the server deployment descriptor.
 An SSL HTTPS connector is already enabled in the GlassFish Server.
+SSL is a protocol that sits between the transmission control protocol and application layer protocols. It provides authentication and encryption services to the application layer protocols.
+
 
 The characteristics of application security that, when properly addressed, help to minimize the security threats faced by an enterprise include the following:
 	- Authentication: The means by which communicating entities, such as client and server, prove to each other that they are acting on behalf of specific identities that are authorized for access. This ensures that users are who they say they are.
@@ -1422,6 +1432,7 @@ Bean pooling is the technique used when there is a need for more users to use th
 
 Servlets and JSP are not transactional in nature and you do not need it to access database. Servlets and JSP handles presentation and generates dynamic content. It can handle HTTP session.
 Servlet will be implemented as Front Controller and JSP will act as the View in MVC architecture.
+Servlet is best suited for generating unstructured untextual Content.
 Servlets and JSP are used: 
 	- When static templates are combined with data from dynamic HTML output 
 	- To function as request processors and request dispatcher.
@@ -1493,7 +1504,6 @@ In Component Managed Sign On, the application component code manages EIS sign-on
 
 Through JSTL, SQL queries can be executed, support XML and internationalization. JSTL reduces the amount of scriplet code. But it does not have inbuilt support for JPA.
 
-Inheritance allows you to restrict the behaviour of objects and is a way to form new classes using classes that have already been defined.
 Violation of Liskov Substitution Principle (LSP) in turns violates Open Closed Principle.
 
 Maintainability is the ability to correct flaws in the system whereas manageability is the ability to ensure the continued health of the system.
@@ -1749,8 +1759,13 @@ Separation of Concerns principle states that every unit in the system needs to h
 Using abstraction one can simulate real world objects. Abstraction provides advantage of code reuse. Abstraction enables program open for extension.
 Encapsulation consists of separating the external aspects of an object which are accessible to other objects, from the internal implementation details of the object, which are hidden from other objects.
 Encapsulation means putting together all the variables (instance variables) and the methods into a single unit called Class. Encapsulation provides the security that keeps data and methods safe from inadvertent changes.
+Encapsulation is the process of making classes into the public interface and the private implementation. Object should totally separate its interface from its implementation. All the data and implementation code for an object should be hidden behind its interface. 
+The idea is that we can create an interface (Public methods in a class) and, as long as that interface remains consistent, the application can interact with our objects. 
+This remains true even if we entirely rewrite the logic (code) within a given method; thus the interface is independent of the implementation.
 Inheritance is the ability to create classes that share the attributes and methods of existing classes, but with more specific features. Inheritance is mainly used for code reusability.
+Inheritance indicates strong encapsulation with other classes, but weak encapsulation between a superclass and its subclasses.
 Inheritance is a parent-child relationship of a class which is mainly used for code reusability. Inheritance supports extensibility. Inheritance allows you to form new version of classes. Inheritance is sometimes referred to as white box reuse
+Inheritance allows you to restrict the behaviour of objects and is a way to form new classes using classes that have already been defined.
 Composition is sometimes referred to as black box reuse
 Cohesion is the degree to which methods and attributes of a class focus on only one purpose of the system. Cohesion Is a measure of how the methods of a class or a module are meaningfully and strongly related and how focused they are in providing a 
 well-defined purpose to the system. A class is identified as a low cohesive class, when it contains many unrelated functions within it. And that what we need to avoid, because big classes with unrelated functions hamper their maintaining.
@@ -1769,6 +1784,7 @@ Examples of Polymorphism:
 	- Overriding an existing method
 	- More than one class implements the same interface
 Method overriding supports run time polymorphism and Method overloading supports compile time polymorphism.
+
 
 
 Object Oriented Principles:
@@ -1958,6 +1974,9 @@ JSF
 		- Automatic server side validations and conversion.
 		- Automatic I18N e I10L.
 		- All features result in reduces development time.
+		- Reusable HTML GUI components.
+		- Supports multiple client types
+		- Portable, reusable Web-tier GUI component libraries
 	Disadvantages:
 		- Standard HTML editor will not render the JSF. Need to deploy JSF application to page rendered.
 
@@ -2103,9 +2122,26 @@ Benefits of implementing SSO approach:
 JAAS and SAML are the API's used for SSO implementation.
 
 
+Java EE architecture layers
 
+	- Application Layer (Business Services, Common Services) : Application Business Services and common services code
+	- Upper Layer (Web Server, Application Server): web server, application server, other infrastructure type of software needed to support application layer
+	- Lower Layer: (OS, Hardware)
 
+Upper layer must provide Java EE web/application server to support application layer.
 
+A class is a blueprint or prototype from which objects are created.
+
+A packet-filtering router is used to pass packets based on certain ports on certain machines.
+
+A digital signature consists of text that is encrypted using the private key of a public key[md]private key pair.
+The public key is used to decrypt the signature to verify its authenticity.
+
+A certification authority is an organization that is trusted to verify the public keys of other organizations and individuals. Certification authorities issue digital certificates that verify the public keys of these entities.
+
+Servlets - Platform independent and portable.
+CGI - Platform and application specific.
+	
 
 
 
