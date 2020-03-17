@@ -89,7 +89,9 @@ This pattern minimizes the complexity of an object that consists of many differe
 - The Interpreter pattern interprets a language to define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
 - The Iterator pattern provides a consistent way to sequentially access items in a collection that is independent of and separate from the underlying collection.
 - The Mediator pattern simplifies communication among objects in a system by introducing a single object that manages message distribution among other objects. Message-Oriented Middleware (MOM) use this pattern.
+Defines an object that encapsulates how a set of objects interact. It promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
 - The Memento pattern preserves a “snapshot” of an object’s state, so that the object can return to its original state without having to reveal its content to the rest of the world. Is is close to the concept of Stateful Session Bean Passivation technique used by the EJB container.
+Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later.
 * - The Observer pattern provides a way for a component to flexibly broadcast messages to interested receivers. Changes in the observable are broadcasted to all observers. JMS use this pattern.
 - The State pattern allows an object to alter its behaviour when its internal state changes.
 * - The Strategy pattern defines a group of classes that represent a set of possible behaviours. Can be used when you need different variants of an algorithm. It offers an alternative to sub classing.
@@ -98,24 +100,24 @@ inherit from the abstract class. The client can then use any of these classes wi
 Provides a way to configure a class with one of the many behaviour. Defines a family of algorithms, encapsulates each one, and makes them interchangeable.
 - The Template Method pattern provides a method that allows subclasses to override parts of the method without rewriting it. Defines a skeleton of an algorithm, deferring some steps to subclasses. Helps you to make few logical changes in a class that can be used in many editions.
 - The Visitor pattern provides a maintainable, easy way to represent an operation to be performed on the elements of an object structure. It add new operations easily without changing the classes of the elements on which it operates.
-- The Intercepting Filter pattern provides the ability to manipulate a request prior to processing or to manipulate the response before sending the results of the request.
+- The Intercepting Filter pattern provides the ability to manipulate a request prior to processing or to manipulate the response before sending the results of the request. It pre and post-process application requests.
 - The Context Object pattern is used to encapsulate the specifics of protocol implementation to be shared. It avoids using protocol-specific system information outside of its relevant context.
 - The Front Controller pattern creates central control logic for presentation request handling. Creates a centralized access point for presentation-tier request handling.
 The Front Controller is different from the Intercepting Filter in that the Front Controller is determining processing based on the request and an Intercepting Filter is modifying the request.
 This pattern can be applied when you need a mechanism to implement initial request processes, such as session management or resource access controlling.
 - The Application Controller pattern is used to centralize retrieval and invocation of request-processing components, such as commands and views. Centralizes and modularizes action and view management.
 - The View Helper pattern separates the processing logic from the view.
-- The Composite View pattern combines simple views into a more complex view without handling the content or layout.
+- The Composite View pattern combines simple views into a more complex view without handling the content or layout. It separately manage layout and content of multiple composed views.
 - The Dispatcher View pattern handles the request and generates a response while managing limited business processing.
 - The Service to Worker pattern performs request handling and invokes business logic before control is passed to the view.
-- The Business Delegate pattern hides the complexity of remote communication with business components from the client.
-- The Service Locator pattern uses a consistent approach to locating business components regardless of the type of components.
+- The Business Delegate pattern hides the complexity of remote communication with business components from the client. It reduce coupling between Web and Enterprise JavaBeans tiers.
+- The Service Locator pattern uses a consistent approach to locating business components regardless of the type of components. It simplifies client access to enterprise business services.
 Service Locator object is to used abstract all JNDI usage and to hide the complexities of initial context creation.
 
 - The Session Façade patterns provides a coarse-grained service of business components to remote clients. This is the same as a Façade pattern, but just provides an interface to a service instead of code.
 - The Application Service pattern centralizes and aggregates business components. An application service could be thought of as a helper to the Session Façade that takes care of all the business logic and workflow.
 - The Business Object pattern separates business data from logic.
-- The Composite Entity pattern aggregates business entities into a coarse-grained entity.
+- The Composite Entity pattern aggregates business entities into a coarse-grained entity. Model a network of related business entities.
 - The Transfer Object pattern uses an object to carry data across tiers.
 - The Transfer Object Assembler pattern builds a composite transfer object and returns to the client.
 - The Value List Handler pattern caches results and allows the client to traverse and select from the results.
@@ -167,7 +169,7 @@ Business Tier
 	- Service Locator: multiple clients can reuse the Service Locator object to reduce code complexity, provide a single point of control, and improve performance by providing a caching facility.
 	- Session Facade: encapsulate the complexity of interactions between the business objects participating in a workflow. The Session Facade manages the business objects, and provides a uniform coarse-grained service access layer to clients.
 	Session Facade hides business objects workflow layer. Use a session bean as a facade to encapsulate the complexity of interactions between the business objects participating in a workflow. 
-	The Session Facade manages the business objects, and provides a uniform coarse-grained service access layer to clients
+	The Session Facade manages the business objects, and provides a uniform coarse-grained service access layer to clients. It coordinates operations between multiple business objects in a workflow.
 	- Transfer Object: used to send and retrieve datas inside a single method call. When the client requests the EJB for the business data, the EJB can construct the Transfer Object, populate it with its attribute values, and pass it by value to the client.
 	- Transfer Object Assembler: uses Transfer Objects to retrieve data from various business objects and other objects that define the model or part of the model.
 	- Composite Entity: it model, represent, and manage a set of interrelated persistent objects rather than representing them as individual fine-grained entity beans. A
@@ -422,6 +424,7 @@ JSF provides UI reusable and extensible components, bind UI components on a page
 JSF technology provides in built support for server side validation. It uses a single controller servlet called FacesServlet to receive all requests. JSF pages are interpreted by web container.
 JSF components are processed at view render time, while JSTL tags at view build time. Event Driven Model is friendly to AJAX. Managed Beans can be tested outside the container.
 JSF don't provide client side validation. JSF is a server-side component framework for building Java technology-based web applications.
+JSF is a flexible model for rendering components in different kinds of HTML or different markup languages and technologies.
 JSF offers a clear separation between behaviour and presentation and it can map HTTP requests to component-specific event handling methods.
 JSF pages are not properly indexed by Search Engines where as JSP pages are correctly indexed by Search Engines. JSF cannot be previewed outside the web container
 JSF consists of the following:
@@ -1503,6 +1506,7 @@ In Component Managed Sign On, the application component code manages EIS sign-on
 
 
 Through JSTL, SQL queries can be executed, support XML and internationalization. JSTL reduces the amount of scriplet code. But it does not have inbuilt support for JPA.
+JSTL: Instead of mixing tags from numerous vendors in your JSP applications, you employ a single, standard set of tags.
 
 Violation of Liskov Substitution Principle (LSP) in turns violates Open Closed Principle.
 
@@ -1757,7 +1761,7 @@ An object is an instance of a class.
 Delegation is the implementation of objects that forward certain method calls to another object, a delegate. It is used to replace inheritance with composition. In delegation, at least two objects are involved in handling a request.
 Separation of Concerns principle states that every unit in the system needs to have a clearly defined responsibility and functionality. This applies to all levels of the system, from EARs to methods.
 Using abstraction one can simulate real world objects. Abstraction provides advantage of code reuse. Abstraction enables program open for extension.
-Encapsulation consists of separating the external aspects of an object which are accessible to other objects, from the internal implementation details of the object, which are hidden from other objects.
+Encapsulation consists of separating the external aspects of an object which are accessible to other objects, from the internal implementation details of the object, which are hidden from other objects. It totally separate its interface from its implementation.
 Encapsulation means putting together all the variables (instance variables) and the methods into a single unit called Class. Encapsulation provides the security that keeps data and methods safe from inadvertent changes.
 Encapsulation is the process of making classes into the public interface and the private implementation. Object should totally separate its interface from its implementation. All the data and implementation code for an object should be hidden behind its interface. 
 The idea is that we can create an interface (Public methods in a class) and, as long as that interface remains consistent, the application can interact with our objects. 
@@ -2023,9 +2027,11 @@ Through <jsp:setProperty> tag, you can assign value to a Java Bean Property. You
 Deciding between Java IDL, RMI-JRMP and RMI-IIOP:
 	- Java IDL: If you have been developing CORBA applications using IDL for some time, you will probably want to stay in this environment. Create the interfaces using IDL, and define the client and server applications using the Java programming language to take 
 	advantage of its "Write Once, Run Anywhere™" portability, its highly productive implementation environment, and its very robust platform.
-	- RMI-JRMP: If all of your applications are written in the Java programming language, you will probably want to use Java RMI to enable communication between Java objects on different virtual machines and different physical machines. 
+	- RMI-JRMP: If all of your applications are written in the Java programming language, you will probably want to use Java RMI to enable communication between Java objects on different virtual machines and different physical machines. RMI-JRMP is used when 
+	developing pure java solution.RMI-JRMP is used when developing pure java solution.
 	Using Java RMI without its IIOP option leverages its strengths of code portability, security, and garbage collection. JRMP moves state and object's behaviour. JRMP is the most suitable when the application is not web based and client components will be implemented with Swing UI.
-	RMI-JRMP is used when developing pure java solution.
+	JRMP is a proprietary wire-level protocol designed by Sun Microsystems to transport Java RMI. It serves the same function as IIOP, but also supports object passing. Also known as the RMI Wire Protocol, is used to send method invocations and 
+	associated parameters and to return values and exceptions from one Java virtual machine (JVM) to another. It is a simple protocol consisting of five messages, plus an extra five for multiplexing flow control.
 	- RMI-IIOP: If you are writing most of your new applications using the Java programming language, but need to maintain legacy applications written in other programming languages as well, you will probably want to use Java RMI with its IIOP compiler option.
 	IIOP moves only state of an object. Since it is faster than JRMP. IIOP is the protocol for CORBA (Common Object Request Broker Architecture). CORBA provides Naming, Transaction and Security services.
 
@@ -2131,23 +2137,35 @@ Java EE architecture layers
 Upper layer must provide Java EE web/application server to support application layer.
 
 A class is a blueprint or prototype from which objects are created.
+An object is a software bundle of related state (attribute) and behaviour (method).
 
 A packet-filtering router is used to pass packets based on certain ports on certain machines.
 
 A digital signature consists of text that is encrypted using the private key of a public key[md]private key pair.
 The public key is used to decrypt the signature to verify its authenticity.
+A message digest is a value that is computed from a message, file or other byte stream that serves as a digital fingerprint for the byte stream.
+A digital certificate is a message that is signed by a certification authority that certifies the value of a person or organization's public key.
 
 A certification authority is an organization that is trusted to verify the public keys of other organizations and individuals. Certification authorities issue digital certificates that verify the public keys of these entities.
 
 Servlets - Platform independent and portable.
 CGI - Platform and application specific.
 	
+Firewalls are used to mediate and control all information that is communicated between an external (untrusted) network and an internal (trusted) network.
+IPSec is a set of IP extensions that provide security services such as encryption, authentication, and data integrity and it is typically used with a VPN.
+A VPN is a network between geographically-dispersed sites that takes place over an untrusted network.
 
 
+Stub a proxy for a remote object that runs on the client computer.
+Skelton a proxy for a remote object that runs on the server.
 
 
-
-
+Phases of the object-oriented development lifecycle:
+	1 - Problem statement.
+	2 - Object-oriented analysis.
+	3 - Java architecture design.
+	4 - Object-oriented design.
+	5 - Object generation.
 
 
 
