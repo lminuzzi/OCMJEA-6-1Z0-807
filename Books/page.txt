@@ -76,11 +76,12 @@ It is independent of how its objects are created, composed and represented. It i
 - Structural patterns control the relationships between large portions of your applications.
 - The Adapter pattern acts as an intermediary between two classes, converting the interface of one class so that it can be used with the other. It implements an interface known to its clients and provides an instance of a class not known to its clients.
 - The Bridge pattern divides a complex component into two separate but related inheritance hierarchies: the functional abstraction and the internal implementation. It creates a separation between abstractions and classes that implement those abstractions.
+The overall JDBC architecture can be considered as Bridge pattern.
 * - The Composite pattern enables you to create hierarchical tree structures of varying complexity, while allowing every element in the structure to operate with a uniform interface.
 This pattern minimizes the complexity of an object that consists of many different objects. This pattern allows you to easily add new types of component.
 - The Decorator pattern enables you to add or remove object functionality without changing the external appearance or function of the object. It is very widely used in java.io API. EJB Remote interface implementation is an example of decorator pattern.
 * - The Façade pattern provides a unified interface to a group of interfaces in a subsystem. The number of remote calls are reduced. Promotes loose coupling between the sub system and its clients.
-- The Flyweight pattern reduces the number of low-level, detailed objects within a system by sharing objects.
+- The Flyweight pattern reduces the number of low-level, detailed objects within a system by sharing objects. EJB pooling use this pattern.
 - The Proxy pattern provides a surrogate or place holder object to control access to the original object. RMI use this pattern.
 
 - Behavioural patterns influence how state and behaviour flow through a system.
@@ -91,7 +92,7 @@ This pattern minimizes the complexity of an object that consists of many differe
 - The Mediator pattern simplifies communication among objects in a system by introducing a single object that manages message distribution among other objects. Message-Oriented Middleware (MOM) use this pattern.
 Defines an object that encapsulates how a set of objects interact. It promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
 - The Memento pattern preserves a “snapshot” of an object’s state, so that the object can return to its original state without having to reveal its content to the rest of the world. Is is close to the concept of Stateful Session Bean Passivation technique used by the EJB container.
-Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later.
+Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later. Undo property uses this pattern.
 * - The Observer pattern provides a way for a component to flexibly broadcast messages to interested receivers. Changes in the observable are broadcasted to all observers. JMS use this pattern.
 - The State pattern allows an object to alter its behaviour when its internal state changes.
 * - The Strategy pattern defines a group of classes that represent a set of possible behaviours. Can be used when you need different variants of an algorithm. It offers an alternative to sub classing.
