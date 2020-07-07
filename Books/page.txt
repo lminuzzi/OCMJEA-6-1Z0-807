@@ -13,7 +13,8 @@ Sun Certified Enterprise Architect for Java EE Study Guide (2nd ed.) [Cade & She
 - Scalability is the ability to support the required quality of service as the system load increases without changing the system. It is the capability of a system, network or process to handle a growing amount of work.
 E.g.: DB connection for every client, difficult to scale.
 
-- Reliability ensures the integrity and consistency of the application and all of its transactions.
+- Reliability ensures the integrity and consistency of the application and all of its transactions. When you increase reliability you increase availability.
+You increase reliability through the use of horizontal scalability.
 
 - Availability ensures that a service/resource is always accessible.
 E.g.: Poor because database still relies on single point of failure.
@@ -25,6 +26,8 @@ E.g.: Difficult because data access logic and business logic are intertwined. Co
 E.g.: Difficult because data access logic and business logic are intertwined. Code is coupled with DB schema.
 
 - Manageability is the ability to manage the system to ensure the continued health of a system with respect to scalability, reliability, availability, performance, and security.
+A single tier or monolithic app would be more manageable from a management perspective than a multi-tier system but this must be weighed against the 
+possibility of a change rippling through a monolithic app.
 E.g.: Poor because of complex client deployment and maintenance.
 
 - Security is the ability to ensure that the system cannot be comprised.
@@ -34,6 +37,12 @@ E.g.: Difficult because client has too much control (handles presentation, busin
 
 - Performance - The amount of work accomplished by a computer system.
 E.g.: Each client requires a connection, no connection pooling. Raw data transferred to client for processing that causes heavy network traffic.
+
+- Flexibility is the ability to change the architecture to meet new requirements in a cost-efficient manner. A flexible system should be more maintainable 
+in the face of changes to the environment and/or to the application itself.
+Flexibility improves: Availability, Reliability, ScalabilityFlexibility slightly decreases: Performance, Manageability
+Flexibility is achieved via code that can be distributed across servers with load balancing that prevents one system from being overburdened.
+The use of a multi-tier architecture also helps achieve flexibility.
 
 
 ------------------
@@ -69,35 +78,44 @@ E.g.: Each client requires a connection, no connection pooling. Raw data transfe
 Exchanging product families is made easier and promotes consistency among products by implementing the common interface.
 It is independent of how its objects are created, composed and represented. It is configured with one of multiple families of objects.
 - The Builder pattern separates the construction of a complex object from its representation so the same construction process can create different objects. Create a complex object by specifying only its type contents and have the assembly and parts independent.
-- The Factory Method pattern defines an interface for creating an object, but lets the subclasses decide which class to instantiate. JDBC and JMS are based on this pattern and it provides methods for creating EJBObjects (EJBHome).
+- The Factory Method pattern defines an interface for creating an object, but lets the subclasses decide which class to instantiate. JDBC and JMS are based on this pattern and it provides methods for creating EJBObjects (EJBHome). Also known as virtual constructor.
+Used in J2EE-EJBHome, EJBLocalHome, QueueConnectionFactory, TopicConnectionFactory, J2SE- Collator, ContentHandlerFactory, InitialContextFactory, SocketFactory.
+Eliminates the need to bind application-specific classes into your code. Gives subclasses a hook for providing an extended version of an object being constructed.
 - The Prototype pattern allows an object to create customized objects without knowing their exact class or the details of how to create them.
 * - The Singleton pattern ensures that a class has only one instance, and provides a global point of access to that class.
 
 - Structural patterns control the relationships between large portions of your applications.
-- The Adapter pattern acts as an intermediary between two classes, converting the interface of one class so that it can be used with the other. It implements an interface known to its clients and provides an instance of a class not known to its clients.
+- The Adapter pattern acts as an intermediary between two classes, converting the interface of one class so that it can be used with the other. It implements an interface known to its clients and provides an instance of a class not known to its clients. 
+Also known as: Wrapper. Used in JCA architecture, J2SE-java.awt.event.ComponentAdapter
 - The Bridge pattern divides a complex component into two separate but related inheritance hierarchies: the functional abstraction and the internal implementation. It creates a separation between abstractions and classes that implement those abstractions.
-The overall JDBC architecture can be considered as Bridge pattern.
+The overall JDBC architecture can be considered as Bridge pattern. Also known as Handle/Body.
 * - The Composite pattern enables you to create hierarchical tree structures of varying complexity, while allowing every element in the structure to operate with a uniform interface.
 This pattern minimizes the complexity of an object that consists of many different objects. This pattern allows you to easily add new types of component.
 - The Decorator pattern enables you to add or remove object functionality without changing the external appearance or function of the object. It is very widely used in java.io API. EJB Remote interface implementation is an example of decorator pattern.
-* - The Façade pattern provides a unified interface to a group of interfaces in a subsystem. The number of remote calls are reduced. Promotes loose coupling between the sub system and its clients.
-- The Flyweight pattern reduces the number of low-level, detailed objects within a system by sharing objects. EJB pooling use this pattern.
-- The Proxy pattern provides a surrogate or place holder object to control access to the original object. RMI use this pattern.
+The EJB object is a decorator for the bean because the bean’s functionality is expanded to include remote dehavior.
+* - The Façade pattern provides a unified interface to a group of interfaces in a subsystem. The number of remote calls are reduced. Promotes loose coupling between the sub system and its clients. Used in J2SE-java.net.URL
+- The Flyweight pattern reduces the number of low-level, detailed objects within a system by sharing objects. EJB pooling use this pattern. Used in J2SE-java.lang.String.
+- The Proxy pattern provides a surrogate or place holder object to control access to the original object. RMI use this pattern. Also known as Surrogate.
+The EJB’s remote interface(EJBObject) acts as a proxy for the bean.
 
 - Behavioural patterns influence how state and behaviour flow through a system.
-- The Chain of Responsibility pattern establishes a chain within a system, so that a message can either be handled at the level where it is first received, or be directed to an object that can handle it.
+- The Chain of Responsibility pattern establishes a chain within a system, so that a message can either be handled at the level where it is first received, or be directed to an object that can handle it. Used in J2EE-ReqestDispatcher in the servlets/JSP API.
 - The Command pattern encapsulates a request in an object, which enables you to store the command, pass the command to a method, and return the command like any other object.
+Also known as Action of Transaction. Used in J2EE-Message Beans,servlets and JSPs.
 - The Interpreter pattern interprets a language to define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
 - The Iterator pattern provides a consistent way to sequentially access items in a collection that is independent of and separate from the underlying collection.
+Also known as Cursor. Used in J2SE - Iterator, Enumaration.
 - The Mediator pattern simplifies communication among objects in a system by introducing a single object that manages message distribution among other objects. Message-Oriented Middleware (MOM) use this pattern.
 Defines an object that encapsulates how a set of objects interact. It promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
 - The Memento pattern preserves a “snapshot” of an object’s state, so that the object can return to its original state without having to reveal its content to the rest of the world. Is is close to the concept of Stateful Session Bean Passivation technique used by the EJB container.
 Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later. Undo property uses this pattern.
+Also known as Token. J2EE-Entiry Bean using Bean managed persistence.
 * - The Observer pattern provides a way for a component to flexibly broadcast messages to interested receivers. Changes in the observable are broadcasted to all observers. JMS use this pattern.
 - The State pattern allows an object to alter its behaviour when its internal state changes.
-* - The Strategy pattern defines a group of classes that represent a set of possible behaviours. Can be used when you need different variants of an algorithm. It offers an alternative to sub classing.
-The Strategy pattern allows you to change behaviour without recompiling any client code. Basically you define a method in an abstract class. The variations of this behaviour are then defined in other classes that
-inherit from the abstract class. The client can then use any of these classes without the need to recompile. Easy to add new behaviour without the need to edit any code.
+* - The Strategy pattern defines a group of classes that represent a set of possible behaviours. Can be used when you need different variants of an algorithm. 
+It offers an alternative to sub classing. Also known as-Policy. The Strategy pattern allows you to change behaviour without recompiling any client code. 
+Basically you define a method in an abstract class. The variations of this behaviour are then defined in other classes that inherit from the abstract class. 
+The client can then use any of these classes without the need to recompile. Easy to add new behaviour without the need to edit any code.
 Provides a way to configure a class with one of the many behaviour. Defines a family of algorithms, encapsulates each one, and makes them interchangeable.
 - The Template Method pattern provides a method that allows subclasses to override parts of the method without rewriting it. Defines a skeleton of an algorithm, deferring some steps to subclasses. Helps you to make few logical changes in a class that can be used in many editions.
 - The Visitor pattern provides a maintainable, easy way to represent an operation to be performed on the elements of an object structure. It add new operations easily without changing the classes of the elements on which it operates.
@@ -127,6 +145,13 @@ Centralizes All Data Access into a Separate Layer, Not Useful for Container-Mana
 It separates the business logic from the data integration component. It completely hides the data source implementation details from its clients. 
 It separates the implementation of the CRUD operations from the business logic. It is able to adapt to different storage schemes without affecting its clients or business components.
 - The Service Activator pattern handles asynchronous requests to business components. This pattern address Monolithic Consumer Anti pattern.
+The ServiceActivator is a JMS Listener and delegation service that requires implementing the JMS message listener-making it a JMS listener object that can listen to JMS messages.
+The ServiceActivator can be implemented as a standalone service. Clients act as the message generator, generating events based on their activity.
+The Service Activator may optionally send an acknowledgement to the client after successfully completing the request processing. 
+The Service Activator may also notify the client or other services on failure events if it fails to complete the asynchronous request processing.
+The Service Activator may use the services of a Service Locator to locate a business component.
+- The Virtual Proxy pattern is used to preserve memory from being allotted to an object that may not be used in the future. 
+Until the object is not used, a light copy of the object (that contains the required details) is created and shown to the user.
 - The Domain Store pattern separates the persistence of an object from the object model. This pattern really became relevant with the advent of object relational model frameworks and products.
 You would use the domain store and data access object at the same time.
 - The Web Service Broker pattern exposes and brokers services using XML and web protocols.
@@ -224,6 +249,8 @@ Java Architecture for XML Biding (JAXB) provides an API and tool that allow auto
 the JAXB compiler can generate a set of Java classes that allow developers to build applications that can read, manipulate and recreate XML documents without writing any logic process XML elements.
 JAXB components: the binding compiler (which binds a given XML schema to a set of generated Java classes) and the binding runtime framework (which provides unmarshalling, marshalling, and validation functionalities). Client, Web and EJB containers supports JAXB.
 JAXB can be used independently. JAXB can be used with JAX-WS.
+Unmarshalling: Unmarshalling provides a client application the ability to convert XML data into JAXB-derivedJava objects
+Marshalling: Marshalling provides a client application the ability to convert a JAXB-derived Java object treeback into XML data.
 
 Java API for XML Processing (JAXP) enables applications to parse, transform, validate and query XML documents using an API that is independent of a particular XML processor implementation.
 JAXP provides a pluggability layer to enable vendors to provide their own implementations without introducing dependencies in application code
@@ -298,6 +325,15 @@ JCA resources can participate in distributed transaction. Using JCA Java EE comp
 JCA components are portable across difference Java EE Application Servers and it specification is implemented by Resource Adapters. Resource Adapters are packaged in the format of RAR file.
 EJB clients use the RMI-IIOP protocol to access the remote EJB component. It uses the best features of RMI and CORBA. It used by CORBA based clients to access EJBs.
 Keytool allows the user to create, manage and administer their own public/private key pairs and associated certificates that are intended for use in authentication services and in representing digital signatures.
+Keytool works on a file that contains a set of private keys and certificates for those keys.
+Keystore is the database of the keytool.
+Each entry in the keystore has:
+	- Alias: name for referencing that entity.
+	- One or more certificates for that entity’s identify.
+	- Optionally, a private key which can be protected by a password.
+There are 2 types of entries: Key entry and Certificate entry:
+	- Key entries contain both public and private keys and may contain multiple certificates in a certificate chain.
+	- Certificate entries contain only public keys in a certificate.
 A data encrypted by the public key can be decrypted only by the private key.
 Principal is an entity that can be uniquely identified and authenticated by a JEE security module before system access is allowed or denied. It may represent a human user or another system.
 The ejb context interface provides an instance with access to the container-provided runtime context of an enterprise bean instance. getCallerPrincipal() and isCallerInRole() methods are available in EJBContext.
@@ -778,6 +814,9 @@ Eavesdropping - Capturing small packets from the network transmitted by other co
 Phishing - Is a way of attempting to acquire information such as user names, passwords, and credit card details by masquerading as a trustworthy entity in an electronic communication. 
 Denial-of-service (DoS) attack is an attempt to make a machine or network resource unavailable to its intended users.
 SQL Injection is a technique that enables an attacker to perform unauthorized SQL queries in web applications using dynamic SQL statements.
+Man in the middle - attackers intrude into an existing connection to intercept the exchanged data and inject false information. 
+It involves eavesdropping on a connection, intruding into a connection, intercepting messages, and selectively modifying data. Also known as:
+Bucket-brigade attack, Fire brigade attack, Monkey-in-the-middle attack, Session hijacking, TCP hijacking, TCP session hijacking
 
 
 SSL can address Authentication, Confidentiality and Integrity. SSL does not address Authorization. SSL uses Public Key Cryptography and provides only Transport Layer Security. SSL does not provide Message Layer Security.
@@ -1108,9 +1147,19 @@ The disadvantage of passive replication compared to active is that in case of fa
 
 - In a vertical scaling model, the process of adding more capacity means taking existing actors in a system and increasing their individual power. To scale vertically (or scale up) means to add resources to a single node
 in the system, typically involving the addition of CPUs or memory to a single computer. It increases the height of the system.
+Requires few to no changes to the architecture of a system.
+Increases: Capacity, Manageability
+Decreases: Reliability, Availability (single failure is more likely to lead to system failure)
+Vertical scalability is usually cheaper than horizontal scalability.
+J2EE supports vertical scaling because of automatic lifecycle management. Adding more capacity to a server allows it to manage more components (EJBs, etc.).
 
 - In a horizontal scaling model, instead of increasing the capacity of each individual actor in the system, we simply add more actors to the system. To scale horizontally (or scale out) means to add more nodes to a system, 
 such as adding a new computer to a distributed software application. It increases the width of the system.
+Increases: Reliability, Availability, Capacity, Performance (depends on load balancing), Flexibility
+Decreases: Manageability (more elements in the physical architecture)
+J2EE supports horiz. scaling because the container and server handle clustering and load-balancing.
+Availability and reliability are obtained through scalability.
+Scalability affects capacity. The more scalable the system is the more capacity it can support. This must be traded-off against the complexity and manageability costs.
 
 
 -> Enterprise Beans:
@@ -1146,6 +1195,13 @@ Two parts of a JMS application, Destination and Connection Factory, are best mai
 - They do not represent directly shared data in the database, but they can access and update this data.
 - They can be transaction-aware.
 - They are stateless.
+
+JMS does NOT include the following:
+	- Load balancing/fault tolerance
+	- Error/advisory notification
+	- AdministrationSecurity
+	- Wire protocol
+	- Message Type Repository
 
 Publish/Subscribe follows many to many model and one to many model. Point-to-Point follows one to one model.
 Clients access enterprise beans either through a no-interface view or through a business interface. A no-interface view of an enterprise bean exposes the public methods of the enterprise bean implementation class to clients. Clients using the no-interface view of 
@@ -1607,8 +1663,26 @@ We can not specify SSL certificate to be used for data transfer between browser 
 Templates to create Composite View and Custom Tag Libraries prevent duplicate GUI code.
 
 Object Mapping provides OO view of legacy system. In order to obtain this you need to have full access to the legacy code.
-If you do not have access to the mainframe code you can use screen scraper to log on the mainframe system and access what ever you want. Screen scraper will act as an adapter between legacy and Java EE application.
 Object Mapping is the process of building legacy object wrappers, so that legacy system will be easily accessible by these objects.
+Object mapping tools can be used if you choose to ignore the existing legacy interface and access the underlying tiers directly.
+These tools are used to create proxy objects that access legacy system functions and make them available in an object-oriented form.
+Object mapping tools are usually more effective than screen scrappers because they are not dependent on the format generated by the existing legacy
+interface.
+
+Screen scrapers may be used to integrate applet (or other) interface with an existing system. They are particularly useful when the client interface is
+tightly coupled to the other tiers of the system. A screen scraper is an application that translates an existing client interface into a set of objects.
+If you do not have access to the mainframe code you can use screen scraper to log on the mainframe system and access what ever you want. 
+Screen scraper will act as an adapter between legacy and Java EE application.
+Screen scrapers usually function as a terminal emulator on one end and an object interface on the other. The screen scraper is configured to read data from
+terminal fields of the legacy interface and make them available via objects. 
+Screen scrapers have the following advantages:
+	- Provides a low-level object-based interface to the legacy app.
+	- Allows you to build a new GUI over the existing client interface.
+Disadvantages of screen scrapers:
+	- Any changes to the legacy interface can break the new GUI.
+	- Prone to causing errors in the new GUI because of unexpected outputs from the legacy interface.
+	- Prone to causing the new GUI to “freeze” when the legacy interface is expecting input that the screen scraper in unaware of.
+
 
 A resource adapter is analogous to a JDBC driver. Both provide a standard API through which an application can access a resource that is outside the Java EE server. 
 For a resource adapter, the target system is an EIS; for a JDBC driver, it is a DBMS. Resource adapters and JDBC drivers are rarely created by application developers. In most cases, both types of software are built by vendors that sell tools, servers, or integration software.
@@ -1760,6 +1834,7 @@ Software Design Principles (SOLID)
 
 An object is an instance of a class.
 Delegation is the implementation of objects that forward certain method calls to another object, a delegate. It is used to replace inheritance with composition. In delegation, at least two objects are involved in handling a request.
+Delegation is also known as "proxy chains"
 Separation of Concerns principle states that every unit in the system needs to have a clearly defined responsibility and functionality. This applies to all levels of the system, from EARs to methods.
 Using abstraction one can simulate real world objects. Abstraction provides advantage of code reuse. Abstraction enables program open for extension.
 Encapsulation consists of separating the external aspects of an object which are accessible to other objects, from the internal implementation details of the object, which are hidden from other objects. It totally separate its interface from its implementation.
@@ -1771,7 +1846,7 @@ Inheritance is the ability to create classes that share the attributes and metho
 Inheritance indicates strong encapsulation with other classes, but weak encapsulation between a superclass and its subclasses.
 Inheritance is a parent-child relationship of a class which is mainly used for code reusability. Inheritance supports extensibility. Inheritance allows you to form new version of classes. Inheritance is sometimes referred to as white box reuse
 Inheritance allows you to restrict the behaviour of objects and is a way to form new classes using classes that have already been defined.
-Composition is sometimes referred to as black box reuse
+Composition is sometimes referred to as black box reuse. Composition is also known as aggregation.
 Cohesion is the degree to which methods and attributes of a class focus on only one purpose of the system. Cohesion Is a measure of how the methods of a class or a module are meaningfully and strongly related and how focused they are in providing a 
 well-defined purpose to the system. A class is identified as a low cohesive class, when it contains many unrelated functions within it. And that what we need to avoid, because big classes with unrelated functions hamper their maintaining.
 You can read easily a high cohesive class and understand its purpose and role in the system. Testing and maintaining a high cohesive class will be easier.
@@ -2169,7 +2244,80 @@ Phases of the object-oriented development lifecycle:
 	5 - Object generation.
 
 
+How to connec to VT100 terminal?
+Use JDBC with SQL
 
+How to connect to MQseries ?
+Use EJB session bean with JMS message
+
+How to connect to LDAP server?
+JNDI allows to connect to LDAP server
+
+How many tiers are there in J2EE Application ?
+J2EE applications have the following tiers: Client (Browsers, Applications, Applets, Mobile clients and so on), Web (presentation tier consisting of JSP as
+view and Servlets as controllers), EJB (Business Tier, consisting of EJB and supporting classes), EIS Integration (Java classes that integrate to the
+Enterprise Information System tier) and finally the EIS tier (relational databases, XML databases, ERP systems and so on.)
+
+Servlet - getUserPrincipal() and isUserInRole() - Servlet is called by user so UserInRole comes in servlet code
+EJB - getCallerPrincipal() and isCallerInRole() - EJB is called by servlet not by the user directly, so CallerInRole comes in EJB code
+
+
+- Session failover: 
+In a clustered environment, all requests for a particular session are directed to the same WebSphere Portal server instance in the cluster. 
+In other words, after a user establishes a session (for example, by logging in), the user is served by the same WebSphere Portal server instance for the duration of the session. 
+To verify which server is handling user requests for a session, you can view the global settings portlet in WebSphere Portal, which displays the node name of the 
+WebSphere Portal server handling requests. If one of the WebSphere Portal servers in the cluster fails, the request is rerouted to another WebSphere Portal server in the cluster. 
+If distributed sessions support is enabled (either by persistent sessions or memory-to-memory session replication), 
+the new server can access session data from the database or another WebSphere Portal server instance
+
+- JMS delivery modes: 
+The message delivery semantics cover a range of once-and-only-once to at-most-once delivery. In the once-and-only-once delivery mode, 
+a message is guaranteed by the JMS provider to always arrive at the intended destination no matter what, and it's sent only once. 
+Even in the pub/sub model in which multiple receivers may consume a copy of a broadcasted message, the rules still apply within the relative view of each consumer.
+Once-and-only-once delivery guarantee is accomplished by the JMS provider through the combination of a store-and-forward mechanism and a 
+rigidly defined set of message acknowledgments
+At-most-once delivery is a less stringent QoS setting on a message - the JMS provider is allowed to occasionally lose a message. 
+A classic example I like to use is a stock feed application. If the broadcast of a particular ticker symbol doesn't reach its intended destination, another one will be along shortly.
+Whether it's once-and-only-once or at-most-once, the key word is once. Regardless of the guaranteed-ness of the delivery mode, 
+the JMS provider is responsible for ensuring that the messages are delivered in the exact order in which they are sent.
+
+- Polling:
+Server Polling - (Reverse Ajax)
+Keeping the displayed information up-to-date was always difficult in web world. Before AJAX, one had to use JavaScript or META Refresh tag to get the page refreshed. 
+This was quite annoying from the user experience point of view. However it was not as annoying as something that I experienced few days ago on one of the 
+banks website (a bank in Australia). I was filling out the form and there were couple of select boxes on the page. 
+I selected an option in the select box and moved onto next field just to realize that as I was typing, the page has been reloaded and all data entered past 
+that select-box was gone and had to be re-typed again. Very, very annoying - and it's AJAX age already!
+Server polling, in my humble opinion, is a great feature of AJAX. There is no need to refresh the whole page to obtain the required information. With AJAX, it is possible to:
+update the forms with information as the user moves through the form (e.g. country - state - city)get the feedback about a long server-side or 
+transport process (e.g. progress bar showing the percentage of the uploading file)fake the push of the updated data from the server (think stock prices, weather, traffic info)
+
+SEI (Service end point implementation):
+JAX-WS technology enables the implementation of Web services based on both the standard service endpoint interface and a new Provider interface. 
+JAX-WS service endpoints are similar to the endpoint implementations in the Java API for XML-based RPC (JAX-RPC) specification. 
+Unlike JAX-RPC, the requirement for a service endpoint interface (SEI) is optional for JAX-WS Web services. JAX-WS services that do not have an associated SEI 
+are regarded as having an implicit SEI, whereas services that have an associated SEI are regarded as having an explicit SEI. 
+The service endpoint interfaces required by JAX-WS are also more generic than the service endpoint interfaces required by JAX-RPC. 
+With JAX-WS, the SEI is not required to extend the java.rmi.Remote interface as required by the JAX-RPC specification.
+The JAX-WS programming model also leverages support for annotating Java classes with metadata to define a service endpoint implementation as a Web service and 
+define how a client can access the Web service. JAX-WS supports annotations based on the Metadata Facility for the Java Programming Language (JSR 175) specification, 
+the Web Services Metadata for the Java Platform (JSR 181) specification and annotations defined by the JAX-WS 2.0 (JSR 224) specification, 
+which includes Java Architecture for XML Binding (JAXB) annotations. Using annotations, the service endpoint implementation can independently describe 
+the Web service without requiring a WSDL file. Annotations can provide all of the WSDL information necessary to configure your service endpoint implementation or 
+Web services client. You can specify annotations on the service endpoint interface used by the client and the server, or on the server-side service implementation class.
+<http://publib.boulder.ibm.com/infocenter/wasinfo/v7r0/index.jsp?topic=/com.ibm.websphere.express.doc/info/exp/ae/twbs_devjaxwsendpt.html>
+
+EJB timer service: 
+Consider a reporting Application, that will send report in the form of mails, every Monday, or a Billing Service that sends credit or debit bills on the 1st of every month.
+These applications depend on time-based events. To be more precise, these applications should allow developers to schedule some business logic or process so 
+that they can be executed at some regular intervals of time. This is the core concept behind EJB Timers.
+EJB Timer Services are services that are provided by the container (or the Application Server) and developers can take advantage of the timer services by 
+registering one or more enterprise beans for time-based notification.
+Different Types of Timers - EJB basically supports two forms of Timer objects: Single Action Timer Interval Timer
+
+
+
+The three primary roles in a web service interaction: Broker, Requestor and Provider.
 
 
 
@@ -2179,8 +2327,47 @@ TO REVIEW
 
 
 OK - WS-SECURITY
-- Security Manager
-- Http Session
-- Applets
-OK - Timer Service
+OK - Security Manager
+OK - Applets
 OK - UDDI
+- Http Session
+- Timer Service
+- Advantages of Two-Tier over Three Tier (question 56)
+- Black Box, White Box.
+- JCA
+- JMS
+- Message Delivery Guarantee
+- Distributed Transactions
+
+- Saiba diferenciar 1 - 2 - 3 - N Tiers
+- Saiba as vantagens e desvantagens de cada um quando comparados ex: vantagens de 3 tier vs 2 tier
+- Saiba TODOS os metodos de integração e suas vantagens (Integration Tier) saiba quais podem participar de transações e quando utilizar cada um.
+- Saiba quando utilizar JAX-WS e RS e o principal as diferenças entres eles
+- Saiba JPA, BMP e CMP. diferenças!
+
+
+https://www.examtopics.com/exams/oracle/1z0-807/view/2/
+
+https://sites.google.com/site/sureshdevang/scea-part-1-mock-questions-and-ans
+
+
+- Classify security threats to an enterprise application select measures an architect can propose to mitigate them.
+	- In a System with URL-Rewriting, what two types of attacks you must verify?
+		- XSS, SQL Injection, Parameter attack or Denial-of-service
+- Identify and detail the technologies used to integrate business components with external resources, including JMS and JCA.
+- Identify best practices for exception handling, logging, and business tier patterns.
+	- Do you always throw exceptions in Exceptions handler classes?
+	- 
+- Identify design patterns that address specific challenges in the web tier, including authentication, authorization, and scaling and clustering to meet demand.
+- Identify how a Service Oriented Architecture (SOA) facilitates system integration and best practices.
+- Identify how the Separation of Concerns principle applies to the component model of a Java EE application; including client, the web and business component containers, and the integration and resource layers.
+- Identify non-functional and quality-of-service requirements that influence application design, including trade-offs in performance, availability, and serviceability.
+- Identify techniques associated with declarative and programmatic security, including the use of annotations, deployment descriptors, and JAAS technology.
+- Identify the benefits and drawbacks of implementing Web Services in the EJB component container.
+- Identify the benefits and drawbacks of using a browser to access asynchronous, lightweight processes on the server.
+- Identify the benefits of using an EJB container with a web container instead of a web container alone.
+- Identify the correct EJB technology to apply for a given scenario, including entity classes, session beans, messagedriven beans, timers, interceptors, and POJOs.
+- Identify the security technologies that apply to an application’s code, messaging and transport layers
+- Identify the use of the law of leaky abstractions or a specific anti-pattern in a given scenario.
+- Select appropriate locations to implement Java EE security technologies or features in a UML component and deployment diagram.
+- Select the appropriate use of JPA and JPQL in a given scenario.

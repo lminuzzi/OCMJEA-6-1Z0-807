@@ -1,0 +1,60 @@
+------------------
+Padrões de Criação
+------------------
+As motivações dos padrões de criação esta centralizado em como os objetos são criados. Ou seja, eles são usados para capturar intenções focalizadas na criação de objetos.
+
+Factory Method – sua intenção é definir um ponto de criação para um tipo de objeto no qual não se tem conhecimento do tipo concreto a ser usado.
+
+Abstract Factory – sua intenção é definir um ponto de criação para uma família de objetos relacionados ou dependentes no qual não se tem conhecimento dos tipos concretos de todos estes objetos a serem usados. O Abstract Factory é basicamente uma “extensão em massa” do padrão Factory Method.
+
+Prototype – sua intenção é definir um ponto de criação de objetos que precisam ser instanciados usando como base a cópia outro objeto molde denominado de “protótipo”. Todos os objetos criados passam a existir contendo valores copiados desse suposto objeto protótipo.
+
+Singleton – sua intenção é definir um ponto de criação de objetos que necessitem ser instanciado somente uma vez durante todo o ciclo de execução da solução e oferecer um ponto único de acesso para essa referencia.
+
+Builder – sua intenção é definir um ponto de criação de um objeto complexo de sua representação de forma com que esse ponto de construção possa ser parametrizado para construir diferentes variações desse mesmo objeto.
+
+-------------------
+Padrões Estruturais
+-------------------
+As motivações dos padrões estruturais esta centralizado na organização e composição de classes e seus objetos. Ou seja, eles são usados para capturar intenções focalizadas na composição estrutural dos objetos.
+
+Adapter – sua intenção é converter a interface de uma classe para outra interface requerida, definindo um ponto intermediário de ligação com o objetivo de promover comunicação entre duas interfaces incompatíveis.
+
+Bridge – sua intenção é separar a abstração de uma ação de suas diferentes implementações, de forma que ambas possam ser flexivelmente intercambiais.
+
+Composite – sua intenção é fazer com que um objeto possa ser genericamente operado de forma que represente uma estrutura dinâmica hierárquica de composições de objetos.
+
+Decorator – sua intenção é definir um meio alternativo a herança de adicionar responsabilidades ao um objeto de forma flexível e dinâmica em tempo de execução.
+
+Facade – sua intenção é definir uma interface fácil, simples e unificada para um ou mais conjuntos de operações relacionados a subsistemas internos.
+
+Flyweight – sua intenção é definir um ponto de compartilhamento eficiente que suporte um grande numero de manipulações de objetos de granulação fina reutilizáveis.
+
+Proxy – sua intenção é definir um objeto-substituto para um objeto-real, de forma com que o objeto-substituto possa transparentemente intermediar as interações para esse objeto-real.
+
+-----------------------
+Padrões Comportamentais
+-----------------------
+As motivações dos padrões comportamentais esta centralizado nas responsabilidades e relacionamentos dos objetos. Ou seja, eles são usados para capturar intenções focalizadas no que um objeto pode fazer e como ele se relaciona com os outros.
+
+Chain of Responsability – sua intenção é desacoplar o objeto-enviador de um pedido dos supostos objetos-receptores, possibilitando com que múltiplos objetos-receptores possam ser dinamicamente enfileirados para manipular o pedido transparentemente.
+
+Command – sua intenção é fazer com uma requisição de um comando possa ser encapsulado como um objeto uniforme, permitindo com que objetos-clientes possam ser parametrizados flexivelmente com diferentes objetos-comandos intercambiais.
+
+Interpreter – sua intenção é definir objetos que possam representar e interpretar intercambialmente uma determinada gramática textual qualquer.
+
+Iterator – sua intenção é definir uma forma com que objetos agregados dentro de um objeto possam ser seqüencialmente acessados por outros objetos sem expor os detalhes internos de seus relacionamentos e implementações.
+
+Mediator – sua intenção é definir um objeto utilizado para encapsular o relacionamento entre dois outros objetos, fazendo com que o determinado relacionamento destes dois objetos alvo possam ser implementado de forma indireta, flexível e intercambial.
+
+Memento – sua intenção é definir uma forma de capturar e armazenar o estado de um objeto de forma com que essa objeto possa ser restaurada para o estado original anterior.
+
+Observer – sua intenção é definir uma forma que possibilite um objeto agregador notificar e atualizar automaticamente outros objetos agregados dependentes quando ocorrer uma alteração no estado no objeto agregador.
+
+State – sua intenção é definir uma forma que possibilite um objeto variar intercambialmente seus comportamentos quando mudanças internas no seu estado acontecerem.
+
+Strategy – sua intenção é definir um objeto que possua determinados comportamentos que sofram variações intercambiais dependendo de outros objetos clientes que os manipulam.
+
+Template Method – sua intenção é definir objetos que implemente um algoritmo previamente formatado dentro de um comportamento, fazendo com que outros objetos possam intercambialmente substituir partes das funcionalidades desse algoritmo.
+
+Visitor – sua intenção é definir uma forma que possibilite que diversas operações possam ser dinamicamente aplicadas para um objeto, sem a necessidade alterar sua estrutura de definição.
